@@ -8,7 +8,7 @@ categories: Python Django poetry
 
 An introduction to setting up a Django project with poetry properly.
 
-### Prerequisites:
+### Prerequisites
 
 - [pip](https://pip.pypa.io/en/stable/installing/)
 - [python](https://www.python.org/downloads/)
