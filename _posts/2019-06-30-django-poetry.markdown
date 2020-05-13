@@ -103,8 +103,10 @@ poetry.lock    project        pyproject.toml
 $
 ```
 
-### Lets clean what just happened
-Here is how the project structure looks like after the above command
+### Let's clean up the mess
+
+Here is how the project structure looks like after we started a project using django-admin
+
 ```bash
 arkangle/
   L poetry.lock
