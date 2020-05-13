@@ -15,7 +15,7 @@ An introduction to setting up a Django project properly with poetry.
 
 ### Initial setup
 
-Lets call it [arkangle](https://en.wikipedia.org/wiki/Archangel)! Cuz why not!
+Lets call it [arkangle](https://github.com/proxyroot/arkangle)! Cuz why not!
 
 ```bash
 $ mkdir arkangle
