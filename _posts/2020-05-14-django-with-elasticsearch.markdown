@@ -30,10 +30,10 @@ $ poetry add <package-name>
 ``````
 
 
-Lets create an app called `earth`
+Lets create an app called `search`
 
 ```bash
-$ poetry run python manage.py startapp earth
+$ poetry run python manage.py startapp search
 ```
 
 ### create model
