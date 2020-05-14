@@ -36,7 +36,7 @@ Lets create an app called `search`
 $ poetry run python manage.py startapp search
 ```
 
-### create model
+### create model in arkangle/search/models.py
 
 ```python
 from django.db import models
@@ -48,7 +48,7 @@ class Cluster(models.Model):
     nodes = models.IntegerField()
 ```
 
-### create documents
+### create documents in arkangle/search/documents.py
 
 ```python
 from django_elasticsearch_dsl import Document
