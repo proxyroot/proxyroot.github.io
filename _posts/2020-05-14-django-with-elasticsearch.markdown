@@ -2,7 +2,7 @@
 layout: post
 title:  Django with ElasticSearch
 description: Setup up a Django app with ElasticSearch as document store.
-date:   2020-05-13 15:58:33 +0500
+date:   2020-05-14 15:45:00 +0500
 categories: Python Django poetry Elasticsearch
 ---
 
