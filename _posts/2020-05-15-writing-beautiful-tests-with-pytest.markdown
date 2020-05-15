@@ -229,10 +229,10 @@ test_functions.py .                                                             
 
 ### Reusing fixtures
 
-If you notice that we have been adding the fixtures and tests in the same file and what if we need to re-use the fixtures across the entire project. Here is how we do it.
+If you notice that we have been adding the fixtures and tests in the same file and what if we need to re-use the fixtures across the entire project?
 
-create a file conftest.py in your folder testing/ and add the fixtures in it
+Create a file conftest.py in your folder testing/ and add the fixtures in it. That will make the fixture available for all your tests in that folder.
 
-Try running the tests again it will pass.
+Try running the tests again and it will pass.
 
-The code for the above learnings can be found at [pytest-tests](https://github.com/proxyroot/pytest-tests)
+The code for the above experiments can be found at [pytest-tests](https://github.com/proxyroot/pytest-tests)
