@@ -41,7 +41,7 @@ import datetime
 
 
 def five_days_from_now():
-    return datetime.datetime.now()
+    return datetime.datetime.now() + datetime.timedelta(days=5)
 ```
 
 A sample test for this would be
@@ -53,7 +53,7 @@ from functions import five_days_from_now
 
 
 def test_five_days_from_now():
-    assert five_days_from_now() == datetime.datetime.now()
+    assert five_days_from_now() == datetime.datetime.now() + datetime.timedelta(days=5)
 ```
 
 Lets run tests
@@ -97,7 +97,7 @@ from functions import five_days_from_now
 
 @freezegun.freeze_time("2020-05-15")
 def test_five_days_from_now():
-    assert five_days_from_now() == datetime.datetime.now()
+    assert five_days_from_now() == datetime.datetime.now() + datetime.timedelta(days=5)
 ```
 
 Let's run the test again
@@ -132,10 +132,10 @@ from functions import five_days_from_now
 def test_five_days_from_now():
     # Freezing time
     with freezegun.freeze_time("2012-01-14"):
-        assert five_days_from_now() == datetime.datetime.now()
+        assert five_days_from_now() == datetime.datetime.now() + datetime.timedelta(days=5)
 
     # call five_days_from_now without freeze
-    assert five_days_from_now() != datetime.datetime.now()
+    assert five_days_from_now() != datetime.datetime.now() + datetime.timedelta(days=5)
 ```
 
 Let's run our test again
