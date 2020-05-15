@@ -33,7 +33,7 @@ $ poetry add <package-name>
 
 ### Shenanigans of datetime
 
-Lets write a quick function that returns an dictionary as below to functions.py file
+Lets write a quick function that returns a datetime object as below to functions.py file
 
 
 ```python
