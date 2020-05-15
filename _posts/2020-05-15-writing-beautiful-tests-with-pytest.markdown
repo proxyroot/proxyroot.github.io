@@ -10,7 +10,7 @@ Let's walk through a bunch of use cases that i've learnt over a period of time f
 
 ### Introduction:
 
-As a developer when i started writing code i never realized the importance of a test case. The first time i heard test driven development i wanted to see what that is and i found out that test driven development is a good way of writing code rather than just writing code and expect it to work. Let's walk through a bunch of use cases that i've learnt over a period of time.
+As a developer when i started writing code i didn't realized the importance of a test case. The first time i heard test driven development, i wanted to see what that is and i found out that test driven development is a good way of writing code rather than just writing code and expect it to work. Let's walk through a bunch of use cases that i've learnt over a period of time.
 
 ### Initial setup
 
