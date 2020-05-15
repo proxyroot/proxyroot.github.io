@@ -44,7 +44,7 @@ def five_days_from_now():
     return datetime.datetime.now() + datetime.timedelta(days=5)
 ```
 
-A sample test for this would be
+A simple test for this would be
 
 ```python
 import datetime
