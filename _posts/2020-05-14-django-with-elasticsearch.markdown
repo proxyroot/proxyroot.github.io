@@ -16,7 +16,7 @@ Lets create a Django app which creates documents in elasticsearch automatically 
 
 ### Initial Setup:
 
-- Set up a django project as suggested by my previous post ""[Setup Django with poetry](https://proxyroot.com/django-poetry/)"" if you haven't already done this.
+- Set up a django project as suggested by my previous post ["Setup Django with poetry"](https://proxyroot.com/django-poetry/) if you haven't already.
 - Run single node [elasticsearch docker contianer](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html) or install [elasticsearch server](https://www.elastic.co/downloads/elasticsearch) in your machine and run it.
 
 
