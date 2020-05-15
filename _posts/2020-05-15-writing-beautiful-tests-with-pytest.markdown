@@ -70,10 +70,10 @@ test_functions.py F                                                      [100%]
 ___________________________ test_five_days_from_now ____________________________
 
     def test_five_days_from_now():
->       assert five_days_from_now() == datetime.datetime.now()
-E       AssertionError: assert datetime.datetime(2020, 5, 15, 16, 26, 42, 528109) == datetime.datetime(2020, 5, 15, 16, 26, 42, 528114)
+>       assert five_days_from_now() == datetime.datetime.now() + datetime.timedelta(days=5)
+E       AssertionError: assert datetime.datetime(2020, 5, 15, 16, 26, 42, 528109) == datetime.datetime(2020, 5, 20, 16, 26, 42, 528114)
 E        +  where datetime.datetime(2020, 5, 15, 16, 26, 42, 528109) = five_days_from_now()
-E        +  and   datetime.datetime(2020, 5, 15, 16, 26, 42, 528114) = <built-in method now of type object at 0x104d4d680>()
+E        +  and   datetime.datetime(2020, 5, 20, 16, 26, 42, 528114) = <built-in method now of type object at 0x104d4d680>()
 E        +    where <built-in method now of type object at 0x104d4d680> = <class 'datetime.datetime'>.now
 E        +      where <class 'datetime.datetime'> = datetime.datetime
 
