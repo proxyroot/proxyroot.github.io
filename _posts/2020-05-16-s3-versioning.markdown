@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  File version control with custom naming.
-description: We will go through a use case that has recently come up to create name for a version of a file. I have decided to use s3 to accomplish this and we will learn how to do this.
+title:  File version control with custom names
+description: We will go through a use case that has recently come up to create name for a version of a file. I have decided to use s3 to accomplish this and we will learn how to do this
 date:   2020-05-16 12:50:00 +0500
 categories: Python pytest pytest-mock moto boto3 s3 aws google-storage-buckets
 ---
