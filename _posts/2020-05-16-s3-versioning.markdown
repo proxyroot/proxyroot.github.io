@@ -151,7 +151,7 @@ S3_BUCKET = "bucket.proxyroot.com"
 
 def get_meta_file(folder):
     """
-    Given a folder (mark), returns meta file contents
+    Given a folder (proxyroot), returns meta file contents
 
     :return: list<dict>
     """
