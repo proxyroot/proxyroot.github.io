@@ -243,7 +243,12 @@ test.py::test_save_file PASSED
 ```
 
 Hooray! :tada:
-This is exactly what we can do to persist the names of the versions in s3. No other persistence is required apart from what we already used here `S3`. You can also accomplish this in a few other ways.
+
+This is exactly what we can do to persist the names of the versions in s3. No other persistence is required apart from what we already used here `S3`.
+
+### Alternative persistence layer
+
+You can also accomplish this in a few other ways.
 
 - [Github](https://github.com/) (It already has commit hash that you can use to get the file and save the file. You can also persist names in a gist or meta file in the same repo)
 - [Google Buckets](https://cloud.google.com/storage/docs/json_api/v1/buckets) (Well by the name of it copy.deepcopy("Amazon S3 Bucket") == "Google Buckets")
