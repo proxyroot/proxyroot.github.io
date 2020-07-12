@@ -10,7 +10,7 @@ As a stake holder i would like to know when a software release has been made whi
 
 ### What is a Webhook?
 
-Lets take an example of shipment tracker. Customers want to order some toys online and they would like to receive shipment updates. A shipment company provides a way to subscribe to shipments by allowing the developer to add a webhook url to the shipment. As the shipment moves along the way to destination it status changes and this event will be sent to a handled that calls the webhook url with the status data.
+Lets take an example of shipment tracker. Customers want to order some toys online and they would like to receive shipment updates. A shipment company provides a way to subscribe to shipments by allowing the developer to add a webhook url to the shipment. As the shipment moves along the way to destination it status changes and this event will be sent to a handler that calls the webhook url with the status data.
 
 ### Idea
 
