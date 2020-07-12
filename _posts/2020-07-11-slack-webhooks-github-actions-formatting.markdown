@@ -161,7 +161,7 @@ if __name__ == '__main__':
 
 ### Integrating with GitHub Actions
 
-We define a workflow that could run the above script when a publish release happens on the repository. Use [github secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) to add GITHUB_TOKEN and WEBHOOK_URL values. Create file .github/workflows/slack-notification.yml in your repository root folder which looks like this
+Let's define a workflow that could run the above script when a release is published on the repository. Used [github secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) to add GITHUB_TOKEN and WEBHOOK_URL values. Created file .github/workflows/slack-notification.yml in my repository root folder which looks like this
 
 ```yml
 -- .github/workflows/slack-notification.yml
