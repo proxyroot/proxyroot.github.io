@@ -36,6 +36,9 @@
     </div>
   </main>
   {%- include footer.html -%}
+  <script type="text/javascript"
+    src="{{ "/assets/js/jquery.min.js" | relative_url }}">
+  </script>
   {% include comments.html element=".post-content" github_account="jhvanderschee/jekyllcodex" require_cookie_consent="true" %}
 </body>
 </html>
