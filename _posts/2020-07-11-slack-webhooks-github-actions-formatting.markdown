@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  Taking advantage of Slack Webhooks
-description: As a stake holder i would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
+description: As a stake holder I would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
 date:   2020-07-11 20:39:00 +0500
 categories: Python github actions marketplace slack webhook format-slack-message slack-api
 ---
 
-As a stake holder i would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
+As a stake holder I would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
 
 ### What is a Webhook?
 
@@ -20,7 +20,7 @@ Gitub actions is a platform which automates, customizes, and executes software d
 
 ### Implementation
 
-First thing first, lets write a module that sends a slack notification about the release. To do this, we have to use github api to get the latest release and its description. After going through the [Git api documentation](https://developer.github.com/v3/repos/releases/) i quickly wrote this python code to get the json response of latest release.
+First thing first, lets write a module that sends a slack notification about the release. To do this, we have to use github api to get the latest release and its description. After going through the [Git api documentation](https://developer.github.com/v3/repos/releases/) I quickly wrote this python code to get the json response of latest release.
 
 
 ```python
@@ -63,14 +63,14 @@ pprint(response.json())
 
 ```
 
-Before writing the above code i exported environment variable GITHUB_TOKEN and installed requests python package. [Github Docs](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) shows you how to create a personal access token (For our usecase we only need repo access).
+Before writing the above code I exported environment variable GITHUB_TOKEN and installed requests python package. [Github Docs](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) shows you how to create a personal access token (For our usecase we only need repo access).
 
 Notice that the body of a release is in markdown syntax? We can send rich slack messages in markdown format using the slack api. A nice thing about the github ui is that it automatically adds links around pr numbers, commit hashes and users. For example in the response body texts such as `#312`, `#313` will be clickable links in github ui. I wanted to send slack message in a same way so that its appealing and easy to access code with references. I want to do two things to the body in response
 
 1. Add pr links to the pr `#number`
 2. Add author links to the `@author`
 
-I started looking into regex to wrap text around matches here is how i made the regex for the above two use cases
+I started looking into regex to wrap text around matches here is how I made the regex for the above two use cases
 
 _Add pr links to the pr `#number`_
 ```python
@@ -97,7 +97,7 @@ hi <https://github.com/proxyroot|@proxyroot> hello
 
 You can also try to enhance the message by adding version number, release sign off member name, release link, etc.,
 
-Now that the message is ready and its time to send it to slack webhook, i [created a slack incoming webhook](https://api.slack.com/messaging/webhooks#create_a_webhook) which gave me a webhook url. I went through the [slack webhook api docs](https://api.slack.com/messaging/webhooks#posting_with_webhooks) and wrote the below code quickly.
+Now that the message is ready and its time to send it to slack webhook, I [created a slack incoming webhook](https://api.slack.com/messaging/webhooks#create_a_webhook) which gave me a webhook url. I went through the [slack webhook api docs](https://api.slack.com/messaging/webhooks#posting_with_webhooks) and wrote the below code quickly.
 
 ```python
 data = {

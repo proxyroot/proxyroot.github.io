@@ -121,7 +121,7 @@ arkangle/
       L wsgi.py
 ```
 
-:eyes: 's Very unpleasant. Here is what i did.
+:eyes: 's Very unpleasant. Here is what I did.
 
 ```bash
 $ mv project/manage.py .

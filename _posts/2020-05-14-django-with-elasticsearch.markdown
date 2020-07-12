@@ -203,4 +203,4 @@ GrubHub : 200
 >>>
 ```
 
-We finally got one of our models indexed in elasticsearch. Find the code samle for above at [TheArkangel](https://github.com/proxyroot/arkangle). For the sake of visibility, i have also created a view in the app that shows the documents.
+We finally got one of our models indexed in elasticsearch. Find the code samle for above at [TheArkangel](https://github.com/proxyroot/arkangle). For the sake of visibility, I have also created a view in the app that shows the documents.

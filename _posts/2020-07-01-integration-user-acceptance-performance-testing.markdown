@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  Integration, User Acceptance and Performance tests
-description: Writing tests should be fun and easy. Testing was like an ocean for me when i first started writing test and i didn't know how to swim. With past few experience i bring some knowledge to you and hope to add value to readers.
+description: Writing tests should be fun and easy. Testing was like an ocean for me when I first started writing test and I didn't know how to swim. With past few experience I bring some knowledge to you and hope to add value to readers.
 date:   2020-07-01 19:57:00 +0500
 categories: python pytest selenium uat it pt integration-test performance-test user-acceptance-test chrome
 ---
 
-Writing tests should be fun and easy. Testing was like an ocean for me when i first started writing test and i didn't know how to swim. With past few experience i bring some knowledge to you and hope to add value to readers.
+Writing tests should be fun and easy. Testing was like an ocean for me when I first started writing test and I didn't know how to swim. With past few experience I bring some knowledge to you and hope to add value to readers.
 
 ### Use Case
 
@@ -106,13 +106,13 @@ def test_get_home_page(driver):
 A system behaves differently in different loads. Questions to ask oneself
 - How does a system behave when we hit 100 request at the same time?
 - How does a system behave when we hit with 1000 requests?
-- How many users am i expecting to interact with the system?
+- How many users am I expecting to interact with the system?
 
 In simple words running integration test on large scale and expecting the system to behave same.
 
 ### How to write Performance tests:
 
-Well you can write performance tests in python by launching multi threads to hit a same end point. Though, there is already an existing tool that i felt really helpful for doing performance tests. `JMETER`
+Well you can write performance tests in python by launching multi threads to hit a same end point. Though, there is already an existing tool that I felt really helpful for doing performance tests. `JMETER`
 
 - [Download Jmeter](http://jmeter.apache.org/download_jmeter.cgi)
 - [A quick tour of jmeter basics](https://www.youtube.com/watch?v=mXGcBvWYl-U)

@@ -10,9 +10,9 @@ We will go through a use case that has recently come up to create name for a ver
 
 ### Use case
 
-As a user i should be able to save the file with a version name when there are any changes to it.
-As a user i should be able to see the list of versions of a file.
-As a user i should be able to read the specific version of a file.
+As a user I should be able to save the file with a version name when there are any changes to it.
+As a user I should be able to see the list of versions of a file.
+As a user I should be able to read the specific version of a file.
 
 ### Install
 
@@ -23,7 +23,7 @@ As a user i should be able to read the specific version of a file.
 
 ### Idea
 
-S3 keeps versions of a file when ever we update them and i have decided that instead of re-inventing the wheel i'll just use this to accomplish this. However, there is a gotcha! S3 has version id to each version that was created and we need to come up with a solution to persist the names of the versions created so that human/user can see the name instead of version id that he doesn't understand. Since we are already using s3 lets also persist the names with in s3 as well. I've created a meta file that has the data to understand versions that were created for a file. Each user has his own folder where he saves file and has meta file in the same folder.
+S3 keeps versions of a file when ever we update them and I have decided that instead of re-inventing the wheel i'll just use this to accomplish this. However, there is a gotcha! S3 has version id to each version that was created and we need to come up with a solution to persist the names of the versions created so that human/user can see the name instead of version id that he doesn't understand. Since we are already using s3 lets also persist the names with in s3 as well. I've created a meta file that has the data to understand versions that were created for a file. Each user has his own folder where he saves file and has meta file in the same folder.
 
 ### Modules
 
@@ -253,7 +253,7 @@ You can also accomplish this in a few other ways.
 - [Github](https://github.com/) (It already has commit hash that you can use to get the file and save the file. You can also persist names in a gist or meta file in the same repo)
 - [Google Buckets](https://cloud.google.com/storage/docs/json_api/v1/buckets) (Well by the name of it copy.deepcopy("Amazon S3 Bucket") == "Google Buckets")
 
-Well any service that provides versioning can be used but these are the things that i feel are more reliable, fast and easy to do.
+Well any service that provides versioning can be used but these are the things that I feel are more reliable, fast and easy to do.
 
 ### Note
 
