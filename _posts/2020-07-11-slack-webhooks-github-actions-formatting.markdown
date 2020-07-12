@@ -179,8 +179,8 @@ jobs:
     steps:
       - name: Compose message and send
         env:
-          WEBHOOK_URL: "${{ secrets.WEBHOOK_URL }}"
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          WEBHOOK_URL: `"${{ secrets.WEBHOOK_URL }}"`
+          GITHUB_TOKEN: `"${ { secrets.GITHUB_TOKEN } }"`
           GH_REPO: proxyroot/ghost
           ICON_URL: https://proxyroot.com/icon.png
         run: |
