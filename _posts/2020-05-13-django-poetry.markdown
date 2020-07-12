@@ -3,7 +3,6 @@ layout: post
 title:  "Setup Django with poetry"
 description: An introduction to setting up a django project with poetry properly.
 date:   2020-05-13 15:58:33 +0500
-comment_issue_id: 1
 categories: Python Django poetry
 ---
 
