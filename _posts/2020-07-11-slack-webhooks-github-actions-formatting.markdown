@@ -14,7 +14,7 @@ Lets take an example of shipment tracker. Customers want to order some toys onli
 
 ### Idea
 
-When a software release is made in github, all the stake holders need to know about the list of changes that went in the release. An organization which uses slack as their communication platform can utilize slack channels to communicate with stake holders at once. We will use github actions for running the job that notifies slack channel on publishing a new release.
+When a software release is made in github, all the stake holders need to know about the list of changes that went in the release. An organization which uses slack as their communication platform can utilize slack channels to communicate with stake holders at once. We will use github actions for running the job that notifies slack channel upon publishing a new release.
 
 Gitub actions is a platform which automates, customizes, and executes software development workflows in the repository. You can find it in your repository as shown below.
 
