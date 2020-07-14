@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  Taking advantage of Slack Webhooks
-description: As a stake holder I would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
+description: As a stakeholder I would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
 date:   2020-07-11 20:39:00 +0500
 categories: Python github actions marketplace slack webhook format-slack-message slack-api
 ---
 
-As a stake holder I would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
+As a stakeholder I would like to know when a software release has been made which includes list of changes categorized by either of the three types (features, maintenance, bug fixes).
 
 ### What is a Webhook?
 
