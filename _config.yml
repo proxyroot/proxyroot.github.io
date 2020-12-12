@@ -32,7 +32,7 @@ header_pages:
 - index.md
 - about.md
 - contact.md
-comment-post: https://docs.google.com/forms/d/e/1FAIpQLSf74h5R19tY8xUibOXWz63cE3lc4SHHogJ14-_-5_XRF4d_YQ/viewform?usp=sf_link
+comment-post: https://docs.google.com/forms/d/e/1FAIpQLSf74h5R19tY8xUibOXWz63cE3lc4SHHogJ14-_-5_XRF4d_YQ
 comment-read: https://docs.google.com/spreadsheets/d/1jlRbEqJba1km78RzWaL88mR0sBNUBD7Bli8d_zQEpPk/edit?usp=sharing
 
 # Build settings
