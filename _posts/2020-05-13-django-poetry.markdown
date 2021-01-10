@@ -95,38 +95,8 @@ $
 ### Create Django project
 
 ```bash
-$ poetry run django-admin startproject project
+$ poetry run django-admin startproject project .
 
-$ ls
-poetry.lock    project        pyproject.toml
-
-$
-```
-
-### Let's clean up the mess
-
-Here is how the project structure looks like after we started a project using django-admin
-
-```bash
-arkangle/
-  L poetry.lock
-  L pyproject.toml
-  L project
-    L manage.py
-    L project
-      L __init__.py
-      L asgi.py
-      L settings.py
-      L urls.py
-      L wsgi.py
-```
-
-:eyes: 's Very unpleasant. Here is what I did.
-
-```bash
-$ mv project/manage.py .
-$ mv project/project/* project/
-$ rm -rf project/project/
 ```
 
 Here is how the project structure looks like now
