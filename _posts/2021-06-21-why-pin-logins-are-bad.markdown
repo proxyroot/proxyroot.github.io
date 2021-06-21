@@ -2,7 +2,7 @@
 layout: post
 title:  Why pin login is bad
 description: Accessing information using just pin login is dangerous and should be avoided at all costs.
-date:   2021-04-21 14:04:00 +0500
+date:   2021-06-21 14:04:00 +0500
 categories: pin-login password security hacking
 ---
 
