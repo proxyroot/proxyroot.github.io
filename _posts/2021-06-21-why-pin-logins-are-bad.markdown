@@ -37,14 +37,14 @@ With this i can generate 5005 pins that could be tried that have repetitions i.e
 I can generate the combinations with repetitions using python math module as below
 
 ```python
->>> from itertools import combinations
+>>> from itertools import combinations_with_replacement
 >>> n = range(10)
 >>> r = 6
->>> values = list(combinations(n, r))
+>>> values = list(combinations_with_replacement(n, r))
 >>> possible_pins = ["".join(map(lambda x: str(x), item)) for item in values]
 >>> possible_pins
 
-['012345', '012346', '012347', '012348', '012349', '012356', '012357', '012358', '012359', '012367', '012368', '012369', '012378', '012379', '012389', '012456', '012457', '012458', '012459', '012467', '012468', '012469', '012478', '012479', '012489', '012567', '012568', '012569', '012578', '012579', '012589', '012678', '012679', '012689', '012789', '013456', '013457', '013458', '013459', '013467', '013468',...'356789', '456789']
+['000000', '000001', '000002', '000003', '000004', '000005', '000006', '000007', '000008', '000009', '000011', '000012', '000013', '000014', '000015', '000016', '000017', '000018', '000019', '000022', '000023', '000024', '000025', '000026', '000027', '000028', '000029', '000033', '000034',...'899999', '999999']
 
 ```
 
