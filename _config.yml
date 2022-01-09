@@ -13,7 +13,7 @@ sass:
 permalink: /:title/
 texture:
   title: Afroze Khan
-  tagline: Staff Engineer
+  tagline: Engineering Leader
   date_format: "%b %-d, %Y"
   style: black
   showNav: true
