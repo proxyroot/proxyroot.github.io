@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Generating QR Code for the vCard ?
+title:  Generating QR Code for the vCard
 description: Let's generate a QR code using your contact information. We will learn today about QR codes and a use case of generating a personalized QR code that you can share with people without having to share it using traditional way.
 date:   2022-01-10 10:00:00 +0500
 categories: qr qr-code python vCard
