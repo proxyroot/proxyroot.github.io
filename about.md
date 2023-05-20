@@ -13,7 +13,7 @@ layout: page
 
 > Afroze's achievements extend beyond his professional endeavors. With a Master of Science in Computer Science from New York University and a Bachelor of Technology in Computer Science from Jawaharlal Nehru Technological University, he possesses a solid academic foundation that complements his extensive industry experience.
 
-> Driven by a genuine passion for problem-solving and a desire to make a positive impact, Afroze Ahamed Khan Mohamed is an exceptional software engineer dedicated to driving technological advancement and delivering transformative solutions in the field. With a track record of success and a forward-thinking mindset, Afroze is poised to excel in any endeavor he undertakes.
+> Driven by a genuine passion for problem-solving and a desire to make a positive impact, an exceptional software engineer dedicated to driving technological advancement and delivering transformative solutions in the field. With a track record of success and a forward-thinking mindset, Afroze is poised to excel in any endeavor he undertakes.
 
 
 ### Spice
