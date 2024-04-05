@@ -365,6 +365,23 @@ MIDDLEWARE = [
 ]
 ```
 
+# Outcome
+
+### Changing object
+
+![image](https://github.com/proxyroot/proxyroot.github.io/assets/21299746/d49b6a75-2a34-47a3-a064-c3492219e23f)
+
+### Deleting object
+
+![image](https://github.com/proxyroot/proxyroot.github.io/assets/21299746/be6abff0-f37c-488a-9fb8-ab60f54a0210)
+
+
+### Performing Admin Action
+
+![image](https://github.com/proxyroot/proxyroot.github.io/assets/21299746/cfe38cd6-898e-4df8-a68a-1606dda1cea7)
+
+
+
 # Conclusion:
 
 Implementing a Change Log Middleware in Django can greatly enhance the maintainability and auditability of your application by automatically logging changes made to models and actions. By following the step-by-step approach outlined in this tutorial, you can seamlessly integrate this functionality into your Django projects, empowering you with comprehensive change tracking capabilities.
