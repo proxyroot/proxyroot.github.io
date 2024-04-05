@@ -1,9 +1,15 @@
 {%- if site.texture.showNav -%}
 <div class="navbar">
-	<ul>
-		<a href="https://www.linkedin.com/in/afroze-k-190180129/" target="_blank"><li>Linkedin</li></a>
-		<a href="https://github.com/proxyroot/" target="_blank"><li>Github</li></a>
-		<a href="https://twitter.com/proxyroot" target="_blank"><li>Twitter</li></a>
+	<ul class="social">
+		{%- if site.texture.social_links.github -%}
+			<a href="https://github.com/{{ site.texture.social_links.github }}"><li><i class="icon-github-circled"></i></li></a>
+		{%- endif -%}
+		{%- if site.texture.social_links.linkedIn -%}
+			<a href="https://linkedin.com/{{ site.texture.social_links.linkedIn }}"><li><i class="icon-linkedin-squared"></i></li></a>
+		{%- endif -%}
+		{%- if site.texture.social_links.twitter -%}
+			<a href="https://twitter.com/{{ site.texture.social_links.twitter }}"><li><i class="icon-twitter-squared"></i></li></a>
+		{%- endif -%}
 	</ul>
 </div>
 {%- endif -%}
