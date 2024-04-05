@@ -369,3 +369,6 @@ MIDDLEWARE = [
 # Conclusion:
 
 Implementing a Change Log Middleware in Django can greatly enhance the maintainability and auditability of your application by automatically logging changes made to models and actions. By following the step-by-step approach outlined in this tutorial, you can seamlessly integrate this functionality into your Django projects, empowering you with comprehensive change tracking capabilities.
+
+Note: I have kept this simple and you can do a lot with this middleware to intercept and trace all the things you want.
+Word of Advise: This is an interceptor and this code needs to be very carefully written and thoroughly tested. If something goes wrong your service will be down.
