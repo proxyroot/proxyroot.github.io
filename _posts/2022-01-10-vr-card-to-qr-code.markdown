@@ -8,7 +8,6 @@ categories: qr qr-code python vCard
 
 Let's generate a QR code using your contact information. We will learn today about QR codes and a use case of generating a personalized QR code that you can share with people without having to share it using traditional way.
 
-
 # Use case
 
 Recently someone asked me for my contact details and i felt it traditional when vocally saying my phone number/email while people around us. I was looking for solutions to solve this problem in this modern world and i encountered QR codes. I want to use a standard format for sharing the contact information and found vCard as the answer.

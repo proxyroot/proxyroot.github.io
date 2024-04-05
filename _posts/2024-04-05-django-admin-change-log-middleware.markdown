@@ -3,8 +3,12 @@ layout: post
 title: Implementing Change Log Middleware for Django: A Step-by-Step Guide
 description: Lets explore the implementation of a Change Log Middleware for Django, designed to track and log changes made to models and actions within a web application. The middleware intercepts HTTP requests, identifies relevant actions, retrieves object data, and logs changes before and after request processing. Through a step-by-step guide, we outline the initialization, pre-flight processing, model object retrieval, post-flight processing, and logging mechanisms. By integrating this middleware, developers can streamline change tracking and enhance the auditability of their Django applications.
 date:   2024-04-05 10:00:00 +0500
+<<<<<<< Updated upstream
 categories: Django Middleware ChangeLog WebDevelopment Python AuditTrail Logging HTTPRequests ModelChanges ApplicationMaintenance DeveloperTools CodeLogging DevelopmentBestPractices PythonProgramming WebFrameworks TechTutorials SoftwareDevelopment SEO
 
+=======
+categories: Django Middleware ChangeLog WebDevelopment Python AuditTrail Logging HTTPRequests ModelChanges ApplicationMaintenance DeveloperTools CodeLogging DevelopmentBestPractices PythonProgramming WebFrameworks TechTutorials SoftwareDevelopment
+>>>>>>> Stashed changes
 ---
 
 In the realm of web development, maintaining a clear and concise record of changes made within an application is vital for various reasons, ranging from auditing to debugging. Django, a high-level Python web framework, provides a flexible middleware system that allows developers to intercept and process HTTP requests and responses. In this tutorial, we'll delve into implementing a Change Log Middleware in Django, step-by-step, to track and log changes made to models and actions within our application.
