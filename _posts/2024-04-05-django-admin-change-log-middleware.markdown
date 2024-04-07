@@ -54,10 +54,10 @@ def call_preflight(self, request):
     # Only track POST requests
     if request.method == "POST":
         # Track admin actions using this pattern (The dropdowns in Model Admin)
-        action_pattern = r"\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/$"
+        action_pattern = r"^\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/$"
         action_match = re.match(action_pattern, request.path)
         # Track object specific change pattern (The save delete buttons on object /change)
-        object_change_pattern = rf"\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/(?P<id>\d+)\/(?P<action>\w+)\/$"
+        object_change_pattern = rf"^\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/(?P<id>\d+)\/(?P<action>\w+)\/$"
         object_change_match = re.match(object_change_pattern, request.path)
 
         if action_match:
@@ -246,10 +246,10 @@ class ChangeLogMiddleware:
         # Only track POST requests
         if request.method == "POST":
             # Track admin actions using this pattern (The dropdowns in Model Admin)
-            action_pattern = r"\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/$"
+            action_pattern = r"^\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/$"
             action_match = re.match(action_pattern, request.path)
             # Track object specific change pattern (The save delete buttons on object /change)
-            object_change_pattern = rf"\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/(?P<id>\d+)\/(?P<action>\w+)\/$"
+            object_change_pattern = rf"^\/admin\/(?P<app>\w+)\/(?P<model>\w+)\/(?P<id>\d+)\/(?P<action>\w+)\/$"
             object_change_match = re.match(object_change_pattern, request.path)
 
             if action_match:
@@ -374,7 +374,6 @@ MIDDLEWARE = [
 ### Deleting object
 
 ![image](https://github.com/proxyroot/proxyroot.github.io/assets/21299746/be6abff0-f37c-488a-9fb8-ab60f54a0210)
-
 
 ### Performing Admin Action
 
