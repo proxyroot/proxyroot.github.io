@@ -26,6 +26,10 @@ class ChangeLogMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        # Only run middleware for authenticated user
+        if not hasattr(request, "user") or not request.user.is_authenticated:
+            return self.get_response(request)
+
         # Pre flight
         response = self.get_response(request)
         # Post flight
@@ -42,6 +46,10 @@ import re
 
 
 def __call__(self, request):
+    # Only run middleware for authenticated user
+    if not hasattr(request, "user") or not request.user.is_authenticated:
+        return self.get_response(request)
+
     # Pre flight
     self.call_preflight(request)
     
@@ -82,6 +90,10 @@ from django.core import serializers
 
 
 def __call__(self, request):
+    # Only run middleware for authenticated user
+    if not hasattr(request, "user") or not request.user.is_authenticated:
+        return self.get_response(request)
+
     # Pre flight
     self.call_preflight(request)
     self.load_model_object()
@@ -116,6 +128,10 @@ After the main Django view processes the request and generates a response, we'll
 
 ```python
 def __call__(self, request):
+    # Only run middleware for authenticated user
+    if not hasattr(request, "user") or not request.user.is_authenticated:
+        return self.get_response(request)
+
     # Pre flight
     self.call_preflight(request)
     self.load_model_object()
@@ -283,6 +299,10 @@ class ChangeLogMiddleware:
             self.change_log_tracker(request)
 
     def __call__(self, request):
+        # Only run middleware for authenticated user
+        if not hasattr(request, "user") or not request.user.is_authenticated:
+            return self.get_response(request)
+
         # Pre flight
         self.call_preflight(request)
         self.load_model_object()
