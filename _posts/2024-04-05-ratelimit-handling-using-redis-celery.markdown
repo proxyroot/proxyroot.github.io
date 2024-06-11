@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Handling API Rate Limiting with Celery and Decorators
+title:  "Handling API Rate Limiting with Celery and Decorators"
 description: Learn how to elegantly handle API rate limiting using Celery and decorators. We will explore a solution to manage request queues between the caller and the API itself, ensuring smooth operations even when facing rate limits.
-date: 2024-06-11 10:00:00 +0500
+date:   2024-06-11 10:00:00 +0500
 categories: api rate-limiting python celery openai claude
-Handling API rate limiting can be a challenge, especially when you need to manage multiple requests efficiently. Today, we will explore an elegant solution using Celery and decorators to handle rate limiting from APIs on the caller side. We will delve into the sliding window algorithm, understand the problem we are solving, and go through the necessary steps to implement and test this solution.
 ---
+
+Handling API rate limiting can be a challenge, especially when you need to manage multiple requests efficiently. Today, we will explore an elegant solution using Celery and decorators to handle rate limiting from APIs on the caller side. We will delve into the sliding window algorithm, understand the problem we are solving, and go through the necessary steps to implement and test this solution.
 
 # Use Case
 
