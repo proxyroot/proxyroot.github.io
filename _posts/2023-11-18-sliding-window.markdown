@@ -72,16 +72,16 @@ print(max_sum_subarray(nums, k))  # Output: 21
 
 ```mermaid
 graph TD
-    Start[Start: s = "abcabcbb"]
-    Step1[Step 1: window="a", max_len=1]
-    Step2[Step 2: window="ab", max_len=2]
-    Step3[Step 3: window="abc", max_len=3]
-    Step4[Step 4: window="bca", max_len=3]
-    Step5[Step 5: window="cab", max_len=3]
-    Step6[Step 6: window="abc", max_len=3]
-    Step7[Step 7: window="cb", max_len=3]
-    Step8[Step 8: window="b", max_len=3]
-    Result[Result: 3 (longest substring)]
+    Start[Start: s = abcabcbb]
+    Step1[Step 1: window=a max_len=1]
+    Step2[Step 2: window=ab max_len=2]
+    Step3[Step 3: window=abc max_len=3]
+    Step4[Step 4: window=bca max_len=3]
+    Step5[Step 5: window=cab max_len=3]
+    Step6[Step 6: window=abc max_len=3]
+    Step7[Step 7: window=cb max_len=3]
+    Step8[Step 8: window=b max_len=3]
+    Result[Result: 3 longest substring]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8 --> Result
     style Result fill:#99ff99
