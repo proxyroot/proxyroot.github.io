@@ -75,10 +75,10 @@ print(q)            # Output: deque([20, 30])
 ```mermaid
 graph TD
     Start[Start: window_size = 3]
-    Step1[Step 1: val=1 → q=[1], avg=1.0]
-    Step2[Step 2: val=10 → q=[1,10], avg=5.5]
-    Step3[Step 3: val=3 → q=[1,10,3], avg=4.67]
-    Step4[Step 4: val=5 → q=[10,3,5], avg=6.0]
+    Step1[Step 1: val=1 to q=1 avg=1.0]
+    Step2[Step 2: val=10 to q=1,10 avg=5.5]
+    Step3[Step 3: val=3 to q=1,10,3 avg=4.67]
+    Step4[Step 4: val=5 to q=10,3,5 avg=6.0]
     Result[Result: Moving averages calculated]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Result
@@ -136,16 +136,16 @@ print(ma.next(5))   # Output: 6.0
 
 ```mermaid
 graph TD
-    Start[Start: nums=[1,3,-1,-3,5,3,6,7], k=3]
-    Step1[Step 1: i=0, q=[0], res=[]]
-    Step2[Step 2: i=1, q=[1], res=[]]
-    Step3[Step 3: i=2, q=[1,2], res=[3]]
-    Step4[Step 4: i=3, q=[1,2,3], res=[3,3]]
-    Step5[Step 5: i=4, q=[4], res=[3,3,5]]
-    Step6[Step 6: i=5, q=[4,5], res=[3,3,5,5]]
-    Step7[Step 7: i=6, q=[6], res=[3,3,5,5,6]]
-    Step8[Step 8: i=7, q=[7], res=[3,3,5,5,6,7]]
-    Result[Result: [3,3,5,5,6,7]]
+    Start[Start: nums=1,3,-1,-3,5,3,6,7 k=3]
+    Step1[Step 1: i=0 q=0 res=empty]
+    Step2[Step 2: i=1 q=1 res=empty]
+    Step3[Step 3: i=2 q=1,2 res=3]
+    Step4[Step 4: i=3 q=1,2,3 res=3,3]
+    Step5[Step 5: i=4 q=4 res=3,3,5]
+    Step6[Step 6: i=5 q=4,5 res=3,3,5,5]
+    Step7[Step 7: i=6 q=6 res=3,3,5,5,6]
+    Step8[Step 8: i=7 q=7 res=3,3,5,5,6,7]
+    Result[Result: 3,3,5,5,6,7]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8 --> Result
     style Result fill:#99ff99

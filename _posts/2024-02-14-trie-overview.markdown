@@ -50,27 +50,21 @@ graph TD
 
 ```mermaid
 graph TD
-    subgraph "Insert Operations"
-        I1[Insert "cat"<br/>root → c → a → t* ✓]
-        I2[Insert "car"<br/>root → c → a → r* ✓]
-    end
+    I1[Insert cat: root to c to a to t* success]
+    I2[Insert car: root to c to a to r* success]
     
-    subgraph "Search Operations"
-        S1[Search "cat"<br/>root → c → a → t* → True]
-        S2[Search "ca"<br/>root → c → a → False]
-        S3[StartsWith "ca"<br/>root → c → a → True]
-    end
+    S1[Search cat: root to c to a to t* True]
+    S2[Search ca: root to c to a False]
+    S3[StartsWith ca: root to c to a True]
     
-    subgraph "Operation Flow"
-        Op1[Insert] --> Op2[Create nodes]
-        Op2 --> Op3[Mark end]
-        
-        Op4[Search] --> Op5[Follow path]
-        Op5 --> Op6[Check is_end]
-        
-        Op7[StartsWith] --> Op8[Follow path]
-        Op8 --> Op9[Return True]
-    end
+    Op1[Insert] --> Op2[Create nodes]
+    Op2 --> Op3[Mark end]
+    
+    Op4[Search] --> Op5[Follow path]
+    Op5 --> Op6[Check is_end]
+    
+    Op7[StartsWith] --> Op8[Follow path]
+    Op8 --> Op9[Return True]
     
     style I1 fill:#99ff99
     style S1 fill:#99ccff
@@ -162,15 +156,15 @@ Suppose we insert ["cat", "car", "dog"] into an empty trie:
 
 ```mermaid
 graph TD
-    Start[Start: sentence = "the cattle was rattled by the battery"]
-    The["the" → no match → keep "the"]
-    Cattle["cattle" → prefix "cat" found → replace with "cat"]
-    Was["was" → no match → keep "was"]
-    Rattled["rattled" → prefix "rat" found → replace with "rat"]
-    By["by" → no match → keep "by"]
-    The2["the" → no match → keep "the"]
-    Battery["battery" → prefix "bat" found → replace with "bat"]
-    Result[Result: "the cat was rat by the bat"]
+    Start[Start: sentence = the cattle was rattled by the battery]
+    The[the: no match keep the]
+    Cattle[cattle: prefix cat found replace with cat]
+    Was[was: no match keep was]
+    Rattled[rattled: prefix rat found replace with rat]
+    By[by: no match keep by]
+    The2[the: no match keep the]
+    Battery[battery: prefix bat found replace with bat]
+    Result[Result: the cat was rat by the bat]
 
     Start --> The --> Cattle --> Was --> Rattled --> By --> The2 --> Battery --> Result
     style Result fill:#99ff99
