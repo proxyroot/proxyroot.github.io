@@ -25,7 +25,7 @@ A bitmask is an integer where each bit represents a state:
 
 ```mermaid
 graph TD
-    Mask[Bitmask: 13 = 1101 in binary]
+    Mask[Bitmask: 13 = 1101 binary]
     Bit0[Bit 0: 1 = Element 0 included]
     Bit1[Bit 1: 0 = Element 1 excluded]
     Bit2[Bit 2: 1 = Element 2 included]
@@ -85,22 +85,22 @@ For 4 elements [A, B, C, D]:
 
 ```mermaid
 graph TD
-    Mask0[0000 = {} = 0]
-    Mask1[0001 = {A} = 1]
-    Mask2[0010 = {B} = 2]
-    Mask3[0011 = {A,B} = 3]
-    Mask4[0100 = {C} = 4]
-    Mask5[0101 = {A,C} = 5]
-    Mask6[0110 = {B,C} = 6]
-    Mask7[0111 = {A,B,C} = 7]
-    Mask8[1000 = {D} = 8]
-    Mask9[1001 = {A,D} = 9]
-    Mask10[1010 = {B,D} = 10]
-    Mask11[1011 = {A,B,D} = 11]
-    Mask12[1100 = {C,D} = 12]
-    Mask13[1101 = {A,C,D} = 13]
-    Mask14[1110 = {B,C,D} = 14]
-    Mask15[1111 = {A,B,C,D} = 15]
+    Mask0[0000 = empty = 0]
+    Mask1[0001 = A = 1]
+    Mask2[0010 = B = 2]
+    Mask3[0011 = A,B = 3]
+    Mask4[0100 = C = 4]
+    Mask5[0101 = A,C = 5]
+    Mask6[0110 = B,C = 6]
+    Mask7[0111 = A,B,C = 7]
+    Mask8[1000 = D = 8]
+    Mask9[1001 = A,D = 9]
+    Mask10[1010 = B,D = 10]
+    Mask11[1011 = A,B,D = 11]
+    Mask12[1100 = C,D = 12]
+    Mask13[1101 = A,C,D = 13]
+    Mask14[1110 = B,C,D = 14]
+    Mask15[1111 = A,B,C,D = 15]
     
     Mask0 --> Mask1 --> Mask2 --> Mask3
     Mask1 --> Mask5 --> Mask9 --> Mask13
@@ -126,10 +126,10 @@ graph TD
     
     Start --> AddA --> AddB --> AddC --> AddD
     
-    Op1[Operation: mask | 1<<0]
-    Op2[Operation: mask | 1<<1]
-    Op3[Operation: mask | 1<<2]
-    Op4[Operation: mask | 1<<3]
+    Op1[Operation: mask or 1 shift 0]
+    Op2[Operation: mask or 1 shift 1]
+    Op3[Operation: mask or 1 shift 2]
+    Op4[Operation: mask or 1 shift 3]
     
     AddA -.-> Op1
     AddB -.-> Op2
@@ -300,17 +300,17 @@ print(tsp_bitmask(distances))  # Output: 21 (A→B→D→C→A)
 
 ```mermaid
 graph TD
-    Start[Start: nums=[1,2,3], target=5]
+    Start[Start: nums=1,2,3 target=5]
     State1[State 1: Consider element 0]
     State2[State 2: Consider elements 0,1]
     State3[State 3: Consider elements 0,1,2]
-    Found[Found: subset [2,3] sums to 5]
+    Found[Found: subset 2,3 sums to 5]
     
     Start --> State1 --> State2 --> State3 --> Found
     
-    Mask1[mask=001: {1}]
-    Mask2[mask=011: {1,2}]
-    Mask3[mask=111: {1,2,3}]
+    Mask1[mask=001: 1]
+    Mask2[mask=011: 1,2]
+    Mask3[mask=111: 1,2,3]
     
     State1 -.-> Mask1
     State2 -.-> Mask2
