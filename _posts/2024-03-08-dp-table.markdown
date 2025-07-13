@@ -86,10 +86,10 @@ print(fib(10)) # Output: 55
 
 ```mermaid
 graph TD
-    S1[dp[1] = 1 (base case)]
-    S2[dp[2] = 2 (base case)]
-    S3[dp[3] = dp[2] + dp[1] = 2 + 1 = 3]
-    S4[dp[4] = dp[3] + dp[2] = 3 + 2 = 5]
+    S1[dp1 = 1 base case]
+    S2[dp2 = 2 base case]
+    S3[dp3 = dp2 + dp1 = 3]
+    S4[dp4 = dp3 + dp2 = 5]
     R[Result: 5 ways]
 
     S1 --> S3

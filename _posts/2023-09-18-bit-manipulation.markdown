@@ -37,29 +37,15 @@ graph LR
 
 ```mermaid
 graph TD
-    subgraph "Input Values"
-        X[x = 13<br/>Binary: 1101]
-        Y[y = 6<br/>Binary: 0110]
-    end
-    
-    subgraph "Bitwise Operations"
-        AND[x & y<br/>1101 & 0110 = 0100<br/>Result: 4]
-        OR[x | y<br/>1101 | 0110 = 1111<br/>Result: 15]
-        XOR[x ^ y<br/>1101 ^ 0110 = 1011<br/>Result: 11]
-        NOT[~x<br/>~1101 = 0010<br/>Result: -14]
-        LSHIFT[x << 1<br/>1101 << 1 = 11010<br/>Result: 26]
-        RSHIFT[x >> 1<br/>1101 >> 1 = 0110<br/>Result: 6]
-    end
-    
-    X --> AND
-    Y --> AND
-    X --> OR
+    X[x13Binary1101] --> AND[xANDy1101AND01100100Result4]
+    Y[y6Binary0110] --> AND
+    X --> OR[xORy1101OR01101111Result15]
     Y --> OR
-    X --> XOR
+    X --> XOR[xXORy1101XOR01101011Result11]
     Y --> XOR
-    X --> NOT
-    X --> LSHIFT
-    X --> RSHIFT
+    X --> NOT[NOTxNOT11010010Result14]
+    X --> LSHIFT[xLSHIFT11101LSHIFT111010Result26]
+    X --> RSHIFT[xRSHIFT11101RSHIFT10110Result6]
     
     style AND fill:#ff9999
     style OR fill:#99ccff
@@ -94,13 +80,13 @@ print(bin(x).count("1"))  # Output: 3 (1101 has 3 ones)
 
 ```mermaid
 graph TD
-    Start[Start: nums = [4,1,2,1,2]]
-    Step1[Step 1: result = 0 ^ 4 = 4]
-    Step2[Step 2: result = 4 ^ 1 = 5]
-    Step3[Step 3: result = 5 ^ 2 = 7]
-    Step4[Step 4: result = 7 ^ 1 = 6]
-    Step5[Step 5: result = 6 ^ 2 = 4]
-    Result[Result: 4 (single number)]
+    Start[Startnums41212]
+    Step1[Step1result0XOR44]
+    Step2[Step2result4XOR15]
+    Step3[Step3result5XOR27]
+    Step4[Step4result7XOR16]
+    Step5[Step5result6XOR24]
+    Result[Result4singlenumber]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Result
     style Result fill:#99ff99
@@ -145,14 +131,14 @@ print(single_number(nums))  # Output: 4
 
 ```mermaid
 graph TD
-    Start[Start: n = 5]
-    D0[dp[0] = 0 (base case)]
-    D1[dp[1] = dp[0] + (1&1) = 0 + 1 = 1]
-    D2[dp[2] = dp[1] + (2&1) = 1 + 0 = 1]
-    D3[dp[3] = dp[1] + (3&1) = 1 + 1 = 2]
-    D4[dp[4] = dp[2] + (4&1) = 1 + 0 = 1]
-    D5[dp[5] = dp[2] + (5&1) = 1 + 1 = 2]
-    Result[Result: [0,1,1,2,1,2]]
+    Start[Startn5]
+    D0[dp00basecase]
+    D1[dp1dp01AND10011]
+    D2[dp2dp12AND11011]
+    D3[dp3dp13AND11112]
+    D4[dp4dp24AND11011]
+    D5[dp5dp25AND11112]
+    Result[Result011212]
 
     Start --> D0 --> D1 --> D2 --> D3 --> D4 --> D5 --> Result
     style Result fill:#99ff99

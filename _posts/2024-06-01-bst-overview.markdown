@@ -24,29 +24,12 @@ This structure allows **efficient search, insert, and delete** in `O(log n)` ave
 
 ```mermaid
 graph TD
-    subgraph "Binary Search Tree"
-        Root[5]
-        L1[3]
-        R1[7]
-        LL1[1]
-        LR1[4]
-        RL1[6]
-        RR1[8]
-        
-        Root --> L1
-        Root --> R1
-        L1 --> LL1
-        L1 --> LR1
-        R1 --> RL1
-        R1 --> RR1
-    end
-    
-    subgraph "BST Properties"
-        P1[Left subtree of 5:<br/>[1, 3, 4] all < 5]
-        P2[Right subtree of 5:<br/>[6, 7, 8] all > 5]
-        P3[Left subtree of 3:<br/>[1] all < 3]
-        P4[Right subtree of 3:<br/>[4] all > 3]
-    end
+    Root[5] --> L1[3]
+    Root --> R1[7]
+    L1 --> LL1[1]
+    L1 --> LR1[4]
+    R1 --> RL1[6]
+    R1 --> RR1[8]
     
     style Root fill:#ff9999
     style L1 fill:#99ccff
@@ -57,25 +40,18 @@ graph TD
 
 ```mermaid
 graph TD
-    subgraph "Search Operations"
-        S1[Search 4:<br/>5 → 3 → 4 ✓]
-        S2[Search 9:<br/>5 → 7 → 8 → null ✗]
-    end
+    S1[Search45to3to4Found]
+    S2[Search95to7to8NotFound]
+    I1[Insert25to3to1rightchild]
+    D1[Delete3Replacewithinordersuccessor4]
     
-    subgraph "Modification Operations"
-        I1[Insert 2:<br/>5 → 3 → 1 → right child]
-        D1[Delete 3:<br/>Replace with inorder successor (4)]
-    end
+    Path1[5] --> Path2[3]
+    Path2 --> Path3[4]
+    Path3 --> Found[Found]
     
-    subgraph "Search Path Visualization"
-        Path1[5] --> Path2[3]
-        Path2 --> Path3[4]
-        Path3 --> Found[Found!]
-        
-        Path4[5] --> Path5[7]
-        Path5 --> Path6[8]
-        Path6 --> NotFound[Not Found]
-    end
+    Path4[5] --> Path5[7]
+    Path5 --> Path6[8]
+    Path6 --> NotFound[NotFound]
     
     style Found fill:#99ff99
     style NotFound fill:#ff9999
@@ -117,15 +93,15 @@ for val in [5, 3, 7, 1, 4, 6, 8]:
 
 ```mermaid
 graph TD
-    Start[Start: Validate BST]
-    N5[Node 5: -∞ < 5 < +∞ ✓]
-    N3[Node 3: -∞ < 3 < 5 ✓]
-    N1[Node 1: -∞ < 1 < 3 ✓]
-    N4[Node 4: 3 < 4 < 5 ✓]
-    N7[Node 7: 5 < 7 < +∞ ✓]
-    N6[Node 6: 5 < 6 < 7 ✓]
-    N8[Node 8: 7 < 8 < +∞ ✓]
-    Result[Result: True (all nodes valid)]
+    Start[StartValidateBST]
+    N5[Node5inf5infValid]
+    N3[Node3inf35Valid]
+    N1[Node1inf13Valid]
+    N4[Node4345Valid]
+    N7[Node757infValid]
+    N6[Node6567Valid]
+    N8[Node878infValid]
+    Result[ResultTrueallnodesvalid]
 
     Start --> N5 --> N3 --> N1
     N5 --> N7 --> N6
@@ -193,11 +169,11 @@ print(is_valid_bst(root))  # Output: True
 
 ```mermaid
 graph TD
-    Start[Start: Find LCA of nodes 1 and 4]
-    N5[Node 5: 5 > 1 and 5 > 4 ✓ → Go left]
-    N3[Node 3: 3 > 1 and 3 > 4 ✗ → Check other condition]
-    N3Check[Node 3: 3 < 1 and 3 < 4 ✗ → Return 3]
-    Result[Result: LCA = 3]
+    Start[StartFindLCAofnodes1and4]
+    N5[Node551and54GoLeft]
+    N3[Node331and34CheckOther]
+    N3Check[Node331and34Return3]
+    Result[ResultLCA3]
 
     Start --> N5 --> N3 --> N3Check --> Result
     style Result fill:#99ff99
