@@ -14,6 +14,23 @@ An **array** (or list in Python) is a collection of elements stored in a contigu
 - Fixed-size in some languages (e.g., arrays in Java, C++)
 - Dynamic in others (e.g., lists in Python)
 
+---
+
+## 🧩 Visualizing Arrays
+
+### Memory Layout
+
+An array stores elements in contiguous memory:
+
+```
+Index:   0   1   2   3   4
+Value:   1   2   3   4   5
+```
+
+- Each element can be accessed directly by its index (O(1)).
+
+---
+
 ## 🛠️ How to Use (Python)
 
 ```python
@@ -26,15 +43,29 @@ arr.pop()         # Remove the last element (removes 5)
 arr.insert(2, 9)  # Insert 9 at index 2 (arr becomes [1, 2, 9, 3, 4])
 arr.remove(2)     # Remove the first occurrence of 2 (arr becomes [1, 9, 3, 4])
 # All operations above are O(1) except insert/remove (O(n) in worst case)
+
+# Example:
+# Start: [1, 2, 3, 4]
+# After append(5): [1, 2, 3, 4, 5]
+# After pop(): [1, 2, 3, 4]
+# After insert(2, 9): [1, 2, 9, 3, 4]
+# After remove(2): [1, 9, 3, 4]
 ```
 
-## 📦 Use Cases
+---
 
-- Leaderboards
-- Queues/Stacks (with helper functions)
-- Sliding windows
-- Indexed lookup
-- Dynamic programming tables
+## 🧩 Two Sum Visualization
+
+Suppose nums = [2, 7, 11, 15], target = 9
+
+| i | num | complement | seen         | Output      |
+|---|-----|------------|--------------|-------------|
+| 0 | 2   | 7          | {}           | -           |
+| 1 | 7   | 2          | {2: 0}       | [0, 1]      |
+
+- At i=1, complement 2 is in seen, so return [0, 1].
+
+---
 
 ## 📘 Sample Problem 1: Two Sum
 
@@ -51,7 +82,34 @@ def two_sum(nums, target):
             return [seen[complement], i]  # Found the pair!
         seen[num] = i  # Store the index of the current number
 # Time complexity: O(n), Space complexity: O(n)
+
+# Example:
+nums = [2, 7, 11, 15]
+target = 9
+print(two_sum(nums, target))  # Output: [0, 1]
 ```
+
+---
+
+## 🧩 Kadane's Algorithm Step-by-Step
+
+Suppose nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+| i | num | cur_sum         | max_sum |
+|---|-----|----------------|---------|
+| 0 | -2  | -2             | -2      |
+| 1 | 1   | max(1, -2+1)=1 | 1       |
+| 2 | -3  | max(-3, 1-3)=-2| 1       |
+| 3 | 4   | max(4, -2+4)=4 | 4       |
+| 4 | -1  | max(-1, 4-1)=3 | 4       |
+| 5 | 2   | max(2, 3+2)=5  | 5       |
+| 6 | 1   | max(1, 5+1)=6  | 6       |
+| 7 | -5  | max(-5, 6-5)=1 | 6       |
+| 8 | 4   | max(4, 1+4)=5  | 6       |
+
+- The maximum subarray sum is 6 (subarray [4, -1, 2, 1]).
+
+---
 
 ## 📘 Sample Problem 2: Maximum Subarray (Kadane's Algorithm)
 
@@ -67,7 +125,13 @@ def max_subarray(nums):
         max_sum = max(max_sum, cur_sum)    # Update max if needed
     return max_sum
 # Time complexity: O(n), Space complexity: O(1)
+
+# Example:
+nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+print(max_subarray(nums))  # Output: 6
 ```
+
+---
 
 ## 🔁 Variants
 

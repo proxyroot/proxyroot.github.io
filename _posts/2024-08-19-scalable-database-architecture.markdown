@@ -6,8 +6,6 @@ tags: [scalability, availability, consistency, sharding, replication, CAP-theore
 summary: "A robust, visual introduction to building scalable, resilient, and performant database systems. Covers CAP theorem, sharding, replication, caching, geo-distribution, and real-world case studies."
 ---
 
-# Scalable Database Architecture and Strategies
-
 This guide explores the core principles, scaling strategies, and architectural designs for building scalable, resilient, and performant database systems.
 
 ---

@@ -21,6 +21,38 @@ Graphs are commonly represented using:
 - **Adjacency list** (efficient for sparse graphs)
 - **Adjacency matrix** (efficient for dense graphs)
 
+---
+
+## 🧩 Visualizing a Graph
+
+Suppose we have the following graph:
+
+```python
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['E'],
+    'D': [],
+    'E': ['D']
+}
+```
+
+### Diagram
+
+```mermaid
+graph TD;
+  A --> B;
+  A --> C;
+  B --> D;
+  C --> E;
+  E --> D;
+```
+
+- Nodes: A, B, C, D, E
+- Edges: (A,B), (A,C), (B,D), (C,E), (E,D)
+
+---
+
 ## 🛠️ How to Use (Python)
 
 ```python
@@ -34,14 +66,33 @@ graph = {
 }
 # Access neighbors: graph['A'] returns ['B', 'C']
 # All operations above are O(1) for lookup, O(k) for iterating neighbors
+
+# Example:
+print(graph['A'])  # Output: ['B', 'C']
 ```
 
-## 📦 Use Cases
+---
 
-- Navigation (Google Maps)
-- Social networks (friends/followers)
-- Scheduling and dependencies
-- Network routing / data flow
+## 🧩 Cycle Detection Flow
+
+Suppose we run cycle detection on the above graph. The DFS stack and visited set change as follows:
+
+| Step | Node | rec_stack      | visited        | Cycle Detected? |
+|------|------|---------------|----------------|-----------------|
+| 1    | A    | {A}           | {A}            | No              |
+| 2    | B    | {A, B}        | {A, B}         | No              |
+| 3    | D    | {A, B, D}     | {A, B, D}      | No              |
+| 4    | B    | {A}           | {A, B, D}      | No              |
+| 5    | C    | {A, C}        | {A, B, C, D}   | No              |
+| 6    | E    | {A, C, E}     | {A, B, C, D, E}| No              |
+| 7    | D    | {A, C, E, D}  | {A, B, C, D, E}| No              |
+| 8    | E    | {A, C}        | {A, B, C, D, E}| No              |
+| 9    | C    | {A}           | {A, B, C, D, E}| No              |
+| 10   | A    | {}            | {A, B, C, D, E}| No              |
+
+- No cycle is detected in this example.
+
+---
 
 ## 📘 Sample Problem 1: Detect Cycle in Directed Graph
 
@@ -53,8 +104,10 @@ def has_cycle(graph):
     rec_stack = set()
 
     def dfs(node):
+        # If node is in recursion stack, a cycle is found
         if node in rec_stack:
             return True
+        # If already visited, skip
         if node in visited:
             return False
         visited.add(node)
@@ -69,7 +122,38 @@ def has_cycle(graph):
         if dfs(node):
             return True
     return False
+
+# Example:
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['E'],
+    'D': [],
+    'E': ['D']
+}
+print(has_cycle(graph))  # Output: False
 ```
+
+---
+
+## 🧩 Topological Sort Step-by-Step
+
+Suppose we run topological sort on the above graph. The result is built in reverse postorder:
+
+| Step | Node | Visited         | Result (reversed) |
+|------|------|-----------------|-------------------|
+| 1    | A    | {A}             |                   |
+| 2    | B    | {A, B}          |                   |
+| 3    | D    | {A, B, D}       | D                 |
+| 4    | B    | {A, B, D}       | D, B              |
+| 5    | C    | {A, B, C, D}    | D, B              |
+| 6    | E    | {A, B, C, D, E} | D, B, E           |
+| 7    | C    | {A, B, C, D, E} | D, B, E, C        |
+| 8    | A    | {A, B, C, D, E} | D, B, E, C, A     |
+
+- Final topological order: ['A', 'C', 'E', 'B', 'D']
+
+---
 
 ## 📘 Sample Problem 2: Topological Sort
 
@@ -81,6 +165,7 @@ def topological_sort(graph):
     result = []
 
     def dfs(node):
+        # If already visited, skip
         if node in visited:
             return
         visited.add(node)
@@ -92,7 +177,19 @@ def topological_sort(graph):
         dfs(node)
 
     return result[::-1]  # reverse postorder
+
+# Example:
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['E'],
+    'D': [],
+    'E': ['D']
+}
+print(topological_sort(graph))  # Output: ['A', 'C', 'E', 'B', 'D']
 ```
+
+---
 
 ## 🔁 Variants
 
