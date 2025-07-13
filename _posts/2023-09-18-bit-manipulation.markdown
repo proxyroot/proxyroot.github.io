@@ -14,6 +14,34 @@ Bit manipulation involves using bitwise operators to perform fast, low-level ope
 - Fast and memory efficient
 - Common operators: `&` (AND), `|` (OR), `^` (XOR), `~` (NOT), `<<` (left shift), `>>` (right shift)
 
+## 🧩 Visualizing Bit Manipulation
+
+### Binary Representation
+
+```
+Decimal: 13
+Binary:  1101
+
+Position: 3 2 1 0
+Bits:     1 1 0 1
+Value:    8+4+0+1 = 13
+```
+
+### Common Bitwise Operations
+
+```
+x = 13 (1101), y = 6 (0110)
+
+x & y:  1101 & 0110 = 0100 (4)   # AND: 1 only if both bits are 1
+x | y:  1101 | 0110 = 1111 (15)  # OR: 1 if either bit is 1
+x ^ y:  1101 ^ 0110 = 1011 (11)  # XOR: 1 if bits are different
+~x:     ~1101 = 0010 (-14)       # NOT: flip all bits
+x << 1: 1101 << 1 = 11010 (26)   # Left shift: multiply by 2
+x >> 1: 1101 >> 1 = 0110 (6)     # Right shift: divide by 2
+```
+
+---
+
 ## 🛠️ Common Techniques
 
 ```python
@@ -25,14 +53,33 @@ x & (x - 1)    # Removes the lowest set bit
 x & -x         # Isolates the lowest set bit
 bin(x).count("1")  # Count set bits (Hamming weight)
 # All above are O(1) bitwise operations
+
+# Example:
+x = 13
+print(x & 1)      # Output: 1 (odd)
+print(x >> 1)     # Output: 6 (13/2)
+print(x << 1)     # Output: 26 (13*2)
+print(bin(x).count("1"))  # Output: 3 (1101 has 3 ones)
 ```
 
-## 📦 Use Cases
+---
 
-- Checking power of two
-- Counting set bits (Hamming weight)
-- Subsets via bitmasks
-- XOR properties for unique element problems
+## 🧩 Single Number Step-by-Step
+
+Suppose nums = [4, 1, 2, 1, 2]
+
+| Step | num | result (binary) | result (decimal) |
+|------|----|-----------------|------------------|
+| 0    | -  | 0000            | 0                |
+| 1    | 4  | 0100            | 4                |
+| 2    | 1  | 0101            | 5                |
+| 3    | 2  | 0111            | 7                |
+| 4    | 1  | 0110            | 6                |
+| 5    | 2  | 0100            | 4                |
+
+- Final result: 4 (the single number).
+
+---
 
 ## 📘 Sample Problem 1: Single Number
 
@@ -46,7 +93,30 @@ def single_number(nums):
         result ^= num  # XOR cancels out pairs
     return result
 # Time complexity: O(n), Space complexity: O(1)
+
+# Example:
+nums = [4, 1, 2, 1, 2]
+print(single_number(nums))  # Output: 4
 ```
+
+---
+
+## 🧩 Count Bits Flow
+
+For n = 5, the dynamic programming approach:
+
+| i | Binary | i >> 1 | dp[i >> 1] | i & 1 | dp[i] |
+|---|--------|--------|------------|-------|-------|
+| 0 | 000    | -      | -          | -     | 0     |
+| 1 | 001    | 000    | 0          | 1     | 1     |
+| 2 | 010    | 001    | 1          | 0     | 1     |
+| 3 | 011    | 001    | 1          | 1     | 2     |
+| 4 | 100    | 010    | 1          | 0     | 1     |
+| 5 | 101    | 010    | 1          | 1     | 2     |
+
+- Result: [0, 1, 1, 2, 1, 2]
+
+---
 
 ## 📘 Sample Problem 2: Count Bits
 
@@ -60,7 +130,13 @@ def count_bits(n):
         dp[i] = dp[i >> 1] + (i & 1)  # Use previous result and add 1 if last bit is set
     return dp
 # Time complexity: O(n), Space complexity: O(n)
+
+# Example:
+n = 5
+print(count_bits(n))  # Output: [0, 1, 1, 2, 1, 2]
 ```
+
+---
 
 ## 🔁 Variants
 

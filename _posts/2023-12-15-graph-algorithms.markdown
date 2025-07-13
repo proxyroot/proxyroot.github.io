@@ -16,6 +16,33 @@ Graph algorithms like **DFS (Depth-First Search)** and **BFS (Breadth-First Sear
 
 Both are used in problems involving connectivity, cycles, components, and shortest paths.
 
+## 🧩 Visualizing Graph Traversal
+
+### Sample Graph
+
+```
+Graph: {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+```
+
+### DFS vs BFS Traversal
+
+```
+DFS (Depth-First): A → B → D → E → F → C
+BFS (Breadth-First): A → B → C → D → E → F
+
+DFS uses recursion/stack (goes deep first)
+BFS uses queue (goes level by level)
+```
+
+---
+
 ## 🛠️ DFS and BFS (Python)
 
 ```python
@@ -44,15 +71,45 @@ def bfs(graph, start):
         for neighbor in graph[node]:
             queue.append(neighbor)  # Add neighbors to queue
 # Time complexity: O(V + E), Space: O(V) for visited set and queue
+
+# Example:
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+visited = set()
+dfs(graph, 'A', visited)
+print(visited)  # Output: {'A', 'B', 'C', 'D', 'E', 'F'}
 ```
 
-## 📦 Use Cases
+---
 
-- Cycle detection
-- Shortest path in unweighted graph (BFS)
-- Connected components
-- Maze/board traversal
-- Topological sort (with DFS)
+## 🧩 Number of Islands Step-by-Step
+
+Suppose grid = [
+    ['1','1','0','0','0'],
+    ['1','1','0','0','0'],
+    ['0','0','1','0','0'],
+    ['0','0','0','1','1']
+]
+
+| Step | (r,c) | grid[r][c] | visited | Action | count |
+|------|-------|------------|---------|--------|-------|
+| 1    | (0,0) | '1'        | {}      | DFS    | 0     |
+| 2    | (0,1) | '1'        | {(0,0)}| DFS    | 0     |
+| 3    | (1,0) | '1'        | {(0,0),(0,1)}| DFS | 0     |
+| 4    | (1,1) | '1'        | {(0,0),(0,1),(1,0)}| DFS | 0     |
+| 5    | (0,0) | '1'        | {(0,0),(0,1),(1,0),(1,1)}| Skip | 1 |
+| 6    | (2,2) | '1'        | {(0,0),(0,1),(1,0),(1,1)}| DFS | 1 |
+| 7    | (3,3) | '1'        | {(0,0),(0,1),(1,0),(1,1),(2,2)}| DFS | 2 |
+
+- Final result: 3 islands.
+
+---
 
 ## 📘 Sample Problem 1: Number of Islands
 
@@ -84,7 +141,39 @@ def num_islands(grid):
                 count += 1
     return count
 # Time complexity: O(m*n), Space: O(m*n) for visited set and recursion stack
+
+# Example:
+grid = [
+    ['1','1','0','0','0'],
+    ['1','1','0','0','0'],
+    ['0','0','1','0','0'],
+    ['0','0','0','1','1']
+]
+print(num_islands(grid))  # Output: 3
 ```
+
+---
+
+## 🧩 Shortest Path in Binary Matrix Flow
+
+Suppose grid = [
+    [0,0,0],
+    [1,1,0],
+    [1,1,0]
+]
+
+| Step | queue | (r,c,dist) | (r,c) == (2,2)? | directions | new cells | visited |
+|------|-------|------------|-----------------|------------|-----------|---------|
+| 1    | [(0,0,1)] | (0,0,1) | No | 8 dirs | (0,1),(1,0),(1,1) | {(0,0)} |
+| 2    | [(0,1,2),(1,0,2)] | (0,1,2) | No | 8 dirs | (0,2),(1,2) | {(0,0),(0,1)} |
+| 3    | [(1,0,2),(0,2,3),(1,2,3)] | (1,0,2) | No | 8 dirs | - | {(0,0),(0,1),(1,0)} |
+| 4    | [(0,2,3),(1,2,3)] | (0,2,3) | No | 8 dirs | (1,2) | {(0,0),(0,1),(1,0),(0,2)} |
+| 5    | [(1,2,3)] | (1,2,3) | No | 8 dirs | (2,2) | {(0,0),(0,1),(1,0),(0,2),(1,2)} |
+| 6    | [(2,2,4)] | (2,2,4) | Yes | - | - | - |
+
+- Final result: 4 (shortest path length).
+
+---
 
 ## 📘 Sample Problem 2: Shortest Path in Binary Matrix
 
@@ -114,7 +203,17 @@ def shortest_path_binary_matrix(grid):
                 queue.append((nr, nc, dist + 1))
     return -1  # No path found
 # Time complexity: O(n^2), Space: O(n^2) for visited set and queue
+
+# Example:
+grid = [
+    [0,0,0],
+    [1,1,0],
+    [1,1,0]
+]
+print(shortest_path_binary_matrix(grid))  # Output: 4
 ```
+
+---
 
 ## 🔁 Variants
 

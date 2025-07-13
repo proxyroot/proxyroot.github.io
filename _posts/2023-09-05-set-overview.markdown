@@ -16,6 +16,26 @@ A **set** is a collection of **unique**, unordered elements. In Python, it is im
 - No duplicate elements
 - Fast lookup, add, and remove (average **O(1)** time)
 
+---
+
+## 🧩 Visualizing Sets
+
+### Set Operations
+
+```
+Set A: {1, 2, 3, 4}
+Set B: {3, 4, 5, 6}
+
+Union (A ∪ B):        {1, 2, 3, 4, 5, 6}
+Intersection (A ∩ B): {3, 4}
+Difference (A - B):   {1, 2}
+Symmetric Diff (A⊕B): {1, 2, 5, 6}
+```
+
+- Sets automatically remove duplicates and maintain uniqueness.
+
+---
+
 ## 🛠️ How to Use (Python)
 
 ```python
@@ -30,15 +50,30 @@ s2 = {1, 2, 5}
 s.union(s2)             # Union: {1, 2, 5, 9, 3, 4}
 s.intersection(s2)      # Intersection: {5}
 # Most set operations are O(1) on average
+
+# Example:
+s = {1, 2, 3}
+s.add(4)
+print(3 in s)  # Output: True
+print(s)       # Output: {1, 2, 3, 4}
 ```
 
-## 📦 Use Cases
+---
 
-- Membership testing
-- Removing duplicates
-- Set operations (union, intersection, difference)
-- Finding common or unique items
-- Keeping visited nodes in graphs
+## 🧩 Contains Duplicate Step-by-Step
+
+Suppose nums = [1, 2, 3, 1]
+
+| Step | num | num in seen | seen set | Action        |
+|------|----|-------------|----------|---------------|
+| 1    | 1  | False       | {}       | Add 1         |
+| 2    | 2  | False       | {1}      | Add 2         |
+| 3    | 3  | False       | {1, 2}   | Add 3         |
+| 4    | 1  | True        | {1, 2, 3}| Return True   |
+
+- Found duplicate 1, return True.
+
+---
 
 ## 📘 Sample Problem 1: Contains Duplicate
 
@@ -54,7 +89,33 @@ def contains_duplicate(nums):
         seen.add(num)
     return False  # No duplicates found
 # Time complexity: O(n), Space complexity: O(n)
+
+# Example:
+nums = [1, 2, 3, 1]
+print(contains_duplicate(nums))  # Output: True
 ```
+
+---
+
+## 🧩 Longest Consecutive Sequence Flow
+
+Suppose nums = [100, 4, 200, 1, 3, 2]
+
+1. Convert to set: {100, 4, 200, 1, 3, 2}
+2. For each number, check if it's the start of a sequence:
+
+| num | num-1 in set? | Sequence Start | Length | Longest |
+|----|---------------|----------------|--------|---------|
+| 100| False         | Yes            | 1      | 1       |
+| 4  | True          | No             | -      | 1       |
+| 200| False         | Yes            | 1      | 1       |
+| 1  | False         | Yes            | 1,2,3,4| 4       |
+| 3  | True          | No             | -      | 4       |
+| 2  | True          | No             | -      | 4       |
+
+- Longest consecutive sequence: [1, 2, 3, 4] with length 4.
+
+---
 
 ## 📘 Sample Problem 2: Longest Consecutive Sequence
 
@@ -75,7 +136,13 @@ def longest_consecutive(nums):
 
     return longest
 # Time complexity: O(n), Space complexity: O(n)
+
+# Example:
+nums = [100, 4, 200, 1, 3, 2]
+print(longest_consecutive(nums))  # Output: 4 (sequence: 1,2,3,4)
 ```
+
+---
 
 ## 🔁 Variants
 

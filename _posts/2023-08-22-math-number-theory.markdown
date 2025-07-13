@@ -17,6 +17,27 @@ This category involves solving problems using mathematical principles like:
 - **Combinatorics**
 - **Number properties** (palindromes, digits, factors)
 
+## 🧩 Visualizing Number Theory
+
+### Sieve of Eratosthenes (n = 20)
+
+```
+Initial: [T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T]
+         0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+After marking multiples of 2:
+        [F,F,T,T,F,T,F,T,F,T,F,T,F,T,F,T,F,T,F,T,F]
+         0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+After marking multiples of 3:
+        [F,F,T,T,F,T,F,T,F,F,F,T,F,T,F,F,F,T,F,T,F]
+         0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+Final primes: [2, 3, 5, 7, 11, 13, 17, 19]
+```
+
+---
+
 ## 🛠️ Common Techniques
 
 ```python
@@ -41,14 +62,48 @@ def sieve(n):
                 is_prime[j] = False  # Mark multiples as not prime
     return [i for i, prime in enumerate(is_prime) if prime]
 # Time complexity: O(n log log n), Space: O(n)
+
+# Example:
+print(gcd(12, 18))  # Output: 6
+print(lcm(12, 18))  # Output: 36
+print(sieve(20))    # Output: [2, 3, 5, 7, 11, 13, 17, 19]
 ```
 
-## 📦 Use Cases
+---
 
-- Cryptography (RSA uses prime factorization)
-- Counting permutations/combinations
-- Modular exponentiation (e.g. power under mod)
-- Math puzzles (digit sums, palindromes, trailing zeroes)
+## 🧩 GCD/LCM Step-by-Step
+
+### GCD of 12 and 18 using Euclidean Algorithm
+
+| Step | a  | b  | a % b | New a | New b |
+|------|----|----|-------|-------|-------|
+| 1    | 12 | 18 | 12    | 18    | 12    |
+| 2    | 18 | 12 | 6     | 12    | 6     |
+| 3    | 12 | 6  | 0     | 6     | 0     |
+
+- GCD(12, 18) = 6
+- LCM(12, 18) = (12 × 18) ÷ 6 = 36
+
+---
+
+## 🧩 Count Primes Visualization
+
+For n = 10, the sieve process:
+
+```
+Initial: [F,F,T,T,T,T,T,T,T,T]  (0,1 not prime)
+         0 1 2 3 4 5 6 7 8 9
+
+After i=2: [F,F,T,T,F,T,F,T,F,T]  (mark multiples of 2)
+           0 1 2 3 4 5 6 7 8 9
+
+After i=3: [F,F,T,T,F,T,F,T,F,F]  (mark multiples of 3)
+           0 1 2 3 4 5 6 7 8 9
+
+Primes < 10: [2, 3, 5, 7] → Count: 4
+```
+
+---
 
 ## 📘 Sample Problem 1: Count Primes
 
@@ -66,7 +121,28 @@ def count_primes(n):
                 is_prime[j] = False  # Mark multiples as not prime
     return sum(is_prime)
 # Time complexity: O(n log log n), Space: O(n)
+
+# Example:
+n = 10
+print(count_primes(n))  # Output: 4 (primes: 2, 3, 5, 7)
 ```
+
+---
+
+## 🧩 Power of Three Flow
+
+Suppose n = 27
+
+| Step | n  | n % 3 | n // 3 | Action        |
+|------|----|-------|--------|---------------|
+| 1    | 27 | 0     | 9      | Divide by 3   |
+| 2    | 9  | 0     | 3      | Divide by 3   |
+| 3    | 3  | 0     | 1      | Divide by 3   |
+| 4    | 1  | 1     | -      | Check if 1    |
+
+- Since n becomes 1, 27 is a power of 3 (3³ = 27).
+
+---
 
 ## 📘 Sample Problem 2: Power of Three
 
@@ -80,7 +156,13 @@ def is_power_of_three(n):
         n //= 3  # Keep dividing by 3
     return n == 1  # True if reduced to 1
 # Time complexity: O(log_3 n), Space: O(1)
+
+# Example:
+print(is_power_of_three(27))  # Output: True (3³ = 27)
+print(is_power_of_three(10))  # Output: False
 ```
+
+---
 
 ## 🔁 Variants
 

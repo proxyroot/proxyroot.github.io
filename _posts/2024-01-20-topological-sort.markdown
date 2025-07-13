@@ -17,7 +17,40 @@ Topological Sort is a method for ordering the nodes of a directed acyclic graph 
   - **DFS-based** (post-order stack)
   - **Kahn’s algorithm** (in-degree + BFS)
 
-## 🛠️ Kahn’s Algorithm (Python)
+---
+
+## 🧩 Visualizing Topological Sort
+
+### Sample DAG
+
+```
+Vertices: [A, B, C, D, E]
+Edges: [(A,B), (A,C), (B,D), (C,D), (C,E), (D,E)]
+
+Graph representation:
+    A
+   / \
+  B   C
+   \ / \
+    D   E
+
+In-degrees: A=0, B=1, C=1, D=2, E=2
+```
+
+### Topological Ordering
+
+```
+Valid orderings:
+1. A → B → C → D → E
+2. A → C → B → D → E
+3. A → C → E → B → D
+
+All satisfy: for every edge u→v, u comes before v
+```
+
+---
+
+## 🛠️ Kahn's Algorithm (Python)
 
 ```python
 from collections import defaultdict, deque
@@ -44,7 +77,31 @@ def topological_sort_kahn(vertices, edges):
 
     return order if len(order) == len(vertices) else []  # Return empty if cycle
 # Time complexity: O(V + E), Space: O(V + E)
+
+# Example:
+vertices = ['A', 'B', 'C', 'D', 'E']
+edges = [('A','B'), ('A','C'), ('B','D'), ('C','D'), ('C','E'), ('D','E')]
+print(topological_sort_kahn(vertices, edges))  # Output: ['A', 'B', 'C', 'D', 'E']
 ```
+
+---
+
+## 🧩 Kahn's Algorithm Step-by-Step
+
+Suppose vertices = ['A', 'B', 'C', 'D', 'E'], edges = [('A','B'), ('A','C'), ('B','D'), ('C','D'), ('C','E'), ('D','E')]
+
+| Step | queue | node | order | in_degree updates | new queue |
+|------|-------|------|-------|-------------------|-----------|
+| 0    | [A]   | -    | []    | -                 | [A]       |
+| 1    | [A]   | A    | [A]   | B:1→0, C:1→0      | [B,C]     |
+| 2    | [B,C] | B    | [A,B] | D:2→1             | [C]       |
+| 3    | [C]   | C    | [A,B,C] | D:1→0, E:2→1    | [D]       |
+| 4    | [D]   | D    | [A,B,C,D] | E:1→0          | [E]       |
+| 5    | [E]   | E    | [A,B,C,D,E] | -             | []        |
+
+- Final result: ['A', 'B', 'C', 'D', 'E']
+
+---
 
 ## 🛠️ DFS-based Topological Sort
 
@@ -68,7 +125,41 @@ def topological_sort_dfs(graph):
 
     return order[::-1]  # Reverse post-order
 # Time complexity: O(V + E), Space: O(V + E)
+
+# Example:
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['D', 'E'],
+    'D': ['E'],
+    'E': []
+}
+print(topological_sort_dfs(graph))  # Output: ['A', 'B', 'C', 'D', 'E']
 ```
+
+---
+
+## 🧩 DFS Topological Sort Flow
+
+For the same graph, DFS traversal:
+
+| Step | node | visited | neighbors | post_order | action |
+|------|------|---------|-----------|------------|--------|
+| 1    | A    | {A}     | [B,C]     | []         | dfs(B) |
+| 2    | B    | {A,B}   | [D]       | []         | dfs(D) |
+| 3    | D    | {A,B,D} | [E]       | []         | dfs(E) |
+| 4    | E    | {A,B,D,E} | []      | [E]        | return |
+| 5    | D    | {A,B,D,E} | [E]     | [E,D]      | return |
+| 6    | B    | {A,B,D,E} | [D]     | [E,D,B]    | return |
+| 7    | A    | {A,B,D,E} | [B,C]   | [E,D,B]    | dfs(C) |
+| 8    | C    | {A,B,C,D,E} | [D,E] | [E,D,B]    | skip D, dfs(E) |
+| 9    | E    | {A,B,C,D,E} | []    | [E,D,B]    | skip   |
+| 10   | C    | {A,B,C,D,E} | [D,E] | [E,D,B,C]  | return |
+| 11   | A    | {A,B,C,D,E} | [B,C] | [E,D,B,C,A] | return |
+
+- Final result: ['A', 'C', 'B', 'D', 'E'] (reversed)
+
+---
 
 ## 📦 Use Cases
 
@@ -103,7 +194,14 @@ def find_order(num_courses, prerequisites):
                 queue.append(nei)
 
     return res if len(res) == num_courses else []
+
+# Example:
+num_courses = 4
+prerequisites = [[1,0], [2,0], [3,1], [3,2]]
+print(find_order(num_courses, prerequisites))  # Output: [0, 1, 2, 3]
 ```
+
+---
 
 ## 🔁 Variants
 

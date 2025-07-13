@@ -18,6 +18,26 @@ A **stack** is a Last-In-First-Out (LIFO) data structure.
 
 In Python, use `list` or `collections.deque`.
 
+---
+
+## 🧩 Visualizing Stacks
+
+### Stack Operations (LIFO)
+
+```
+Initial: []
+Push 1:  [1]
+Push 2:  [1, 2]
+Push 3:  [1, 2, 3]
+Pop:     [1, 2]     (returns 3)
+Pop:     [1]         (returns 2)
+Peek:    [1]         (returns 1)
+```
+
+- Last element pushed is the first one popped (LIFO).
+
+---
+
 ## 🛠️ How to Use (Python)
 
 ```python
@@ -30,14 +50,33 @@ stack.pop()        # Pop the top element (returns 2)
 stack[-1]          # Peek at the top element (returns 1)
 not stack          # Check if the stack is empty (returns False)
 # All stack operations above are O(1)
+
+# Example:
+stack = []
+stack.append(10)
+stack.append(20)
+print(stack.pop())  # Output: 20
+print(stack[-1])    # Output: 10
 ```
 
-## 📦 Use Cases
+---
 
-- Undo functionality
-- Backtracking (e.g., maze solving, recursion)
-- Parsing (e.g., parentheses validation)
-- Tree/graph traversal (iterative DFS)
+## 🧩 Valid Parentheses Step-by-Step
+
+Suppose s = "()[]{}"
+
+| Step | char | char in values? | stack | Action           |
+|------|----|-----------------|-------|------------------|
+| 1    | (  | Yes            | ['('] | Push '('         |
+| 2    | )  | No             | []    | Pop and match    |
+| 3    | [  | Yes            | ['['] | Push '['         |
+| 4    | ]  | No             | []    | Pop and match    |
+| 5    | {  | Yes            | ['{'] | Push '{'         |
+| 6    | }  | No             | []    | Pop and match    |
+
+- Final stack is empty, return True.
+
+---
 
 ## 📘 Sample Problem 1: Valid Parentheses
 
@@ -55,7 +94,38 @@ def is_valid(s):
             return False  # Mismatch or stack empty
     return not stack  # True if all brackets matched
 # Time complexity: O(n), Space complexity: O(n)
+
+# Example:
+s = "()[]{}"
+print(is_valid(s))  # Output: True
 ```
+
+---
+
+## 🧩 Daily Temperatures Flow
+
+Suppose temps = [73, 74, 75, 71, 69, 72, 76, 73]
+
+| i | temp | stack | temps[stack[-1]] | temp > temps[stack[-1]]? | Action           | res[prev] |
+|---|----|-------|------------------|-------------------------|------------------|-----------|
+| 0 | 73 | [0]   | -                | -                       | Push 0           | -         |
+| 1 | 74 | []    | 73               | 74 > 73                 | Pop 0, res[0]=1  | 1         |
+| 1 | 74 | [1]   | -                | -                       | Push 1           | -         |
+| 2 | 75 | []    | 74               | 75 > 74                 | Pop 1, res[1]=1  | 1         |
+| 2 | 75 | [2]   | -                | -                       | Push 2           | -         |
+| 3 | 71 | [2,3] | 75               | 71 < 75                 | Push 3           | -         |
+| 4 | 69 | [2,3,4]| 71              | 69 < 71                 | Push 4           | -         |
+| 5 | 72 | [2,5] | 69               | 72 > 69                 | Pop 4, res[4]=1  | 1         |
+| 5 | 72 | [2,5] | 71               | 72 > 71                 | Pop 3, res[3]=2  | 2         |
+| 5 | 72 | [2,5] | 75               | 72 < 75                 | Push 5           | -         |
+| 6 | 76 | [6]   | 72               | 76 > 72                 | Pop 5, res[5]=1  | 1         |
+| 6 | 76 | [6]   | 75               | 76 > 75                 | Pop 2, res[2]=4  | 4         |
+| 6 | 76 | [6]   | -                | -                       | Push 6           | -         |
+| 7 | 73 | [6,7] | 76               | 73 < 76                 | Push 7           | -         |
+
+- Result: [1, 1, 4, 2, 1, 1, 0, 0]
+
+---
 
 ## 📘 Sample Problem 2: Daily Temperatures
 
@@ -73,7 +143,13 @@ def daily_temperatures(temps):
         stack.append(i)
     return res
 # Time complexity: O(n), Space complexity: O(n)
+
+# Example:
+temps = [73, 74, 75, 71, 69, 72, 76, 73]
+print(daily_temperatures(temps))  # Output: [1, 1, 4, 2, 1, 1, 0, 0]
 ```
+
+---
 
 ## 🔁 Variants
 

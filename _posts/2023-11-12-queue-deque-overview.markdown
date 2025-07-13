@@ -16,6 +16,35 @@ In Python:
 - Use `collections.deque` for both queue and deque behavior
 - Use `queue.Queue` for thread-safe queues (multithreading)
 
+---
+
+## 🧩 Visualizing Queues and Deques
+
+### Queue Operations (FIFO)
+
+```
+Initial: []
+Enqueue 1: [1]
+Enqueue 2: [1, 2]
+Enqueue 3: [1, 2, 3]
+Dequeue:   [2, 3]     (returns 1)
+Dequeue:   [3]         (returns 2)
+Peek:      [3]         (returns 3)
+```
+
+### Deque Operations (Double-ended)
+
+```
+Initial: []
+Append 1:  [1]
+Appendleft 2: [2, 1]
+Append 3:    [2, 1, 3]
+Pop:         [2, 1]     (returns 3)
+Popleft:     [1]         (returns 2)
+```
+
+---
+
 ## 🛠️ How to Use (Python)
 
 ```python
@@ -29,14 +58,32 @@ q.popleft()         # Dequeue from the front
 q.appendleft(2)     # Add 2 to the front
 q.pop()             # Remove from the end
 # All operations above are O(1)
+
+# Example:
+q = deque()
+q.append(10)
+q.append(20)
+q.append(30)
+print(q.popleft())  # Output: 10
+print(q)            # Output: deque([20, 30])
 ```
 
-## 📦 Use Cases
+---
 
-- Task scheduling
-- BFS (breadth-first search)
-- LRU cache
-- Sliding window problems
+## 🧩 Moving Average Step-by-Step
+
+Suppose size = 3, values = [1, 10, 3, 5]
+
+| Step | val | q before | q after | sum | len(q) | avg |
+|------|----|----------|---------|-----|--------|-----|
+| 1    | 1  | []       | [1]     | 1   | 1      | 1.0 |
+| 2    | 10 | [1]      | [1,10]  | 11  | 2      | 5.5 |
+| 3    | 3  | [1,10]   | [1,10,3]| 14  | 3      | 4.67|
+| 4    | 5  | [1,10,3] | [10,3,5]| 18  | 3      | 6.0 |
+
+- When q exceeds size, remove oldest element.
+
+---
 
 ## 📘 Sample Problem 1: Moving Average from Data Stream
 
@@ -59,7 +106,35 @@ class MovingAverage:
             self.sum -= self.q.popleft()  # Remove oldest if over size
         return self.sum / len(self.q)     # Return current average
 # Time complexity: O(1) per operation, Space complexity: O(k)
+
+# Example:
+ma = MovingAverage(3)
+print(ma.next(1))   # Output: 1.0
+print(ma.next(10))  # Output: 5.5
+print(ma.next(3))   # Output: 4.67
+print(ma.next(5))   # Output: 6.0
 ```
+
+---
+
+## 🧩 Sliding Window Maximum Flow
+
+Suppose nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3
+
+| i | nums[i] | q before | nums[q[-1]] < nums[i]? | q after | q[0] == i-k? | res |
+|---|---------|----------|------------------------|---------|--------------|-----|
+| 0 | 1       | []       | -                      | [0]     | 0 == -3?     | []  |
+| 1 | 3       | [0]      | 1 < 3                  | [1]     | 1 == -2?     | []  |
+| 2 | -1      | [1]      | 3 < -1                 | [1,2]   | 1 == -1?     | [3] |
+| 3 | -3      | [1,2]    | -1 < -3                | [1,2,3] | 1 == 0?      | [3] |
+| 4 | 5       | [1,2,3]  | -3 < 5, -1 < 5, 3 < 5 | [4]     | 4 == 1?      | [3,3]|
+| 5 | 3       | [4]      | 5 < 3                  | [4,5]   | 4 == 2?      | [3,3,5]|
+| 6 | 6       | [4,5]    | 3 < 6, 5 < 6           | [6]     | 6 == 3?      | [3,3,5,5]|
+| 7 | 7       | [6]      | 6 < 7                  | [7]     | 7 == 4?      | [3,3,5,5,6]|
+
+- Result: [3, 3, 5, 5, 6, 7]
+
+---
 
 ## 📘 Sample Problem 2: Sliding Window Maximum
 
@@ -82,7 +157,14 @@ def max_sliding_window(nums, k):
             res.append(nums[q[0]])  # The front is the max in window
     return res
 # Time complexity: O(n), Space complexity: O(k)
+
+# Example:
+nums = [1, 3, -1, -3, 5, 3, 6, 7]
+k = 3
+print(max_sliding_window(nums, k))  # Output: [3, 3, 5, 5, 6, 7]
 ```
+
+---
 
 ## 🔁 Variants
 
