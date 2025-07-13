@@ -139,14 +139,14 @@ print(climb_stairs(n))  # Output: 5
 
 ```mermaid
 graph TD
-    Start[Start: i=1, w=1..5]
-    I1[Item 1: w=1, v=15]
-    D1[dp[1][w] = max(dp[0][w], 15 + dp[0][w-1])]
-    I2[Item 2: w=3, v=20]
-    D2[dp[2][w] = max(dp[1][w], 20 + dp[1][w-3])]
-    I3[Item 3: w=4, v=30]
-    D3[dp[3][w] = max(dp[2][w], 30 + dp[2][w-4])]
-    Result[Result: dp[3][5] = 45]
+    Start[Start: i=1 w=1 to 5]
+    I1[Item 1: w=1 v=15]
+    D1[dp1w = max dp0w 15 + dp0w-1]
+    I2[Item 2: w=3 v=20]
+    D2[dp2w = max dp1w 20 + dp1w-3]
+    I3[Item 3: w=4 v=30]
+    D3[dp3w = max dp2w 30 + dp2w-4]
+    Result[Result: dp35 = 45]
 
     Start --> I1 --> D1 --> I2 --> D2 --> I3 --> D3 --> Result
     style Result fill:#99ff99
