@@ -20,14 +20,14 @@ The Sliding Window technique efficiently solves problems involving contiguous su
 ## 🛠️ How to Use (Python)
 
 ```python
-# Example: Max sum of subarray of size k
-
+# Example: Max sum of subarray of size k using sliding window
 def max_sum_subarray(nums, k):
-    max_sum = cur_sum = sum(nums[:k])
+    max_sum = cur_sum = sum(nums[:k])  # Sum of first window
     for i in range(k, len(nums)):
-        cur_sum += nums[i] - nums[i - k]
-        max_sum = max(max_sum, cur_sum)
+        cur_sum += nums[i] - nums[i - k]  # Slide window: add new, remove old
+        max_sum = max(max_sum, cur_sum)   # Update max if needed
     return max_sum
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 📦 Use Cases
@@ -42,15 +42,17 @@ def max_sum_subarray(nums, k):
 > Return length of the longest substring without repeating characters.
 
 ```python
+# This function finds the length of the longest substring without repeating characters.
 def length_of_longest_substring(s):
-    seen = {}
+    seen = {}  # Dictionary to store last seen index of each character
     left = max_len = 0
     for right, char in enumerate(s):
         if char in seen and seen[char] >= left:
-            left = seen[char] + 1
-        seen[char] = right
+            left = seen[char] + 1  # Move left pointer after last occurrence
+        seen[char] = right         # Update last seen index
         max_len = max(max_len, right - left + 1)
     return max_len
+# Time complexity: O(n), Space complexity: O(min(n, m)), m = charset size
 ```
 
 ## 📘 Sample Problem 2: Minimum Window Substring
@@ -60,10 +62,11 @@ def length_of_longest_substring(s):
 ```python
 from collections import Counter
 
+# This function finds the minimum window substring containing all characters of t.
 def min_window(s, t):
     if not s or not t:
         return ""
-    t_count = Counter(t)
+    t_count = Counter(t)  # Count of chars in t
     window = {}
     have, need = 0, len(t_count)
     res = [-1, -1]
@@ -85,6 +88,7 @@ def min_window(s, t):
 
     l, r = res
     return s[l:r+1] if res_len != float("inf") else ""
+# Time complexity: O(n), Space complexity: O(m), m = charset size
 ```
 
 ## 🔁 Variants

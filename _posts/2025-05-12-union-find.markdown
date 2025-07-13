@@ -5,7 +5,7 @@ categories: [data-structures]
 tags: [union-find, disjoint-set, python]
 ---
 
-# Union-Find (Disjoint Set)
+A **Union-Find** (also called **Disjoint Set Union**, or **DSU**) is a data structure that efficiently manages a collection of disjoint (non-overlapping) sets. It supports two main operations: **finding** which set a particular element belongs to, and **uniting** (merging) two sets together. Union-Find is widely used in algorithms that need to track connectivity or groupings, such as in network connectivity, Kruskal’s algorithm for minimum spanning trees, and cycle detection in graphs. With optimizations like **path compression** and **union by rank**, both operations can be performed in nearly constant time.
 
 ## ✅ What It Is
 

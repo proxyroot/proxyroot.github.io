@@ -33,14 +33,16 @@ Divide & Conquer is a recursive algorithm design paradigm that breaks problems i
 ## 📘 Sample Problem 1: Merge Sort
 
 ```python
+# This function sorts an array using the merge sort algorithm (divide and conquer).
 def merge_sort(arr):
     if len(arr) <= 1:
-        return arr
+        return arr  # Base case: already sorted
     mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-    return merge(left, right)
+    left = merge_sort(arr[:mid])    # Sort left half
+    right = merge_sort(arr[mid:])   # Sort right half
+    return merge(left, right)       # Merge sorted halves
 
+# Helper function to merge two sorted arrays
 def merge(left, right):
     result = []
     i = j = 0
@@ -51,9 +53,10 @@ def merge(left, right):
         else:
             result.append(right[j])
             j += 1
-    result.extend(left[i:])
+    result.extend(left[i:])  # Add remaining elements
     result.extend(right[j:])
     return result
+# Time complexity: O(n log n), Space: O(n)
 ```
 
 ## 📘 Sample Problem 2: Count Inversions
@@ -61,10 +64,11 @@ def merge(left, right):
 > Count the number of pairs (i, j) such that i < j and arr[i] > arr[j].
 
 ```python
+# This function counts the number of inversions in an array using merge sort.
 def count_inversions(arr):
     def merge_sort(nums):
         if len(nums) <= 1:
-            return nums, 0
+            return nums, 0  # Base case: no inversions
         mid = len(nums) // 2
         left, inv_left = merge_sort(nums[:mid])
         right, inv_right = merge_sort(nums[mid:])
@@ -80,7 +84,7 @@ def count_inversions(arr):
                 i += 1
             else:
                 merged.append(right[j])
-                inv_count += len(left) - i
+                inv_count += len(left) - i  # Count inversions
                 j += 1
         merged += left[i:]
         merged += right[j:]
@@ -88,6 +92,7 @@ def count_inversions(arr):
 
     _, total_inv = merge_sort(arr)
     return total_inv
+# Time complexity: O(n log n), Space: O(n)
 ```
 
 ## 🔁 Variants

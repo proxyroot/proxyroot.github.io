@@ -21,18 +21,18 @@ The Two Pointers technique uses two indices to efficiently solve problems involv
 
 ```python
 # Example: check if array has a pair that sums to target (array must be sorted)
-
 def has_pair_with_sum(arr, target):
-    left, right = 0, len(arr) - 1
+    left, right = 0, len(arr) - 1  # Start with two pointers at both ends
     while left < right:
-        s = arr[left] + arr[right]
+        s = arr[left] + arr[right]  # Sum of the two elements
         if s == target:
-            return True
+            return True  # Found a pair
         elif s < target:
-            left += 1
+            left += 1    # Move left pointer to increase sum
         else:
-            right -= 1
-    return False
+            right -= 1   # Move right pointer to decrease sum
+    return False  # No pair found
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 📦 Use Cases
@@ -47,12 +47,14 @@ def has_pair_with_sum(arr, target):
 > Move all 0s to the end of the array while maintaining the relative order of non-zero elements.
 
 ```python
+# This function moves all zeroes to the end of the list in-place.
 def move_zeroes(nums):
-    left = 0
+    left = 0  # Position to place the next non-zero element
     for right in range(len(nums)):
         if nums[right] != 0:
-            nums[left], nums[right] = nums[right], nums[left]
+            nums[left], nums[right] = nums[right], nums[left]  # Swap
             left += 1
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 📘 Sample Problem 2: Valid Palindrome
@@ -62,15 +64,17 @@ def move_zeroes(nums):
 ```python
 import re
 
+# This function checks if a string is a palindrome, ignoring non-alphanumeric characters.
 def is_palindrome(s):
-    s = re.sub('[^a-zA-Z0-9]', '', s).lower()
+    s = re.sub('[^a-zA-Z0-9]', '', s).lower()  # Remove non-alphanumeric and lowercase
     left, right = 0, len(s) - 1
     while left < right:
         if s[left] != s[right]:
-            return False
+            return False  # Mismatch found
         left += 1
         right -= 1
-    return True
+    return True  # All characters matched
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 🔁 Variants

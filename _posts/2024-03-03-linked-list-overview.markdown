@@ -24,13 +24,15 @@ Each node contains:
 ## 🛠️ How to Use (Python)
 
 ```python
+# Basic singly linked list node and creation in Python
 class ListNode:
     def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+        self.val = val      # Value of the node
+        self.next = next    # Pointer to the next node
 
-# Create list: 1 → 2 → 3
+# Create a linked list: 1 → 2 → 3
 head = ListNode(1, ListNode(2, ListNode(3)))
+# Traversal and most operations are O(n)
 ```
 
 ## 📦 Use Cases
@@ -45,15 +47,17 @@ head = ListNode(1, ListNode(2, ListNode(3)))
 > Reverse a singly linked list.
 
 ```python
+# This function reverses a singly linked list.
 def reverse_list(head):
     prev = None
     curr = head
     while curr:
-        next_node = curr.next
-        curr.next = prev
-        prev = curr
-        curr = next_node
-    return prev
+        next_node = curr.next      # Store next node
+        curr.next = prev          # Reverse the link
+        prev = curr               # Move prev forward
+        curr = next_node          # Move curr forward
+    return prev                   # New head of reversed list
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 📘 Sample Problem 2: Detect Cycle
@@ -61,14 +65,16 @@ def reverse_list(head):
 > Return True if the linked list has a cycle.
 
 ```python
+# This function detects if a linked list has a cycle using two pointers.
 def has_cycle(head):
     slow = fast = head
     while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
+        slow = slow.next         # Move slow by 1
+        fast = fast.next.next    # Move fast by 2
         if slow == fast:
-            return True
-    return False
+            return True          # Cycle detected
+    return False                 # No cycle
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 🔁 Variants

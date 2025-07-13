@@ -21,17 +21,20 @@ In Python, use `heapq` (which is a min-heap by default).
 ## 🛠️ How to Use (Python)
 
 ```python
+# Basic heap (priority queue) operations in Python
+# - Use heapq for min-heap, use negative values for max-heap
 import heapq
 
 heap = []
-heapq.heappush(heap, 3)
-heapq.heappush(heap, 1)
-heapq.heappush(heap, 4)
-heapq.heappop(heap)     # returns 1 (smallest)
+heapq.heappush(heap, 3)    # Push 3 onto the heap
+heapq.heappush(heap, 1)    # Push 1 onto the heap
+heapq.heappush(heap, 4)    # Push 4 onto the heap
+heapq.heappop(heap)        # Pop and return the smallest item (returns 1)
 
 # Max-heap: insert negative values
-heapq.heappush(heap, -val)
-heapq.heappop(heap) * -1
+heapq.heappush(heap, -5)   # Push -5 (acts as 5 in max-heap)
+-heapq.heappop(heap)       # Pop and return the largest item (returns 5)
+# All heap operations above are O(log n)
 ```
 
 ## 📦 Use Cases
@@ -48,13 +51,15 @@ heapq.heappop(heap) * -1
 ```python
 import heapq
 
+# This function finds the kth largest element using a min-heap of size k.
 def find_kth_largest(nums, k):
-    heap = nums[:k]
-    heapq.heapify(heap)
+    heap = nums[:k]              # Take first k elements
+    heapq.heapify(heap)          # Heapify them (min-heap)
     for num in nums[k:]:
         if num > heap[0]:
-            heapq.heappushpop(heap, num)
-    return heap[0]
+            heapq.heappushpop(heap, num)  # Replace smallest if current is bigger
+    return heap[0]               # The root is the kth largest
+# Time complexity: O(n log k), Space complexity: O(k)
 ```
 
 ## 📘 Sample Problem 2: Merge K Sorted Lists
@@ -64,11 +69,12 @@ def find_kth_largest(nums, k):
 ```python
 import heapq
 
+# This function merges k sorted linked lists using a heap.
 def merge_k_lists(lists):
     heap = []
     for i, node in enumerate(lists):
         if node:
-            heapq.heappush(heap, (node.val, i, node))
+            heapq.heappush(heap, (node.val, i, node))  # Push (value, list index, node)
 
     dummy = curr = ListNode(0)
     while heap:
@@ -78,6 +84,8 @@ def merge_k_lists(lists):
         if node.next:
             heapq.heappush(heap, (node.next.val, i, node.next))
     return dummy.next
+# Time complexity: O(N log k), where N = total nodes, k = number of lists
+# Space complexity: O(k)
 ```
 
 ## 🔁 Variants

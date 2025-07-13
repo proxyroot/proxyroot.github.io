@@ -24,14 +24,16 @@ Graphs are commonly represented using:
 ## 🛠️ How to Use (Python)
 
 ```python
-# Directed unweighted graph (adjacency list)
+# Example of a directed, unweighted graph using an adjacency list (dictionary)
 graph = {
-    'A': ['B', 'C'],
-    'B': ['D'],
-    'C': ['E'],
-    'D': [],
-    'E': ['D']
+    'A': ['B', 'C'],  # Node A points to B and C
+    'B': ['D'],       # Node B points to D
+    'C': ['E'],       # Node C points to E
+    'D': [],          # Node D has no outgoing edges
+    'E': ['D']        # Node E points to D
 }
+# Access neighbors: graph['A'] returns ['B', 'C']
+# All operations above are O(1) for lookup, O(k) for iterating neighbors
 ```
 
 ## 📦 Use Cases

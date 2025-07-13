@@ -22,15 +22,16 @@ Topological Sort is a method for ordering the nodes of a directed acyclic graph 
 ```python
 from collections import defaultdict, deque
 
+# Kahn's algorithm for topological sort using in-degree and BFS
 def topological_sort_kahn(vertices, edges):
-    in_degree = {v: 0 for v in vertices}
+    in_degree = {v: 0 for v in vertices}  # Initialize in-degree of all vertices
     graph = defaultdict(list)
     
     for u, v in edges:
         graph[u].append(v)
-        in_degree[v] += 1
+        in_degree[v] += 1  # Count incoming edges
 
-    queue = deque([v for v in vertices if in_degree[v] == 0])
+    queue = deque([v for v in vertices if in_degree[v] == 0])  # Start with nodes with 0 in-degree
     order = []
 
     while queue:
@@ -41,12 +42,14 @@ def topological_sort_kahn(vertices, edges):
             if in_degree[neighbor] == 0:
                 queue.append(neighbor)
 
-    return order if len(order) == len(vertices) else []  # return empty if cycle
+    return order if len(order) == len(vertices) else []  # Return empty if cycle
+# Time complexity: O(V + E), Space: O(V + E)
 ```
 
 ## 🛠️ DFS-based Topological Sort
 
 ```python
+# Topological sort using DFS and post-order stack
 def topological_sort_dfs(graph):
     visited = set()
     order = []
@@ -57,13 +60,14 @@ def topological_sort_dfs(graph):
         visited.add(node)
         for neighbor in graph[node]:
             dfs(neighbor)
-        order.append(node)
+        order.append(node)  # Post-order
 
     for node in graph:
         if node not in visited:
             dfs(node)
 
-    return order[::-1]  # reverse post-order
+    return order[::-1]  # Reverse post-order
+# Time complexity: O(V + E), Space: O(V + E)
 ```
 
 ## 📦 Use Cases
@@ -77,6 +81,9 @@ def topological_sort_dfs(graph):
 > Return a valid order of courses to finish given prerequisites.
 
 ```python
+from collections import defaultdict, deque
+
+# Kahn's algorithm for topological sort using in-degree and BFS
 def find_order(num_courses, prerequisites):
     graph = defaultdict(list)
     in_degree = [0] * num_courses

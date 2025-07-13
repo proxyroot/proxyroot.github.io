@@ -18,20 +18,20 @@ Backtracking is a problem-solving technique that incrementally builds candidates
 ## 🛠️ How to Use (Python)
 
 ```python
-# Subsets example
-
+# Subsets example using backtracking
 def subsets(nums):
     res = []
 
     def backtrack(start, path):
-        res.append(path[:])
+        res.append(path[:])  # Add current subset
         for i in range(start, len(nums)):
-            path.append(nums[i])
-            backtrack(i + 1, path)
-            path.pop()
+            path.append(nums[i])         # Choose
+            backtrack(i + 1, path)       # Explore
+            path.pop()                   # Un-choose (backtrack)
 
     backtrack(0, [])
     return res
+# Time complexity: O(2^n), Space complexity: O(n) for recursion stack
 ```
 
 ## 📦 Use Cases
@@ -46,6 +46,7 @@ def subsets(nums):
 > Return all permutations of a list of numbers.
 
 ```python
+# This function returns all permutations of a list using backtracking.
 def permute(nums):
     res = []
     def backtrack(path, used):
@@ -62,6 +63,7 @@ def permute(nums):
 
     backtrack([], [False] * len(nums))
     return res
+# Time complexity: O(n!), Space complexity: O(n) for recursion stack
 ```
 
 ## 📘 Sample Problem 2: N-Queens
@@ -69,6 +71,7 @@ def permute(nums):
 > Place N queens on an N×N board such that no two queens attack each other.
 
 ```python
+# This function solves the N-Queens problem using backtracking.
 def solve_n_queens(n):
     res = []
     board = ["." * n for _ in range(n)]
@@ -86,6 +89,7 @@ def solve_n_queens(n):
 
     backtrack(0, set(), set(), set())
     return res
+# Time complexity: O(n!), Space complexity: O(n^2) for board
 ```
 
 ## 🔁 Variants

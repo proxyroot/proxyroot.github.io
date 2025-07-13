@@ -19,14 +19,16 @@ In Python:
 ## 🛠️ How to Use (Python)
 
 ```python
+# Basic queue and deque operations in Python
+# - Use collections.deque for efficient queue and deque behavior
 from collections import deque
 
 q = deque()
-q.append(1)     # enqueue
-q.popleft()     # dequeue
-
-q.appendleft(2) # add to front
-q.pop()         # remove from end
+q.append(1)         # Enqueue 1 at the end
+q.popleft()         # Dequeue from the front
+q.appendleft(2)     # Add 2 to the front
+q.pop()             # Remove from the end
+# All operations above are O(1)
 ```
 
 ## 📦 Use Cases
@@ -43,18 +45,20 @@ q.pop()         # remove from end
 ```python
 from collections import deque
 
+# This class maintains a moving average of the last k elements.
 class MovingAverage:
     def __init__(self, size):
-        self.q = deque()
+        self.q = deque()  # Store the last k elements
         self.k = size
-        self.sum = 0
+        self.sum = 0      # Keep running sum
 
     def next(self, val):
         self.q.append(val)
         self.sum += val
         if len(self.q) > self.k:
-            self.sum -= self.q.popleft()
-        return self.sum / len(self.q)
+            self.sum -= self.q.popleft()  # Remove oldest if over size
+        return self.sum / len(self.q)     # Return current average
+# Time complexity: O(1) per operation, Space complexity: O(k)
 ```
 
 ## 📘 Sample Problem 2: Sliding Window Maximum
@@ -64,18 +68,20 @@ class MovingAverage:
 ```python
 from collections import deque
 
+# This function finds the maximum in each sliding window of size k.
 def max_sliding_window(nums, k):
-    q = deque()
+    q = deque()  # Store indices of useful elements
     res = []
     for i, n in enumerate(nums):
         while q and nums[q[-1]] < n:
-            q.pop()
+            q.pop()  # Remove indices whose values are less than current
         q.append(i)
         if q[0] == i - k:
-            q.popleft()
+            q.popleft()  # Remove indices out of the window
         if i >= k - 1:
-            res.append(nums[q[0]])
+            res.append(nums[q[0]])  # The front is the max in window
     return res
+# Time complexity: O(n), Space complexity: O(k)
 ```
 
 ## 🔁 Variants

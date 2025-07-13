@@ -16,9 +16,13 @@ Greedy algorithms build solutions step by step by making the locally optimal cho
 
 ## 🛠️ How to Use (General Approach)
 
-1. Sort items if needed (by weight, value, time, etc.)
-2. Iterate and make the best local decision
-3. Use greedy decisions to construct the final solution
+```python
+# General greedy algorithm steps:
+# 1. Sort items if needed (by weight, value, time, etc.)
+# 2. Iterate and make the best local decision
+# 3. Use greedy decisions to construct the final solution
+# Time complexity depends on the problem (often O(n log n) due to sorting)
+```
 
 ## 📦 Use Cases
 
@@ -33,14 +37,16 @@ Greedy algorithms build solutions step by step by making the locally optimal cho
 > Given intervals, choose the maximum number of non-overlapping ones.
 
 ```python
+# This function selects the maximum number of non-overlapping intervals.
 def activity_selection(intervals):
-    intervals.sort(key=lambda x: x[1])  # sort by end time
+    intervals.sort(key=lambda x: x[1])  # Sort by end time
     count = end = 0
     for start, finish in intervals:
         if start >= end:
             count += 1
-            end = finish
+            end = finish  # Update end to the current interval's finish
     return count
+# Time complexity: O(n log n) (for sorting), Space: O(1)
 ```
 
 ## 📘 Sample Problem 2: Jump Game
@@ -48,13 +54,15 @@ def activity_selection(intervals):
 > You’re given an array where each element is max jump length. Can you reach the last index?
 
 ```python
+# This function checks if you can reach the last index using a greedy approach.
 def can_jump(nums):
-    reach = 0
+    reach = 0  # Farthest index we can reach so far
     for i, num in enumerate(nums):
         if i > reach:
-            return False
-        reach = max(reach, i + num)
+            return False  # Can't reach this index
+        reach = max(reach, i + num)  # Update farthest reach
     return True
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 🔁 Variants

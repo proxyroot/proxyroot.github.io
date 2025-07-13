@@ -21,21 +21,22 @@ Segment Trees and Fenwick Trees (Binary Indexed Trees) are advanced data structu
 ## 🛠️ Segment Tree (Python)
 
 ```python
+# Implementation of a Segment Tree for range sum queries and point updates
 class SegmentTree:
     def __init__(self, nums):
         self.n = len(nums)
         self.tree = [0] * (2 * self.n)
         for i in range(self.n):
-            self.tree[self.n + i] = nums[i]
+            self.tree[self.n + i] = nums[i]  # Insert leaves
         for i in range(self.n - 1, 0, -1):
-            self.tree[i] = self.tree[2 * i] + self.tree[2 * i + 1]
+            self.tree[i] = self.tree[2 * i] + self.tree[2 * i + 1]  # Build tree
 
     def update(self, index, value):
         index += self.n
-        self.tree[index] = value
+        self.tree[index] = value  # Update leaf
         while index > 1:
             index //= 2
-            self.tree[index] = self.tree[2 * index] + self.tree[2 * index + 1]
+            self.tree[index] = self.tree[2 * index] + self.tree[2 * index + 1]  # Update parents
 
     def query(self, left, right):  # [left, right)
         result = 0
@@ -51,11 +52,13 @@ class SegmentTree:
             left //= 2
             right //= 2
         return result
+# Time complexity: O(log n) for update/query, Space: O(n)
 ```
 
 ## 🛠️ Fenwick Tree (Python)
 
 ```python
+# Implementation of a Fenwick Tree (Binary Indexed Tree) for prefix sums
 class FenwickTree:
     def __init__(self, size):
         self.tree = [0] * (size + 1)
@@ -63,19 +66,20 @@ class FenwickTree:
     def update(self, index, delta):
         index += 1
         while index < len(self.tree):
-            self.tree[index] += delta
-            index += index & -index
+            self.tree[index] += delta  # Add delta to index
+            index += index & -index    # Move to parent
 
     def query(self, index):
         index += 1
         result = 0
         while index:
-            result += self.tree[index]
-            index -= index & -index
+            result += self.tree[index]  # Add value at index
+            index -= index & -index     # Move to parent
         return result
 
     def range_query(self, left, right):
         return self.query(right) - self.query(left - 1)
+# Time complexity: O(log n) for update/query, Space: O(n)
 ```
 
 ## 📦 Use Cases

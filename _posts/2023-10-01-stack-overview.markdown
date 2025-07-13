@@ -21,12 +21,15 @@ In Python, use `list` or `collections.deque`.
 ## 🛠️ How to Use (Python)
 
 ```python
+# Basic stack operations in Python
+# - Use a list to push, pop, peek, and check if empty
 stack = []
-stack.append(1)    # push
-stack.append(2)
-stack.pop()        # pop → 2
-stack[-1]          # peek → 1
-not stack          # check if empty
+stack.append(1)    # Push 1 onto the stack
+stack.append(2)    # Push 2 onto the stack
+stack.pop()        # Pop the top element (returns 2)
+stack[-1]          # Peek at the top element (returns 1)
+not stack          # Check if the stack is empty (returns False)
+# All stack operations above are O(1)
 ```
 
 ## 📦 Use Cases
@@ -41,15 +44,17 @@ not stack          # check if empty
 > Given a string of brackets, return true if they are validly nested.
 
 ```python
+# This function checks if a string of brackets is validly nested using a stack.
 def is_valid(s):
     stack = []
-    mapping = {')': '(', ']': '[', '}': '{'}
+    mapping = {')': '(', ']': '[', '}': '{'}  # Map closing to opening brackets
     for char in s:
         if char in mapping.values():
-            stack.append(char)
+            stack.append(char)  # Push opening bracket
         elif not stack or mapping[char] != stack.pop():
-            return False
-    return not stack
+            return False  # Mismatch or stack empty
+    return not stack  # True if all brackets matched
+# Time complexity: O(n), Space complexity: O(n)
 ```
 
 ## 📘 Sample Problem 2: Daily Temperatures
@@ -57,15 +62,17 @@ def is_valid(s):
 > Return an array where result[i] is the number of days until a warmer temperature.
 
 ```python
+# This function returns, for each day, how many days until a warmer temperature.
 def daily_temperatures(temps):
     res = [0] * len(temps)
-    stack = []  # stores indices
+    stack = []  # Stack to store indices of unresolved days
     for i, temp in enumerate(temps):
         while stack and temps[i] > temps[stack[-1]]:
             prev = stack.pop()
-            res[prev] = i - prev
+            res[prev] = i - prev  # Calculate days waited
         stack.append(i)
     return res
+# Time complexity: O(n), Space complexity: O(n)
 ```
 
 ## 🔁 Variants

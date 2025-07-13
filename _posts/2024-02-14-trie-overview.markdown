@@ -15,11 +15,13 @@ A **Trie** is a tree-like data structure used to efficiently store and retrieve 
 - Efficient for autocomplete, dictionary matching, etc.
 
 ## 🛠️ How to Use (Python)
+
 ```python
+# Implementation of a Trie (Prefix Tree) in Python
 class TrieNode:
     def __init__(self):
-        self.children = {}
-        self.is_end = False
+        self.children = {}  # Dictionary mapping char to TrieNode
+        self.is_end = False # True if node represents end of a word
 
 class Trie:
     def __init__(self):
@@ -29,25 +31,26 @@ class Trie:
         node = self.root
         for char in word:
             if char not in node.children:
-                node.children[char] = TrieNode()
+                node.children[char] = TrieNode()  # Create node if not present
             node = node.children[char]
-        node.is_end = True
+        node.is_end = True  # Mark end of word
 
     def search(self, word):
         node = self.root
         for char in word:
             if char not in node.children:
-                return False
+                return False  # Char not found
             node = node.children[char]
-        return node.is_end
+        return node.is_end  # True if end of word
 
     def starts_with(self, prefix):
         node = self.root
         for char in prefix:
             if char not in node.children:
-                return False
+                return False  # Prefix not found
             node = node.children[char]
-        return True
+        return True  # Prefix exists
+# All operations above are O(L), where L is the length of the word/prefix
 ```
 
 ## 📦 Use Cases

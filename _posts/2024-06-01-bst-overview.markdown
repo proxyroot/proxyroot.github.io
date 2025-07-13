@@ -19,21 +19,23 @@ This structure allows **efficient search, insert, and delete** in `O(log n)` ave
 ## 🛠️ How to Use (Python)
 
 ```python
+# Definition of a binary search tree node and insert function
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+        self.val = val      # Value of the node
+        self.left = left    # Left child
+        self.right = right  # Right child
 
-# Insert into BST
+# Insert a value into the BST
 def insert(root, val):
     if not root:
-        return TreeNode(val)
+        return TreeNode(val)  # Create new node if tree is empty
     if val < root.val:
-        root.left = insert(root.left, val)
+        root.left = insert(root.left, val)   # Insert in left subtree
     else:
-        root.right = insert(root.right, val)
+        root.right = insert(root.right, val) # Insert in right subtree
     return root
+# Time complexity: O(h), h = height of tree (O(log n) if balanced, O(n) worst case)
 ```
 
 ## 📦 Use Cases

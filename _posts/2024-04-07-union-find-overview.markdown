@@ -21,21 +21,24 @@ With **path compression** and **union by rank**, both operations run in nearly c
 ## 🛠️ How to Use (Python)
 
 ```python
+# Implementation of Union-Find (Disjoint Set) with path compression and union by rank
 class UnionFind:
     def __init__(self, size):
-        self.parent = list(range(size))
-        self.rank = [0] * size
+        self.parent = list(range(size))  # Each node is its own parent initially
+        self.rank = [0] * size           # Used to keep tree flat
 
     def find(self, x):
+        # Find the root of x with path compression
         if self.parent[x] != x:
-            self.parent[x] = self.find(self.parent[x])  # path compression
+            self.parent[x] = self.find(self.parent[x])  # Path compression
         return self.parent[x]
 
     def union(self, x, y):
+        # Union by rank: attach smaller tree to larger
         rootX = self.find(x)
         rootY = self.find(y)
         if rootX == rootY:
-            return False
+            return False  # Already in the same set
         if self.rank[rootX] < self.rank[rootY]:
             self.parent[rootX] = rootY
         elif self.rank[rootX] > self.rank[rootY]:
@@ -44,6 +47,7 @@ class UnionFind:
             self.parent[rootY] = rootX
             self.rank[rootX] += 1
         return True
+# All operations above are nearly O(1) due to path compression and union by rank
 ```
 
 ## 📦 Use Cases

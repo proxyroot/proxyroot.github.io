@@ -17,13 +17,14 @@ Bit manipulation involves using bitwise operators to perform fast, low-level ope
 ## 🛠️ Common Techniques
 
 ```python
-x & 1          # check if x is odd
-x >> 1         # divide by 2
-x << 1         # multiply by 2
-x ^ y          # flip bits where x and y differ
-x & (x - 1)    # removes the lowest set bit
-x & -x         # isolates the lowest set bit
-bin(x).count("1")  # count set bits
+x & 1          # Check if x is odd (last bit is 1)
+x >> 1         # Divide by 2 (right shift)
+x << 1         # Multiply by 2 (left shift)
+x ^ y          # Flip bits where x and y differ (XOR)
+x & (x - 1)    # Removes the lowest set bit
+x & -x         # Isolates the lowest set bit
+bin(x).count("1")  # Count set bits (Hamming weight)
+# All above are O(1) bitwise operations
 ```
 
 ## 📦 Use Cases
@@ -38,11 +39,13 @@ bin(x).count("1")  # count set bits
 > Every element appears twice except one. Find it.
 
 ```python
+# This function finds the single number that appears only once using XOR.
 def single_number(nums):
     result = 0
     for num in nums:
-        result ^= num
+        result ^= num  # XOR cancels out pairs
     return result
+# Time complexity: O(n), Space complexity: O(1)
 ```
 
 ## 📘 Sample Problem 2: Count Bits
@@ -50,11 +53,13 @@ def single_number(nums):
 > For every number i from 0 to n, return number of set bits.
 
 ```python
+# This function returns a list where each element is the number of set bits in i.
 def count_bits(n):
     dp = [0] * (n + 1)
     for i in range(1, n + 1):
-        dp[i] = dp[i >> 1] + (i & 1)
+        dp[i] = dp[i >> 1] + (i & 1)  # Use previous result and add 1 if last bit is set
     return dp
+# Time complexity: O(n), Space complexity: O(n)
 ```
 
 ## 🔁 Variants
