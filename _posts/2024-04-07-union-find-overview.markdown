@@ -22,32 +22,50 @@ With **path compression** and **union by rank**, both operations run in nearly c
 
 ### Initial State
 
-```
-n = 5 nodes: [0, 1, 2, 3, 4]
-
-Initial parent array: [0, 1, 2, 3, 4]
-Initial rank array:   [0, 0, 0, 0, 0]
-
-Each node is its own parent (singleton sets):
-0    1    2    3    4
+```mermaid
+graph TD
+    subgraph "Initial Union-Find Structure"
+        N0[Node 0<br/>Parent: 0<br/>Rank: 0]
+        N1[Node 1<br/>Parent: 1<br/>Rank: 0]
+        N2[Node 2<br/>Parent: 2<br/>Rank: 0]
+        N3[Node 3<br/>Parent: 3<br/>Rank: 0]
+        N4[Node 4<br/>Parent: 4<br/>Rank: 0]
+    end
+    
+    style N0 fill:#ff9999
+    style N1 fill:#99ccff
+    style N2 fill:#99ff99
+    style N3 fill:#ffcc99
+    style N4 fill:#ff99cc
 ```
 
 ### After Union Operations
 
-```
-union(0, 1): parent[0] = 1, rank[1] = 1
-union(2, 3): parent[2] = 3, rank[3] = 1
-union(1, 2): parent[3] = 1, rank[1] = 2
-
-Final structure:
-    1
-   / \
-  0   3
-       \
-        2
-
-parent: [1, 1, 3, 1, 4]
-rank:   [0, 2, 0, 0, 0]
+```mermaid
+graph TD
+    subgraph "Union Operations"
+        U1[union(0, 1)<br/>parent[0] = 1<br/>rank[1] = 1]
+        U2[union(2, 3)<br/>parent[2] = 3<br/>rank[3] = 1]
+        U3[union(1, 2)<br/>parent[3] = 1<br/>rank[1] = 2]
+    end
+    
+    subgraph "Final Tree Structure"
+        Root[Node 1<br/>Parent: 1<br/>Rank: 2]
+        Left[Node 0<br/>Parent: 1<br/>Rank: 0]
+        Right[Node 3<br/>Parent: 1<br/>Rank: 0]
+        Child[Node 2<br/>Parent: 3<br/>Rank: 0]
+        Isolated[Node 4<br/>Parent: 4<br/>Rank: 0]
+        
+        Root --> Left
+        Root --> Right
+        Right --> Child
+    end
+    
+    style Root fill:#ff9999
+    style Left fill:#99ccff
+    style Right fill:#99ff99
+    style Child fill:#ffcc99
+    style Isolated fill:#ff99cc
 ```
 
 ---

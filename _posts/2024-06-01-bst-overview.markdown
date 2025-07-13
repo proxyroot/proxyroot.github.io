@@ -22,30 +22,63 @@ This structure allows **efficient search, insert, and delete** in `O(log n)` ave
 
 ### Sample BST
 
-```
-Values: [5, 3, 7, 1, 4, 6, 8]
-
-Tree representation:
-       5
-     /   \
-    3     7
-   / \   / \
-  1   4 6   8
-
-BST Properties:
-- Left subtree of 5: [1, 3, 4] (all < 5)
-- Right subtree of 5: [6, 7, 8] (all > 5)
-- Left subtree of 3: [1] (all < 3)
-- Right subtree of 3: [4] (all > 3)
+```mermaid
+graph TD
+    subgraph "Binary Search Tree"
+        Root[5]
+        L1[3]
+        R1[7]
+        LL1[1]
+        LR1[4]
+        RL1[6]
+        RR1[8]
+        
+        Root --> L1
+        Root --> R1
+        L1 --> LL1
+        L1 --> LR1
+        R1 --> RL1
+        R1 --> RR1
+    end
+    
+    subgraph "BST Properties"
+        P1[Left subtree of 5:<br/>[1, 3, 4] all < 5]
+        P2[Right subtree of 5:<br/>[6, 7, 8] all > 5]
+        P3[Left subtree of 3:<br/>[1] all < 3]
+        P4[Right subtree of 3:<br/>[4] all > 3]
+    end
+    
+    style Root fill:#ff9999
+    style L1 fill:#99ccff
+    style R1 fill:#99ff99
 ```
 
 ### BST Operations
 
-```
-Search 4: 5 → 3 → 4 (found)
-Search 9: 5 → 7 → 8 → null (not found)
-Insert 2: 5 → 3 → 1 → right child of 1
-Delete 3: Replace with inorder successor (4)
+```mermaid
+graph TD
+    subgraph "Search Operations"
+        S1[Search 4:<br/>5 → 3 → 4 ✓]
+        S2[Search 9:<br/>5 → 7 → 8 → null ✗]
+    end
+    
+    subgraph "Modification Operations"
+        I1[Insert 2:<br/>5 → 3 → 1 → right child]
+        D1[Delete 3:<br/>Replace with inorder successor (4)]
+    end
+    
+    subgraph "Search Path Visualization"
+        Path1[5] --> Path2[3]
+        Path2 --> Path3[4]
+        Path3 --> Found[Found!]
+        
+        Path4[5] --> Path5[7]
+        Path5 --> Path6[8]
+        Path6 --> NotFound[Not Found]
+    end
+    
+    style Found fill:#99ff99
+    style NotFound fill:#ff9999
 ```
 
 ---

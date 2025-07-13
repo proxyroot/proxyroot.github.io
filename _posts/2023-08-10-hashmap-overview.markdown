@@ -20,15 +20,29 @@ A **HashMap** (or `dict` in Python) is a data structure that maps **keys to valu
 
 A hashmap stores key-value pairs in buckets:
 
+```mermaid
+graph TD
+    subgraph "Hash Function: h(key) = key % 5"
+        K1["name"] --> H1[Hash: 4]
+        K2["age"] --> H2[Hash: 1]
+        K3["city"] --> H3[Hash: 4]
+    end
+    
+    subgraph "Hash Table Buckets"
+        B0[Bucket 0<br/>Empty]
+        B1[Bucket 1<br/>age: 25]
+        B2[Bucket 2<br/>Empty]
+        B3[Bucket 3<br/>Empty]
+        B4[Bucket 4<br/>name: Alice<br/>city: NYC]
+    end
+    
+    H1 --> B4
+    H2 --> B1
+    H3 --> B4
+    
+    style B4 fill:#ff9999
+    style B1 fill:#99ccff
 ```
-Hash Function: h(key) = key % 5
-
-Key: "name" → Hash: 4 → Bucket 4: ("name", "Alice")
-Key: "age"  → Hash: 1 → Bucket 1: ("age", 25)
-Key: "city" → Hash: 4 → Bucket 4: ("name", "Alice") → ("city", "NYC")
-```
-
-- Collisions are handled by chaining (linked lists in buckets).
 
 ---
 
