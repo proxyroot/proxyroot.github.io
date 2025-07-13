@@ -29,7 +29,7 @@ graph LR
         D --> E[dp[4] = 3<br/>dp[3] + dp[2]]
         E --> F[dp[5] = 5<br/>dp[4] + dp[3]]
     end
-    
+
     subgraph "Final DP Table"
         G[Index: 0] --> H[Value: 0]
         I[Index: 1] --> J[Value: 1]
@@ -38,10 +38,10 @@ graph LR
         O[Index: 4] --> P[Value: 3]
         Q[Index: 5] --> R[Value: 5]
     end
-    
-    style A fill:#ff9999
-    style B fill:#ff9999
-    style F fill:#99ff99
+
+    style A fill:#ffcccc,stroke:#333,stroke-width:1px
+    style B fill:#ffcccc,stroke:#333,stroke-width:1px
+    style F fill:#ccffcc,stroke:#333,stroke-width:1px
 ```
 
 ### 2D DP Table (Knapsack)

@@ -115,6 +115,18 @@ print(uf.find(4))  # Output: 4
 
 ## 🧩 Union Operations Step-by-Step
 
+```mermaid
+graph TD
+    Start[Start: parent = [0,1,2,3,4], rank = [0,0,0,0,0]]
+    U1[union(0,1): parent[0]=1, rank[1]=1]
+    U2[union(2,3): parent[2]=3, rank[3]=1]
+    U3[union(1,2): parent[3]=1, rank[1]=2]
+    Final[Final: parent=[1,1,3,1,4], rank=[0,2,0,0,0]]
+
+    Start --> U1 --> U2 --> U3 --> Final
+    style Final fill:#99ff99
+```
+
 Suppose n = 5, edges = [(0,1), (2,3), (1,2)]
 
 | Step | edge | find(0) | find(1) | find(2) | find(3) | find(4) | parent | rank |
@@ -129,6 +141,18 @@ Suppose n = 5, edges = [(0,1), (2,3), (1,2)]
 ---
 
 ## 🧩 Connected Components Flow
+
+```mermaid
+graph TD
+    S0[Step 0: Components = 5, Roots = {0,1,2,3,4}]
+    E1[Union (0,1): Components = 4, Roots = {1,2,3,4}]
+    E2[Union (1,2): Components = 3, Roots = {1,3,4}]
+    E3[Union (3,4): Components = 2, Roots = {1,4}]
+    Result[Result: 2 connected components]
+
+    S0 --> E1 --> E2 --> E3 --> Result
+    style Result fill:#99ff99
+```
 
 Suppose n = 5, edges = [(0,1), (1,2), (3,4)]
 
