@@ -48,12 +48,33 @@ graph TD
 
 ### Trie Operations
 
-```
-Insert "cat": root → c → a → t* (mark end)
-Insert "car": root → c → a → r* (mark end)
-Search "cat": root → c → a → t* → return True
-Search "ca":  root → c → a → return False (not end)
-StartsWith "ca": root → c → a → return True
+```mermaid
+graph TD
+    subgraph "Insert Operations"
+        I1[Insert "cat"<br/>root → c → a → t* ✓]
+        I2[Insert "car"<br/>root → c → a → r* ✓]
+    end
+    
+    subgraph "Search Operations"
+        S1[Search "cat"<br/>root → c → a → t* → True]
+        S2[Search "ca"<br/>root → c → a → False]
+        S3[StartsWith "ca"<br/>root → c → a → True]
+    end
+    
+    subgraph "Operation Flow"
+        Op1[Insert] --> Op2[Create nodes]
+        Op2 --> Op3[Mark end]
+        
+        Op4[Search] --> Op5[Follow path]
+        Op5 --> Op6[Check is_end]
+        
+        Op7[StartsWith] --> Op8[Follow path]
+        Op8 --> Op9[Return True]
+    end
+    
+    style I1 fill:#99ff99
+    style S1 fill:#99ccff
+    style S3 fill:#99ccff
 ```
 
 ---

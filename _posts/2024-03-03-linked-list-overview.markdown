@@ -27,26 +27,34 @@ Each node contains:
 
 ### Singly Linked List
 
-```
-Original: 1 → 2 → 3 → 4 → null
-
-Memory representation:
-Node 1: [val=1, next→Node 2]
-Node 2: [val=2, next→Node 3]
-Node 3: [val=3, next→Node 4]
-Node 4: [val=4, next→null]
+```mermaid
+graph LR
+    N1[1] --> N2[2]
+    N2 --> N3[3]
+    N3 --> N4[4]
+    N4 --> Null[null]
+    style N1 fill:#ff9999
+    style N2 fill:#99ccff
+    style N3 fill:#99ff99
+    style N4 fill:#ffcc99
+    style Null fill:#eeeeee
 ```
 
 ### Doubly Linked List
 
-```
-Original: null ← 1 ↔ 2 ↔ 3 ↔ 4 → null
-
-Memory representation:
-Node 1: [prev=null, val=1, next→Node 2]
-Node 2: [prev→Node 1, val=2, next→Node 3]
-Node 3: [prev→Node 2, val=3, next→Node 4]
-Node 4: [prev→Node 3, val=4, next=null]
+```mermaid
+graph LR
+    Null1[null] <--> D1[1]
+    D1 <--> D2[2]
+    D2 <--> D3[3]
+    D3 <--> D4[4]
+    D4 --> Null2[null]
+    style D1 fill:#ff9999
+    style D2 fill:#99ccff
+    style D3 fill:#99ff99
+    style D4 fill:#ffcc99
+    style Null1 fill:#eeeeee
+    style Null2 fill:#eeeeee
 ```
 
 ---
