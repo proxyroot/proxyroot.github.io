@@ -73,6 +73,20 @@ print(sieve(20))    # Output: [2, 3, 5, 7, 11, 13, 17, 19]
 
 ## 🧩 GCD/LCM Step-by-Step
 
+```mermaid
+graph TD
+    Start[Start: a=12, b=18]
+    Step1[Step 1: 12 % 18 = 12<br/>a=18, b=12]
+    Step2[Step 2: 18 % 12 = 6<br/>a=12, b=6]
+    Step3[Step 3: 12 % 6 = 0<br/>a=6, b=0]
+    GCD[GCD = 6]
+    LCM[LCM = 12 × 18 ÷ 6 = 36]
+    Result[Result: GCD=6, LCM=36]
+
+    Start --> Step1 --> Step2 --> Step3 --> GCD --> LCM --> Result
+    style Result fill:#99ff99
+```
+
 ### GCD of 12 and 18 using Euclidean Algorithm
 
 | Step | a  | b  | a % b | New a | New b |
@@ -131,6 +145,20 @@ print(count_primes(n))  # Output: 4 (primes: 2, 3, 5, 7)
 
 ## 🧩 Power of Three Flow
 
+```mermaid
+graph TD
+    Start[Start: n = 27]
+    Step1[Step 1: 27 % 3 = 0<br/>27 ÷ 3 = 9]
+    Step2[Step 2: 9 % 3 = 0<br/>9 ÷ 3 = 3]
+    Step3[Step 3: 3 % 3 = 0<br/>3 ÷ 3 = 1]
+    Step4[Step 4: 1 % 3 = 1<br/>n = 1]
+    Check[Check: n == 1?]
+    Result[Result: True (27 is power of 3)]
+
+    Start --> Step1 --> Step2 --> Step3 --> Step4 --> Check --> Result
+    style Result fill:#99ff99
+```
+
 Suppose n = 27
 
 | Step | n  | n % 3 | n // 3 | Action        |
@@ -161,15 +189,3 @@ def is_power_of_three(n):
 print(is_power_of_three(27))  # Output: True (3³ = 27)
 print(is_power_of_three(10))  # Output: False
 ```
-
----
-
-## 🔁 Variants
-
-- Modular inverse
-- Fermat’s Little Theorem
-- Factorial trailing zeroes
-- Counting divisors / sum of divisors
-
----
-

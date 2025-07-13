@@ -70,6 +70,21 @@ print(q)            # Output: deque([20, 30])
 
 ---
 
+## 🧩 Moving Average Flow
+
+```mermaid
+graph TD
+    Start[Start: window_size = 3]
+    Step1[Step 1: val=1 → q=[1], avg=1.0]
+    Step2[Step 2: val=10 → q=[1,10], avg=5.5]
+    Step3[Step 3: val=3 → q=[1,10,3], avg=4.67]
+    Step4[Step 4: val=5 → q=[10,3,5], avg=6.0]
+    Result[Result: Moving averages calculated]
+
+    Start --> Step1 --> Step2 --> Step3 --> Step4 --> Result
+    style Result fill:#99ff99
+```
+
 ## 🧩 Moving Average Step-by-Step
 
 Suppose size = 3, values = [1, 10, 3, 5]
