@@ -2,7 +2,7 @@
 title: "Memoization Overview"
 date: 2023-07-01
 categories: [algorithms]
-tags: [dp, memoization, optimization, recursion]
+tags: [memoization, dp, dynamic-programming, top-down, optimization, recursion, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, lru-cache, problem-solving, big-o, time-complexity, tabulation, dfs, grid, word-break, fibonacci, climbing-stairs]
 ---
 
 Memoization is an optimization technique that speeds up recursive algorithms by storing and reusing results of expensive function calls. It is a key part of top-down dynamic programming and is especially useful for problems with overlapping subproblems. This post explains how to use memoization, with annotated code and practical examples for beginners.
