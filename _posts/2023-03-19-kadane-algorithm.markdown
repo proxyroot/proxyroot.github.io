@@ -41,12 +41,14 @@ def max_subarray_sum(nums):
 # nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 # print(max_subarray_sum(nums))  # Output: 6 ([4, -1, 2, 1])
 ```
-# Approach:
-# - Maintain a running sum (curr_sum).
-# - At each step, decide whether to extend the current subarray or start fresh.
-# - Keep track of the maximum sum seen so far (max_sum).
-# - If the running sum becomes less than the current number, start a new subarray.
-# - Negative sums are discarded.
+
+## Approach
+
+- Maintain a running sum (curr_sum).
+- At each step, decide whether to extend the current subarray or start fresh.
+- Keep track of the maximum sum seen so far (max_sum).
+- If the running sum becomes less than the current number, start a new subarray.
+- Negative sums are discarded.
 
 ---
 
