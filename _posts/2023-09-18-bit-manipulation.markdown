@@ -20,28 +20,12 @@ Bit manipulation involves using bitwise operators to perform fast, low-level ope
 
 ```mermaid
 graph LR
-    subgraph "Decimal to Binary Conversion"
-        D[Decimal: 13]
-        B[Binary: 1101]
-    end
-    
-    subgraph "Bit Position Analysis"
-        P3[Position 3<br/>Bit: 1<br/>Value: 8]
-        P2[Position 2<br/>Bit: 1<br/>Value: 4]
-        P1[Position 1<br/>Bit: 0<br/>Value: 0]
-        P0[Position 0<br/>Bit: 1<br/>Value: 1]
-    end
-    
-    subgraph "Total Calculation"
-        Sum[8 + 4 + 0 + 1 = 13]
-    end
-    
-    D --> B
-    B --> P3
-    B --> P2
-    B --> P1
-    B --> P0
-    P3 --> Sum
+    D[Decimal13] --> B[Binary1101]
+    B --> P3[Position3Bit1Value8]
+    B --> P2[Position2Bit1Value4]
+    B --> P1[Position1Bit0Value0]
+    B --> P0[Position0Bit1Value1]
+    P3 --> Sum[Sum840113]
     P2 --> Sum
     P1 --> Sum
     P0 --> Sum

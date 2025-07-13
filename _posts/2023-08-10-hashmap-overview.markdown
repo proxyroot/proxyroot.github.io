@@ -22,19 +22,15 @@ A hashmap stores key-value pairs in buckets:
 
 ```mermaid
 graph TD
-    subgraph "Hash Function: h(key) = key % 5"
-        K1["name"] --> H1[Hash: 4]
-        K2["age"] --> H2[Hash: 1]
-        K3["city"] --> H3[Hash: 4]
-    end
+    K1[name] --> H1[Hash4]
+    K2[age] --> H2[Hash1]
+    K3[city] --> H3[Hash4]
     
-    subgraph "Hash Table Buckets"
-        B0[Bucket 0<br/>Empty]
-        B1[Bucket 1<br/>age: 25]
-        B2[Bucket 2<br/>Empty]
-        B3[Bucket 3<br/>Empty]
-        B4[Bucket 4<br/>name: Alice<br/>city: NYC]
-    end
+    B0[Bucket0Empty]
+    B1[Bucket1age25]
+    B2[Bucket2Empty]
+    B3[Bucket3Empty]
+    B4[Bucket4nameAlicecityNYC]
     
     H1 --> B4
     H2 --> B1
@@ -72,17 +68,17 @@ print(d.get("city", "Unknown"))  # Output: Unknown
 
 ```mermaid
 graph TD
-    Start[Start: s = "leetcode"]
-    Step1[Step 1: l → count = {'l': 1}]
-    Step2[Step 2: e → count = {'l': 1, 'e': 1}]
-    Step3[Step 3: e → count = {'l': 1, 'e': 2}]
-    Step4[Step 4: t → count = {'l': 1, 'e': 2, 't': 1}]
-    Step5[Step 5: c → count = {..., 'c': 1}]
-    Step6[Step 6: o → count = {..., 'o': 1}]
-    Step7[Step 7: d → count = {..., 'd': 1}]
-    Step8[Step 8: e → count = {..., 'e': 3}]
-    Check[Check: First char with count 1 is 'l' at index 0]
-    Result[Result: Return 0]
+    Start[Startleetcode]
+    Step1[Step1lcountl1]
+    Step2[Step2ecountle1]
+    Step3[Step3ecountle2]
+    Step4[Step4tcountlet1]
+    Step5[Step5ccountletc1]
+    Step6[Step6ocountletco1]
+    Step7[Step7dcountletcod1]
+    Step8[Step8ecountletcode3]
+    Check[CheckFirstcharcount1islatindex0]
+    Result[ResultReturn0]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8 --> Check --> Result
     style Result fill:#99ff99
@@ -133,17 +129,17 @@ print(first_uniq_char(s))  # Output: 0 (index of 'l')
 
 ```mermaid
 graph TD
-    Start[Start: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]]
-    Eat["eat" → key: "aet"]
-    Tea["tea" → key: "aet"]
-    Tan["tan" → key: "ant"]
-    Ate["ate" → key: "aet"]
-    Nat["nat" → key: "ant"]
-    Bat["bat" → key: "abt"]
-    GroupAet[Group "aet": ["eat", "tea", "ate"]]
-    GroupAnt[Group "ant": ["tan", "nat"]]
-    GroupAbt[Group "abt": ["bat"]]
-    Result[Result: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]]
+    Start[Startstrseatteatanatenatbat]
+    Eat[eatkeyaet]
+    Tea[teakeyaet]
+    Tan[tankeyant]
+    Ate[atekeyaet]
+    Nat[natkeyant]
+    Bat[batkeyabt]
+    GroupAet[Groupaeteatteaate]
+    GroupAnt[Groupanttannat]
+    GroupAbt[Groupabtbat]
+    Result[Resulteatteaateanttannatbat]
 
     Start --> Eat --> GroupAet
     Start --> Tea --> GroupAet
