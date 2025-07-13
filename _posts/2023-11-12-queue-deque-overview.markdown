@@ -22,25 +22,63 @@ In Python:
 
 ### Queue Operations (FIFO)
 
-```
-Initial: []
-Enqueue 1: [1]
-Enqueue 2: [1, 2]
-Enqueue 3: [1, 2, 3]
-Dequeue:   [2, 3]     (returns 1)
-Dequeue:   [3]         (returns 2)
-Peek:      [3]         (returns 3)
+```mermaid
+graph LR
+    Initial[Initial: empty]
+    E1[Enqueue 1]
+    E2[Enqueue 2]
+    E3[Enqueue 3]
+    D1[Dequeue returns 1]
+    D2[Dequeue returns 2]
+    P1[Peek returns 3]
+    
+    Initial --> E1 --> E2 --> E3 --> D1 --> D2 --> P1
+    
+    Q1[Queue: 1]
+    Q2[Queue: 1,2]
+    Q3[Queue: 1,2,3]
+    Q4[Queue: 2,3]
+    Q5[Queue: 3]
+    Q6[Queue: 3]
+    
+    E1 -.-> Q1
+    E2 -.-> Q2
+    E3 -.-> Q3
+    D1 -.-> Q4
+    D2 -.-> Q5
+    P1 -.-> Q6
+    
+    style Initial fill:#f9f9f9
+    style P1 fill:#99ff99
 ```
 
 ### Deque Operations (Double-ended)
 
-```
-Initial: []
-Append 1:  [1]
-Appendleft 2: [2, 1]
-Append 3:    [2, 1, 3]
-Pop:         [2, 1]     (returns 3)
-Popleft:     [1]         (returns 2)
+```mermaid
+graph LR
+    Start[Initial: empty]
+    A1[Append 1]
+    AL2[Appendleft 2]
+    A3[Append 3]
+    P1[Pop returns 3]
+    PL1[Popleft returns 2]
+    
+    Start --> A1 --> AL2 --> A3 --> P1 --> PL1
+    
+    D1[Deque: 1]
+    D2[Deque: 2,1]
+    D3[Deque: 2,1,3]
+    D4[Deque: 2,1]
+    D5[Deque: 1]
+    
+    A1 -.-> D1
+    AL2 -.-> D2
+    A3 -.-> D3
+    P1 -.-> D4
+    PL1 -.-> D5
+    
+    style Start fill:#f9f9f9
+    style PL1 fill:#99ff99
 ```
 
 ---
