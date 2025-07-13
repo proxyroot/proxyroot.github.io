@@ -367,7 +367,7 @@ print(subset_sum_bitmask(nums, target))  # True (subset [2,5] or [3,4])
 
 ```mermaid
 graph TD
-    Start[Start: 3 workers, 3 tasks]
+    Start[Start: 3 workers 3 tasks]
     State1[State 1: Assign task 0 to any worker]
     State2[State 2: Assign task 1 to remaining workers]
     State3[State 3: Assign task 2 to last worker]
