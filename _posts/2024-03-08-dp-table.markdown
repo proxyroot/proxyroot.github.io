@@ -1,0 +1,81 @@
+---
+title: "Dynamic Programming (DP Table)"
+date: 2024-03-08
+categories: [algorithms]
+tags: [dynamic-programming, dp, python]
+---
+
+# Dynamic Programming (DP Table)
+
+## ✅ What It Is
+
+**Dynamic Programming (DP)** is a technique used to solve problems by breaking them down into simpler subproblems and storing the results to avoid redundant computations.
+
+A **DP table** is often used to store solutions to subproblems, typically in a 1D or 2D array.
+
+- Top-down = recursion + memoization
+- Bottom-up = iterative DP table filling
+
+## 🛠️ How to Use (Python)
+
+```python
+# Example: Fibonacci with bottom-up DP
+
+def fib(n):
+    if n <= 1:
+        return n
+    dp = [0] * (n + 1)
+    dp[1] = 1
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n]
+```
+
+## 📦 Use Cases
+
+- Optimization problems
+- Counting problems
+- String matching (edit distance)
+- Knapsack and variants
+- Game theory (minimax + DP)
+
+## 📘 Sample Problem 1: Climbing Stairs
+
+> You can take 1 or 2 steps. How many distinct ways to climb to the top?
+
+```python
+def climb_stairs(n):
+    if n <= 2:
+        return n
+    dp = [0] * (n + 1)
+    dp[1], dp[2] = 1, 2
+    for i in range(3, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n]
+```
+
+## 📘 Sample Problem 2: 0/1 Knapsack
+
+> Given weights, values, and a capacity, find max value you can carry.
+
+```python
+def knapsack(weights, values, capacity):
+    n = len(weights)
+    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        for w in range(capacity + 1):
+            if weights[i - 1] <= w:
+                dp[i][w] = max(dp[i - 1][w], values[i - 1] + dp[i - 1][w - weights[i - 1]])
+            else:
+                dp[i][w] = dp[i - 1][w]
+    return dp[n][capacity]
+```
+
+## 🔁 Variants
+
+- Space optimized (e.g. 1D DP for Fibonacci)
+- State compression (e.g. Bitmask DP)
+- Tabulation vs memoization
+
+---
+
