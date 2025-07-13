@@ -18,26 +18,68 @@ Bit manipulation involves using bitwise operators to perform fast, low-level ope
 
 ### Binary Representation
 
-```
-Decimal: 13
-Binary:  1101
-
-Position: 3 2 1 0
-Bits:     1 1 0 1
-Value:    8+4+0+1 = 13
+```mermaid
+graph LR
+    subgraph "Decimal to Binary Conversion"
+        D[Decimal: 13]
+        B[Binary: 1101]
+    end
+    
+    subgraph "Bit Position Analysis"
+        P3[Position 3<br/>Bit: 1<br/>Value: 8]
+        P2[Position 2<br/>Bit: 1<br/>Value: 4]
+        P1[Position 1<br/>Bit: 0<br/>Value: 0]
+        P0[Position 0<br/>Bit: 1<br/>Value: 1]
+    end
+    
+    subgraph "Total Calculation"
+        Sum[8 + 4 + 0 + 1 = 13]
+    end
+    
+    D --> B
+    B --> P3
+    B --> P2
+    B --> P1
+    B --> P0
+    P3 --> Sum
+    P2 --> Sum
+    P1 --> Sum
+    P0 --> Sum
+    
+    style Sum fill:#99ff99
 ```
 
 ### Common Bitwise Operations
 
-```
-x = 13 (1101), y = 6 (0110)
-
-x & y:  1101 & 0110 = 0100 (4)   # AND: 1 only if both bits are 1
-x | y:  1101 | 0110 = 1111 (15)  # OR: 1 if either bit is 1
-x ^ y:  1101 ^ 0110 = 1011 (11)  # XOR: 1 if bits are different
-~x:     ~1101 = 0010 (-14)       # NOT: flip all bits
-x << 1: 1101 << 1 = 11010 (26)   # Left shift: multiply by 2
-x >> 1: 1101 >> 1 = 0110 (6)     # Right shift: divide by 2
+```mermaid
+graph TD
+    subgraph "Input Values"
+        X[x = 13<br/>Binary: 1101]
+        Y[y = 6<br/>Binary: 0110]
+    end
+    
+    subgraph "Bitwise Operations"
+        AND[x & y<br/>1101 & 0110 = 0100<br/>Result: 4]
+        OR[x | y<br/>1101 | 0110 = 1111<br/>Result: 15]
+        XOR[x ^ y<br/>1101 ^ 0110 = 1011<br/>Result: 11]
+        NOT[~x<br/>~1101 = 0010<br/>Result: -14]
+        LSHIFT[x << 1<br/>1101 << 1 = 11010<br/>Result: 26]
+        RSHIFT[x >> 1<br/>1101 >> 1 = 0110<br/>Result: 6]
+    end
+    
+    X --> AND
+    Y --> AND
+    X --> OR
+    Y --> OR
+    X --> XOR
+    Y --> XOR
+    X --> NOT
+    X --> LSHIFT
+    X --> RSHIFT
+    
+    style AND fill:#ff9999
+    style OR fill:#99ccff
+    style XOR fill:#99ff99
 ```
 
 ---

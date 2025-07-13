@@ -18,22 +18,32 @@ A **Trie** is a tree-like data structure used to efficiently store and retrieve 
 
 ### Sample Trie Structure
 
-```
-Words: ["cat", "car", "dog", "dot"]
-
-Trie representation:
-        root
-       /    \
-      c      d
-     /        \
-    a          o
-   / \          \
-  t   r          g
-                  \
-                   t
-
-- Each path from root to a leaf (or marked node) represents a word
-- Nodes with is_end=True are marked with *
+```mermaid
+graph TD
+    subgraph "Trie for words: cat, car, dog, dot"
+        Root[root] --> C[c]
+        Root --> D[d]
+        
+        C --> A[a]
+        D --> O[o]
+        
+        A --> T1[t*]
+        A --> R[r*]
+        O --> G[g]
+        
+        G --> T2[t*]
+    end
+    
+    subgraph "Word Paths"
+        P1[cat: root → c → a → t*]
+        P2[car: root → c → a → r*]
+        P3[dog: root → d → o → g]
+        P4[dot: root → d → o → g → t*]
+    end
+    
+    style T1 fill:#ff9999
+    style R fill:#ff9999
+    style T2 fill:#ff9999
 ```
 
 ### Trie Operations
