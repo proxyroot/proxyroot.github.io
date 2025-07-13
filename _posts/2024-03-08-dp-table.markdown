@@ -22,26 +22,15 @@ A **DP table** is often used to store solutions to subproblems, typically in a 1
 
 ```mermaid
 graph LR
-    subgraph "DP Table Filling Process"
-        A[dp[0] = 0<br/>Base Case] --> B[dp[1] = 1<br/>Base Case]
-        B --> C[dp[2] = 1<br/>dp[1] + dp[0]]
-        C --> D[dp[3] = 2<br/>dp[2] + dp[1]]
-        D --> E[dp[4] = 3<br/>dp[3] + dp[2]]
-        E --> F[dp[5] = 5<br/>dp[4] + dp[3]]
-    end
-
-    subgraph "Final DP Table"
-        G[Index: 0] --> H[Value: 0]
-        I[Index: 1] --> J[Value: 1]
-        K[Index: 2] --> L[Value: 1]
-        M[Index: 3] --> N[Value: 2]
-        O[Index: 4] --> P[Value: 3]
-        Q[Index: 5] --> R[Value: 5]
-    end
-
-    style A fill:#ffcccc,stroke:#333,stroke-width:1px
-    style B fill:#ffcccc,stroke:#333,stroke-width:1px
-    style F fill:#ccffcc,stroke:#333,stroke-width:1px
+    A[dp[0] = 0<br/>Base Case] --> B[dp[1] = 1<br/>Base Case]
+    B --> C[dp[2] = 1<br/>dp[1] + dp[0]]
+    C --> D[dp[3] = 2<br/>dp[2] + dp[1]]
+    D --> E[dp[4] = 3<br/>dp[3] + dp[2]]
+    E --> F[dp[5] = 5<br/>dp[4] + dp[3]]
+    
+    style A fill:#ff9999
+    style B fill:#ff9999
+    style F fill:#99ff99
 ```
 
 ### 2D DP Table (Knapsack)
