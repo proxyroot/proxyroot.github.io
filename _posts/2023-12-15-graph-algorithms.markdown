@@ -88,6 +88,25 @@ print(visited)  # Output: {'A', 'B', 'C', 'D', 'E', 'F'}
 
 ---
 
+## 🧩 Number of Islands DFS Flow
+
+```mermaid
+graph TD
+    Start[Start: grid with islands]
+    Step1[Step 1: DFS at (0,0), mark visited]
+    Step2[Step 2: DFS at (0,1), mark visited]
+    Step3[Step 3: DFS at (1,0), mark visited]
+    Step4[Step 4: DFS at (1,1), mark visited]
+    Step5[Step 5: Skip (0,0) - already visited]
+    Step6[Step 6: DFS at (2,2), mark visited]
+    Step7[Step 7: DFS at (3,3), mark visited]
+    Count[Count: 2 islands found]
+    Result[Result: 2 islands]
+
+    Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Count --> Result
+    style Result fill:#99ff99
+```
+
 ## 🧩 Number of Islands Step-by-Step
 
 Suppose grid = [
@@ -214,6 +233,24 @@ print(shortest_path_binary_matrix(grid))  # Output: 4
 ```
 
 ---
+
+## 🧩 Shortest Path BFS Flow
+
+```mermaid
+graph TD
+    Start[Start: BFS from (0,0) to (2,2)]
+    Step1[Step 1: Queue=[(0,0,1)], visited={(0,0)}]
+    Step2[Step 2: Queue=[(0,1,2),(1,0,2)], visited={(0,0),(0,1)}]
+    Step3[Step 3: Queue=[(1,0,2),(0,2,3),(1,2,3)], visited={(0,0),(0,1),(1,0)}]
+    Step4[Step 4: Queue=[(0,2,3),(1,2,3)], visited={(0,0),(0,1),(1,0),(0,2)}]
+    Step5[Step 5: Queue=[(1,2,3)], visited={(0,0),(0,1),(1,0),(0,2),(1,2)}]
+    Step6[Step 6: Queue=[(2,2,4)], visited={(0,0),(0,1),(1,0),(0,2),(1,2)}]
+    Found[Found target at (2,2)]
+    Result[Result: Shortest path = 4]
+
+    Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Found --> Result
+    style Result fill:#99ff99
+```
 
 ## 🔁 Variants
 

@@ -134,6 +134,23 @@ print(ma.next(5))   # Output: 6.0
 
 ## 🧩 Sliding Window Maximum Flow
 
+```mermaid
+graph TD
+    Start[Start: nums=[1,3,-1,-3,5,3,6,7], k=3]
+    Step1[Step 1: i=0, q=[0], res=[]]
+    Step2[Step 2: i=1, q=[1], res=[]]
+    Step3[Step 3: i=2, q=[1,2], res=[3]]
+    Step4[Step 4: i=3, q=[1,2,3], res=[3,3]]
+    Step5[Step 5: i=4, q=[4], res=[3,3,5]]
+    Step6[Step 6: i=5, q=[4,5], res=[3,3,5,5]]
+    Step7[Step 7: i=6, q=[6], res=[3,3,5,5,6]]
+    Step8[Step 8: i=7, q=[7], res=[3,3,5,5,6,7]]
+    Result[Result: [3,3,5,5,6,7]]
+
+    Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8 --> Result
+    style Result fill:#99ff99
+```
+
 Suppose nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3
 
 | i | nums[i] | q before | nums[q[-1]] < nums[i]? | q after | q[0] == i-k? | res |

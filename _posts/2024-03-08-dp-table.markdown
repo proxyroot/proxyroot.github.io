@@ -22,11 +22,11 @@ A **DP table** is often used to store solutions to subproblems, typically in a 1
 
 ```mermaid
 graph LR
-    A[dp[0] = 0 Base Case] --> B[dp[1] = 1 Base Case]
-    B --> C[dp[2] = 1 dp[1] + dp[0]]
-    C --> D[dp[3] = 2 dp[2] + dp[1]]
-    D --> E[dp[4] = 3 dp[3] + dp[2]]
-    E --> F[dp[5] = 5 dp[4] + dp[3]]
+    A[dp0=0] --> B[dp1=1]
+    B --> C[dp2=1]
+    C --> D[dp3=2]
+    D --> E[dp4=3]
+    E --> F[dp5=5]
     
     style A fill:#ff9999
     style B fill:#ff9999
