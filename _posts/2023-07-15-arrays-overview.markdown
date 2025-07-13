@@ -45,11 +45,29 @@ arr.remove(2)     # Remove the first occurrence of 2 (arr becomes [1, 9, 3, 4])
 # All operations above are O(1) except insert/remove (O(n) in worst case)
 
 # Example:
-# Start: [1, 2, 3, 4]
-# After append(5): [1, 2, 3, 4, 5]
-# After pop(): [1, 2, 3, 4]
-# After insert(2, 9): [1, 2, 9, 3, 4]
-# After remove(2): [1, 9, 3, 4]
+```mermaid
+graph LR
+    Start[Start: 1,2,3,4]
+    Append[append5]
+    Pop[pop]
+    Insert[insert2,9]
+    Remove[remove2]
+    Final[Final: 1,9,3,4]
+    
+    Start --> Append --> Pop --> Insert --> Remove --> Final
+    
+    State1[1,2,3,4,5]
+    State2[1,2,3,4]
+    State3[1,2,9,3,4]
+    State4[1,9,3,4]
+    
+    Append -.-> State1
+    Pop -.-> State2
+    Insert -.-> State3
+    Remove -.-> State4
+    
+    style Final fill:#99ff99
+```
 ```
 
 ---

@@ -25,18 +25,24 @@ The Two Pointers technique uses two indices to efficiently solve problems involv
 
 Suppose arr = [1, 3, 5, 7, 9], target = 8
 
-```
-Initial:  [1, 3, 5, 7, 9]
-          ↑           ↑
-         left       right
-
-Step 1:   [1, 3, 5, 7, 9]  (1+9=10 > 8, move right)
-          ↑         ↑
-         left     right
-
-Step 2:   [1, 3, 5, 7, 9]  (1+7=8, found!)
-          ↑       ↑
-         left   right
+```mermaid
+graph TD
+    Start[Start: left=0, right=4]
+    Step1[Step 1: 1+9=10 > 8, move right]
+    Step2[Step 2: 1+7=8, found!]
+    Result[Result: True pair found]
+    
+    Start --> Step1 --> Step2 --> Result
+    
+    Initial[Initial: 1,3,5,7,9 left=0 right=4]
+    State1[State 1: 1,3,5,7,9 left=0 right=3]
+    State2[State 2: 1,3,5,7,9 left=0 right=3]
+    
+    Start -.-> Initial
+    Step1 -.-> State1
+    Step2 -.-> State2
+    
+    style Result fill:#99ff99
 ```
 
 ---
@@ -118,20 +124,26 @@ Suppose s = "A man, a plan, a canal: Panama"
 1. Clean string: "amanaplanacanalpanama"
 2. Two pointers converge from both ends:
 
-```
-Step 1: "amanaplanacanalpanama"
-         ↑                   ↑
-        left              right
-
-Step 2: "amanaplanacanalpanama"
-          ↑                 ↑
-         left             right
-
-Step 3: "amanaplanacanalpanama"
-           ↑               ↑
-          left           right
-
-... (continues until pointers meet)
+```mermaid
+graph TD
+    Start[Start: left=0, right=20]
+    Step1[Step 1: Compare a,a match]
+    Step2[Step 2: Compare m,m match]
+    Step3[Step 3: Compare a,a match]
+    Continue[Continue until pointers meet]
+    Result[Result: True palindrome]
+    
+    Start --> Step1 --> Step2 --> Step3 --> Continue --> Result
+    
+    State1[State 1: left=0 right=20 a,a match]
+    State2[State 2: left=1 right=19 m,m match]
+    State3[State 3: left=2 right=18 a,a match]
+    
+    Step1 -.-> State1
+    Step2 -.-> State2
+    Step3 -.-> State3
+    
+    style Result fill:#99ff99
 ```
 
 ---

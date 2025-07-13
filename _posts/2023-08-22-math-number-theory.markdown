@@ -21,19 +21,26 @@ This category involves solving problems using mathematical principles like:
 
 ### Sieve of Eratosthenes (n = 20)
 
-```
-Initial: [T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T]
-         0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-
-After marking multiples of 2:
-        [F,F,T,T,F,T,F,T,F,T,F,T,F,T,F,T,F,T,F,T,F]
-         0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-
-After marking multiples of 3:
-        [F,F,T,T,F,T,F,T,F,F,F,T,F,T,F,F,F,T,F,T,F]
-         0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-
-Final primes: [2, 3, 5, 7, 11, 13, 17, 19]
+```mermaid
+graph TD
+    Start[Start: All numbers marked as prime]
+    Step1[Step 1: Mark multiples of 2 as non-prime]
+    Step2[Step 2: Mark multiples of 3 as non-prime]
+    Final[Final: Primes 2,3,5,7,11,13,17,19]
+    
+    Start --> Step1 --> Step2 --> Final
+    
+    Initial[Initial: T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T,T]
+    After2[After 2: F,F,T,T,F,T,F,T,F,T,F,T,F,T,F,T,F,T,F,T,F]
+    After3[After 3: F,F,T,T,F,T,F,T,F,F,F,T,F,T,F,F,F,T,F,T,F]
+    
+    Start -.-> Initial
+    Step1 -.-> After2
+    Step2 -.-> After3
+    Final -.-> Primes[Primes: 2,3,5,7,11,13,17,19]
+    
+    style Final fill:#99ff99
+    style Primes fill:#99ccff
 ```
 
 ---
@@ -104,17 +111,28 @@ graph TD
 
 For n = 10, the sieve process:
 
-```
-Initial: [F,F,T,T,T,T,T,T,T,T]  (0,1 not prime)
-         0 1 2 3 4 5 6 7 8 9
-
-After i=2: [F,F,T,T,F,T,F,T,F,T]  (mark multiples of 2)
-           0 1 2 3 4 5 6 7 8 9
-
-After i=3: [F,F,T,T,F,T,F,T,F,F]  (mark multiples of 3)
-           0 1 2 3 4 5 6 7 8 9
-
-Primes < 10: [2, 3, 5, 7] → Count: 4
+```mermaid
+graph TD
+    Start[Start: n = 10]
+    Step1[Step 1: Mark 0,1 as non-prime]
+    Step2[Step 2: Mark multiples of 2 as non-prime]
+    Step3[Step 3: Mark multiples of 3 as non-prime]
+    Final[Final: Count primes]
+    
+    Start --> Step1 --> Step2 --> Step3 --> Final
+    
+    Initial[Initial: F,F,T,T,T,T,T,T,T,T]
+    After2[After 2: F,F,T,T,F,T,F,T,F,T]
+    After3[After 3: F,F,T,T,F,T,F,T,F,F]
+    Result[Result: 4 primes 2,3,5,7]
+    
+    Step1 -.-> Initial
+    Step2 -.-> After2
+    Step3 -.-> After3
+    Final -.-> Result
+    
+    style Final fill:#99ff99
+    style Result fill:#99ccff
 ```
 
 ---

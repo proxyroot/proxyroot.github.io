@@ -134,18 +134,18 @@ print(length_of_longest_substring(s))  # Output: 3
 
 ```mermaid
 graph TD
-    Start[Start: s="ADOBECODEBANC", t="ABC"]
-    Step1[Step 1: window="ADOBEC", have=3, need=3]
-    Step2[Step 2: window="DOBEC", have=2, need=3]
-    Step3[Step 3: window="OBEC", have=2, need=3]
-    Step4[Step 4: window="BEC", have=2, need=3]
-    Step5[Step 5: window="EC", have=1, need=3]
-    Step6[Step 6: window="CODE", have=2, need=3]
-    Step7[Step 7: window="ODEB", have=2, need=3]
-    Step8[Step 8: window="DEB", have=2, need=3]
-    Step9[Step 9: window="EB", have=1, need=3]
-    Step10[Step 10: window="BANC", have=3, need=3]
-    Result[Result: "BANC" (minimum window)]
+    Start[Start: s=ADOBECODEBANC t=ABC]
+    Step1[Step 1: window=ADOBEC have=3 need=3]
+    Step2[Step 2: window=DOBEC have=2 need=3]
+    Step3[Step 3: window=OBEC have=2 need=3]
+    Step4[Step 4: window=BEC have=2 need=3]
+    Step5[Step 5: window=EC have=1 need=3]
+    Step6[Step 6: window=CODE have=2 need=3]
+    Step7[Step 7: window=ODEB have=2 need=3]
+    Step8[Step 8: window=DEB have=2 need=3]
+    Step9[Step 9: window=EB have=1 need=3]
+    Step10[Step 10: window=BANC have=3 need=3]
+    Result[Result: BANC minimum window]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8 --> Step9 --> Step10 --> Result
     style Result fill:#99ff99
