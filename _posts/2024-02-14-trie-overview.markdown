@@ -127,9 +127,9 @@ print(trie.starts_with("ca"))  # Output: True
 ```mermaid
 graph TD
     Start[Start: Empty trie]
-    InsertCat[Insert "cat": root → c → a → t*]
-    InsertCar[Insert "car": root → c → a → r*]
-    InsertDog[Insert "dog": root → d → o → g*]
+    InsertCat[Insert cat: root to c to a to t*]
+    InsertCar[Insert car: root to c to a to r*]
+    InsertDog[Insert dog: root to d to o to g*]
     Final[Final trie with 3 words]
 
     Start --> InsertCat --> InsertCar --> InsertDog --> Final
