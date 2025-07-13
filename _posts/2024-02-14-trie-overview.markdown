@@ -130,6 +130,18 @@ print(trie.starts_with("ca"))  # Output: True
 
 ## 🧩 Trie Operations Step-by-Step
 
+```mermaid
+graph TD
+    Start[Start: Empty trie]
+    InsertCat[Insert "cat": root → c → a → t*]
+    InsertCar[Insert "car": root → c → a → r*]
+    InsertDog[Insert "dog": root → d → o → g*]
+    Final[Final trie with 3 words]
+
+    Start --> InsertCat --> InsertCar --> InsertDog --> Final
+    style Final fill:#99ff99
+```
+
 Suppose we insert ["cat", "car", "dog"] into an empty trie:
 
 | Operation | word | char | node.children | action | is_end |
@@ -147,6 +159,22 @@ Suppose we insert ["cat", "car", "dog"] into an empty trie:
 ---
 
 ## 🧩 Replace Words Flow
+
+```mermaid
+graph TD
+    Start[Start: sentence = "the cattle was rattled by the battery"]
+    The["the" → no match → keep "the"]
+    Cattle["cattle" → prefix "cat" found → replace with "cat"]
+    Was["was" → no match → keep "was"]
+    Rattled["rattled" → prefix "rat" found → replace with "rat"]
+    By["by" → no match → keep "by"]
+    The2["the" → no match → keep "the"]
+    Battery["battery" → prefix "bat" found → replace with "bat"]
+    Result[Result: "the cat was rat by the bat"]
+
+    Start --> The --> Cattle --> Was --> Rattled --> By --> The2 --> Battery --> Result
+    style Result fill:#99ff99
+```
 
 Suppose dictionary = ["cat", "bat", "rat"], sentence = "the cattle was rattled by the battery"
 

@@ -108,6 +108,20 @@ print(bin(x).count("1"))  # Output: 3 (1101 has 3 ones)
 
 ## 🧩 Single Number Step-by-Step
 
+```mermaid
+graph TD
+    Start[Start: nums = [4,1,2,1,2]]
+    Step1[Step 1: result = 0 ^ 4 = 4]
+    Step2[Step 2: result = 4 ^ 1 = 5]
+    Step3[Step 3: result = 5 ^ 2 = 7]
+    Step4[Step 4: result = 7 ^ 1 = 6]
+    Step5[Step 5: result = 6 ^ 2 = 4]
+    Result[Result: 4 (single number)]
+
+    Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Result
+    style Result fill:#99ff99
+```
+
 Suppose nums = [4, 1, 2, 1, 2]
 
 | Step | num | result (binary) | result (decimal) |
@@ -144,6 +158,21 @@ print(single_number(nums))  # Output: 4
 ---
 
 ## 🧩 Count Bits Flow
+
+```mermaid
+graph TD
+    Start[Start: n = 5]
+    D0[dp[0] = 0 (base case)]
+    D1[dp[1] = dp[0] + (1&1) = 0 + 1 = 1]
+    D2[dp[2] = dp[1] + (2&1) = 1 + 0 = 1]
+    D3[dp[3] = dp[1] + (3&1) = 1 + 1 = 2]
+    D4[dp[4] = dp[2] + (4&1) = 1 + 0 = 1]
+    D5[dp[5] = dp[2] + (5&1) = 1 + 1 = 2]
+    Result[Result: [0,1,1,2,1,2]]
+
+    Start --> D0 --> D1 --> D2 --> D3 --> D4 --> D5 --> Result
+    style Result fill:#99ff99
+```
 
 For n = 5, the dynamic programming approach:
 

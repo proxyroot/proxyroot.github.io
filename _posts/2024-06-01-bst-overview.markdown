@@ -115,6 +115,29 @@ for val in [5, 3, 7, 1, 4, 6, 8]:
 
 ## 🧩 Validate BST Step-by-Step
 
+```mermaid
+graph TD
+    Start[Start: Validate BST]
+    N5[Node 5: -∞ < 5 < +∞ ✓]
+    N3[Node 3: -∞ < 3 < 5 ✓]
+    N1[Node 1: -∞ < 1 < 3 ✓]
+    N4[Node 4: 3 < 4 < 5 ✓]
+    N7[Node 7: 5 < 7 < +∞ ✓]
+    N6[Node 6: 5 < 6 < 7 ✓]
+    N8[Node 8: 7 < 8 < +∞ ✓]
+    Result[Result: True (all nodes valid)]
+
+    Start --> N5 --> N3 --> N1
+    N5 --> N7 --> N6
+    N3 --> N4
+    N7 --> N8
+    N1 --> Result
+    N4 --> Result
+    N6 --> Result
+    N8 --> Result
+    style Result fill:#99ff99
+```
+
 Suppose we have this tree:
 ```
        5
@@ -167,6 +190,18 @@ print(is_valid_bst(root))  # Output: True
 ---
 
 ## 🧩 Lowest Common Ancestor Flow
+
+```mermaid
+graph TD
+    Start[Start: Find LCA of nodes 1 and 4]
+    N5[Node 5: 5 > 1 and 5 > 4 ✓ → Go left]
+    N3[Node 3: 3 > 1 and 3 > 4 ✗ → Check other condition]
+    N3Check[Node 3: 3 < 1 and 3 < 4 ✗ → Return 3]
+    Result[Result: LCA = 3]
+
+    Start --> N5 --> N3 --> N3Check --> Result
+    style Result fill:#99ff99
+```
 
 Suppose we have the same BST and want to find LCA of nodes 1 and 4:
 

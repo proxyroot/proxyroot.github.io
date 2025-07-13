@@ -87,6 +87,18 @@ print_list(head)  # Output: 1 → 2 → 3 → null
 
 ## 🧩 Reverse Linked List Step-by-Step
 
+```mermaid
+graph TD
+    Start[Start: 1 → 2 → 3 → null]
+    Step1[Step 1: prev=null, curr=1, next=2<br/>1 → null, prev=1, curr=2]
+    Step2[Step 2: prev=1, curr=2, next=3<br/>2 → 1 → null, prev=2, curr=3]
+    Step3[Step 3: prev=2, curr=3, next=null<br/>3 → 2 → 1 → null, prev=3, curr=null]
+    Result[Result: 3 → 2 → 1 → null]
+
+    Start --> Step1 --> Step2 --> Step3 --> Result
+    style Result fill:#99ff99
+```
+
 Suppose head = 1 → 2 → 3 → null
 
 | Step | prev | curr | next_node | curr.next | Action |
@@ -126,6 +138,19 @@ print_list(reversed_head)  # Output: 3 → 2 → 1 → null
 ---
 
 ## 🧩 Cycle Detection Flow
+
+```mermaid
+graph TD
+    Start[Start: 1 → 2 → 3 → 4 → 2 (cycle)]
+    Step1[Step 1: slow=1, fast=1 → slow=2, fast=3]
+    Step2[Step 2: slow=2, fast=3 → slow=3, fast=2]
+    Step3[Step 3: slow=3, fast=2 → slow=4, fast=4]
+    Cycle[Cycle detected: slow=4, fast=4]
+    Result[Result: True (cycle found)]
+
+    Start --> Step1 --> Step2 --> Step3 --> Cycle --> Result
+    style Result fill:#99ff99
+```
 
 Suppose list: 1 → 2 → 3 → 4 → 2 (cycle back to node 2)
 
