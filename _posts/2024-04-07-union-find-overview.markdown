@@ -18,6 +18,40 @@ Supports two main operations efficiently:
 
 With **path compression** and **union by rank**, both operations run in nearly constant time: `O(α(n))`.
 
+## 🧩 Visualizing Union-Find
+
+### Initial State
+
+```
+n = 5 nodes: [0, 1, 2, 3, 4]
+
+Initial parent array: [0, 1, 2, 3, 4]
+Initial rank array:   [0, 0, 0, 0, 0]
+
+Each node is its own parent (singleton sets):
+0    1    2    3    4
+```
+
+### After Union Operations
+
+```
+union(0, 1): parent[0] = 1, rank[1] = 1
+union(2, 3): parent[2] = 3, rank[3] = 1
+union(1, 2): parent[3] = 1, rank[1] = 2
+
+Final structure:
+    1
+   / \
+  0   3
+       \
+        2
+
+parent: [1, 1, 3, 1, 4]
+rank:   [0, 2, 0, 0, 0]
+```
+
+---
+
 ## 🛠️ How to Use (Python)
 
 ```python
@@ -48,14 +82,48 @@ class UnionFind:
             self.rank[rootX] += 1
         return True
 # All operations above are nearly O(1) due to path compression and union by rank
+
+# Example:
+uf = UnionFind(5)
+uf.union(0, 1)
+uf.union(2, 3)
+uf.union(1, 2)
+print(uf.find(0))  # Output: 1
+print(uf.find(3))  # Output: 1
+print(uf.find(4))  # Output: 4
 ```
 
-## 📦 Use Cases
+---
 
-- Detecting cycles in undirected graphs
-- Kruskal’s algorithm (minimum spanning tree)
-- Connected components in networks
-- Dynamic connectivity problems
+## 🧩 Union Operations Step-by-Step
+
+Suppose n = 5, edges = [(0,1), (2,3), (1,2)]
+
+| Step | edge | find(0) | find(1) | find(2) | find(3) | find(4) | parent | rank |
+|------|------|---------|---------|---------|---------|---------|--------|------|
+| 0    | -    | 0       | 1       | 2       | 3       | 4       | [0,1,2,3,4] | [0,0,0,0,0] |
+| 1    | (0,1)| 1       | 1       | 2       | 3       | 4       | [1,1,2,3,4] | [0,1,0,0,0] |
+| 2    | (2,3)| 1       | 1       | 3       | 3       | 4       | [1,1,3,3,4] | [0,1,0,1,0] |
+| 3    | (1,2)| 1       | 1       | 1       | 1       | 4       | [1,1,3,1,4] | [0,2,0,0,0] |
+
+- Final result: 2 connected components (set with root 1 and singleton set with root 4).
+
+---
+
+## 🧩 Connected Components Flow
+
+Suppose n = 5, edges = [(0,1), (1,2), (3,4)]
+
+| Step | edge | uf.find(i) for i in range(5) | unique_roots | components |
+|------|------|------------------------------|--------------|------------|
+| 0    | -    | [0, 1, 2, 3, 4]            | {0,1,2,3,4} | 5          |
+| 1    | (0,1)| [1, 1, 2, 3, 4]            | {1,2,3,4}   | 4          |
+| 2    | (1,2)| [1, 1, 1, 3, 4]            | {1,3,4}     | 3          |
+| 3    | (3,4)| [1, 1, 1, 4, 4]            | {1,4}       | 2          |
+
+- Final result: 2 connected components.
+
+---
 
 ## 📘 Sample Problem 1: Number of Connected Components
 
@@ -67,11 +135,64 @@ def count_components(n, edges):
     for u, v in edges:
         uf.union(u, v)
     return len(set(uf.find(i) for i in range(n)))
+
+# Example:
+n = 5
+edges = [(0,1), (1,2), (3,4)]
+print(count_components(n, edges))  # Output: 2
 ```
+
+---
 
 ## 📘 Sample Problem 2: Accounts Merge
 
 > Merge email accounts that belong to the same user (based on overlapping emails).
+
+```python
+def accounts_merge(accounts):
+    uf = UnionFind(len(accounts))
+    email_to_id = {}
+    
+    # Union accounts with same emails
+    for i, account in enumerate(accounts):
+        for email in account[1:]:
+            if email in email_to_id:
+                uf.union(i, email_to_id[email])
+            else:
+                email_to_id[email] = i
+    
+    # Group emails by root
+    id_to_emails = {}
+    for i in range(len(accounts)):
+        root = uf.find(i)
+        if root not in id_to_emails:
+            id_to_emails[root] = set()
+        for email in accounts[i][1:]:
+            id_to_emails[root].add(email)
+    
+    # Build result
+    result = []
+    for root, emails in id_to_emails.items():
+        result.append([accounts[root][0]] + sorted(emails))
+    
+    return result
+
+# Example:
+accounts = [
+    ["John", "johnsmith@mail.com", "john_newyork@mail.com"],
+    ["John", "johnsmith@mail.com", "john00@mail.com"],
+    ["Mary", "mary@mail.com"],
+    ["John", "johnnybravo@mail.com"]
+]
+print(accounts_merge(accounts))
+# Output: [
+#   ["John", "john00@mail.com", "john_newyork@mail.com", "johnsmith@mail.com"],
+#   ["Mary", "mary@mail.com"],
+#   ["John", "johnnybravo@mail.com"]
+# ]
+```
+
+---
 
 ## 🔁 Variants
 

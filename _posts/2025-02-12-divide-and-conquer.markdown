@@ -15,12 +15,86 @@ Divide & Conquer is a recursive algorithm design paradigm that breaks problems i
 - Conquer ➝ recursively solve subproblems
 - Combine ➝ merge or process the results
 
+---
+
+## 🧩 Visualizing Divide & Conquer
+
+### General Structure
+
+```
+Problem: [8, 3, 5, 4, 7, 6, 1, 2]
+
+Divide:     [8, 3, 5, 4]    [7, 6, 1, 2]
+Divide:   [8, 3] [5, 4]   [7, 6] [1, 2]
+Divide:  [8] [3] [5] [4] [7] [6] [1] [2]
+
+Conquer:   [3, 8] [4, 5]   [6, 7] [1, 2]
+Conquer:     [3, 4, 5, 8]    [1, 2, 6, 7]
+
+Combine:        [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+### Merge Sort Example
+
+```
+Input: [8, 3, 5, 4, 7, 6, 1, 2]
+
+Level 1: [8, 3, 5, 4] [7, 6, 1, 2]
+Level 2: [8, 3] [5, 4] [7, 6] [1, 2]
+Level 3: [8] [3] [5] [4] [7] [6] [1] [2]
+
+Merge: [3, 8] [4, 5] [6, 7] [1, 2]
+Merge: [3, 4, 5, 8] [1, 2, 6, 7]
+Merge: [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+---
+
 ## 🛠️ Common Steps
 
 1. Identify base case
 2. Divide input into subparts
 3. Solve subproblems recursively
 4. Merge results
+
+```python
+def divide_and_conquer(problem):
+    # Base case
+    if problem is small enough:
+        return solve_directly(problem)
+    
+    # Divide
+    subproblems = divide(problem)
+    
+    # Conquer
+    solutions = [divide_and_conquer(sub) for sub in subproblems]
+    
+    # Combine
+    return combine(solutions)
+```
+
+---
+
+## 🧩 Merge Sort Step-by-Step
+
+Suppose arr = [8, 3, 5, 4]
+
+| Level | arr | mid | left | right | action |
+|-------|-----|-----|------|-------|--------|
+| 1     | [8,3,5,4] | 2 | [8,3] | [5,4] | Divide |
+| 2     | [8,3] | 1 | [8] | [3] | Divide |
+| 2     | [5,4] | 1 | [5] | [4] | Divide |
+| 3     | [8] | - | - | - | Base case |
+| 3     | [3] | - | - | - | Base case |
+| 3     | [5] | - | - | - | Base case |
+| 3     | [4] | - | - | - | Base case |
+| 2     | [3,8] | - | - | - | Merge [3] + [8] |
+| 2     | [4,5] | - | - | - | Merge [4] + [5] |
+| 1     | [3,4,5,8] | - | - | - | Merge [3,8] + [4,5] |
+
+- Final result: [3, 4, 5, 8]
+
+---
 
 ## 📦 Use Cases
 
@@ -57,7 +131,32 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 # Time complexity: O(n log n), Space: O(n)
+
+# Example:
+arr = [8, 3, 5, 4, 7, 6, 1, 2]
+sorted_arr = merge_sort(arr)
+print(sorted_arr)  # Output: [1, 2, 3, 4, 5, 6, 7, 8]
 ```
+
+---
+
+## 🧩 Count Inversions Flow
+
+Suppose arr = [8, 3, 5, 4]
+
+| Level | arr | left | right | inv_left | inv_right | inv_merge | total_inv |
+|-------|-----|------|-------|----------|-----------|-----------|-----------|
+| 1     | [8,3,5,4] | [8,3] | [5,4] | 1 | 1 | 2 | 4 |
+| 2     | [8,3] | [8] | [3] | 0 | 0 | 1 | 1 |
+| 2     | [5,4] | [5] | [4] | 0 | 0 | 1 | 1 |
+| 3     | [8] | - | - | 0 | 0 | 0 | 0 |
+| 3     | [3] | - | - | 0 | 0 | 0 | 0 |
+| 3     | [5] | - | - | 0 | 0 | 0 | 0 |
+| 3     | [4] | - | - | 0 | 0 | 0 | 0 |
+
+- Inversions: (8,3), (8,5), (8,4), (5,4) = 4 total inversions.
+
+---
 
 ## 📘 Sample Problem 2: Count Inversions
 
@@ -93,7 +192,14 @@ def count_inversions(arr):
     _, total_inv = merge_sort(arr)
     return total_inv
 # Time complexity: O(n log n), Space: O(n)
+
+# Example:
+arr = [8, 3, 5, 4]
+inversions = count_inversions(arr)
+print(inversions)  # Output: 4
 ```
+
+---
 
 ## 🔁 Variants
 

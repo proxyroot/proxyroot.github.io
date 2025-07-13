@@ -21,6 +21,36 @@ Each node contains:
 - A **value**
 - A **pointer** to the next (and/or previous) node
 
+---
+
+## 🧩 Visualizing Linked Lists
+
+### Singly Linked List
+
+```
+Original: 1 → 2 → 3 → 4 → null
+
+Memory representation:
+Node 1: [val=1, next→Node 2]
+Node 2: [val=2, next→Node 3]
+Node 3: [val=3, next→Node 4]
+Node 4: [val=4, next→null]
+```
+
+### Doubly Linked List
+
+```
+Original: null ← 1 ↔ 2 ↔ 3 ↔ 4 → null
+
+Memory representation:
+Node 1: [prev=null, val=1, next→Node 2]
+Node 2: [prev→Node 1, val=2, next→Node 3]
+Node 3: [prev→Node 2, val=3, next→Node 4]
+Node 4: [prev→Node 3, val=4, next=null]
+```
+
+---
+
 ## 🛠️ How to Use (Python)
 
 ```python
@@ -33,14 +63,34 @@ class ListNode:
 # Create a linked list: 1 → 2 → 3
 head = ListNode(1, ListNode(2, ListNode(3)))
 # Traversal and most operations are O(n)
+
+# Example:
+def print_list(head):
+    curr = head
+    while curr:
+        print(curr.val, end=" → ")
+        curr = curr.next
+    print("null")
+
+print_list(head)  # Output: 1 → 2 → 3 → null
 ```
 
-## 📦 Use Cases
+---
 
-- Dynamic memory allocation
-- Implementing stacks/queues
-- LRU caches
-- Reversal, merging, cycle detection problems
+## 🧩 Reverse Linked List Step-by-Step
+
+Suppose head = 1 → 2 → 3 → null
+
+| Step | prev | curr | next_node | curr.next | Action |
+|------|------|------|-----------|-----------|--------|
+| 0    | null | 1    | 2         | null      | 1 → null |
+| 1    | 1    | 2    | 3         | 1         | 2 → 1 → null |
+| 2    | 2    | 3    | null      | 2         | 3 → 2 → 1 → null |
+| 3    | 3    | null | -         | -         | Return 3 |
+
+- Final result: 3 → 2 → 1 → null
+
+---
 
 ## 📘 Sample Problem 1: Reverse Linked List
 
@@ -58,7 +108,29 @@ def reverse_list(head):
         curr = next_node          # Move curr forward
     return prev                   # New head of reversed list
 # Time complexity: O(n), Space complexity: O(1)
+
+# Example:
+head = ListNode(1, ListNode(2, ListNode(3)))
+reversed_head = reverse_list(head)
+print_list(reversed_head)  # Output: 3 → 2 → 1 → null
 ```
+
+---
+
+## 🧩 Cycle Detection Flow
+
+Suppose list: 1 → 2 → 3 → 4 → 2 (cycle back to node 2)
+
+| Step | slow | fast | slow.next | fast.next.next | slow == fast? |
+|------|------|------|-----------|----------------|---------------|
+| 0    | 1    | 1    | 2         | 3              | 1 == 1? No   |
+| 1    | 2    | 3    | 3         | 2              | 2 == 3? No   |
+| 2    | 3    | 2    | 4         | 4              | 3 == 2? No   |
+| 3    | 4    | 4    | 2         | 3              | 4 == 4? Yes  |
+
+- Cycle detected at step 3.
+
+---
 
 ## 📘 Sample Problem 2: Detect Cycle
 
@@ -75,7 +147,19 @@ def has_cycle(head):
             return True          # Cycle detected
     return False                 # No cycle
 # Time complexity: O(n), Space complexity: O(1)
+
+# Example:
+# Create a cycle: 1 → 2 → 3 → 4 → 2
+head = ListNode(1)
+head.next = ListNode(2)
+head.next.next = ListNode(3)
+head.next.next.next = ListNode(4)
+head.next.next.next.next = head.next  # Create cycle
+
+print(has_cycle(head))  # Output: True
 ```
+
+---
 
 ## 🔁 Variants
 
