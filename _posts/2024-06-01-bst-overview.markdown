@@ -40,10 +40,10 @@ graph TD
 
 ```mermaid
 graph TD
-    S1[Search45to3to4Found]
-    S2[Search95to7to8NotFound]
-    I1[Insert25to3to1rightchild]
-    D1[Delete3Replacewithinordersuccessor4]
+    S1[Search 4: 5 to 3 to 4 Found]
+    S2[Search 9: 5 to 7 to 8 Not Found]
+    I1[Insert 2: 5 to 3 to 1 right child]
+    D1[Delete 3: Replace with inorder successor 4]
     
     Path1[5] --> Path2[3]
     Path2 --> Path3[4]
@@ -51,7 +51,7 @@ graph TD
     
     Path4[5] --> Path5[7]
     Path5 --> Path6[8]
-    Path6 --> NotFound[NotFound]
+    Path6 --> NotFound[Not Found]
     
     style Found fill:#99ff99
     style NotFound fill:#ff9999
@@ -93,15 +93,15 @@ for val in [5, 3, 7, 1, 4, 6, 8]:
 
 ```mermaid
 graph TD
-    Start[StartValidateBST]
-    N5[Node5inf5infValid]
-    N3[Node3inf35Valid]
-    N1[Node1inf13Valid]
-    N4[Node4345Valid]
-    N7[Node757infValid]
-    N6[Node6567Valid]
-    N8[Node878infValid]
-    Result[ResultTrueallnodesvalid]
+    Start[Start Validate BST]
+    N5[Node 5: -inf to 5 to inf Valid]
+    N3[Node 3: -inf to 3 to 5 Valid]
+    N1[Node 1: -inf to 1 to 3 Valid]
+    N4[Node 4: 3 to 4 to 5 Valid]
+    N7[Node 7: 5 to 7 to inf Valid]
+    N6[Node 6: 5 to 6 to 7 Valid]
+    N8[Node 8: 7 to 8 to inf Valid]
+    Result[Result: True all nodes valid]
 
     Start --> N5 --> N3 --> N1
     N5 --> N7 --> N6
@@ -169,11 +169,11 @@ print(is_valid_bst(root))  # Output: True
 
 ```mermaid
 graph TD
-    Start[StartFindLCAofnodes1and4]
-    N5[Node551and54GoLeft]
-    N3[Node331and34CheckOther]
-    N3Check[Node331and34Return3]
-    Result[ResultLCA3]
+    Start[Start Find LCA of nodes 1 and 4]
+    N5[Node 5: 5 > 1 and 5 > 4 Go Left]
+    N3[Node 3: 3 > 1 and 3 > 4 Check Other]
+    N3Check[Node 3: 3 < 1 and 3 < 4 Return 3]
+    Result[Result: LCA 3]
 
     Start --> N5 --> N3 --> N3Check --> Result
     style Result fill:#99ff99
