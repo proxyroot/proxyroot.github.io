@@ -42,20 +42,17 @@ All data lives in a single, centralized database.
 
 ### 2. Master-Slave (Leader-Follower) Replication
 
-```
-                [Client Reads]
-                    ↓
-         ┌────────────────────┐
-         │    Replica (Read)  │
-         └────────────────────┘
-                  ↑
-[Writes] → ┌────────────────────┐
-          │ Master (Write)     │
-          └────────────────────┘
-                  ↓
-        ┌────────────────────┐
-        │    Replica (Read)  │
-        └────────────────────┘
+```mermaid
+graph TD
+    Client[Client Application] --> |Read Requests| Replica1[Replica 1<br/>Read-Only]
+    Client --> |Write Requests| Master[Master Database<br/>Read/Write]
+    Master --> |Replication| Replica1
+    Master --> |Replication| Replica2[Replica 2<br/>Read-Only]
+    Client --> |Read Requests| Replica2
+    
+    style Master fill:#ff9999
+    style Replica1 fill:#99ccff
+    style Replica2 fill:#99ccff
 ```
 
 - Master handles all writes
@@ -72,6 +69,21 @@ Use Cases:
 ### 3. Multi-Master Replication
 
 All nodes can perform writes. Conflict resolution is key.
+
+```mermaid
+graph TD
+    Client1[Client 1] --> |Writes| Master1[Master 1<br/>Read/Write]
+    Client2[Client 2] --> |Writes| Master2[Master 2<br/>Read/Write]
+    Client3[Client 3] --> |Writes| Master3[Master 3<br/>Read/Write]
+    
+    Master1 <--> |Bidirectional<br/>Replication| Master2
+    Master2 <--> |Bidirectional<br/>Replication| Master3
+    Master1 <--> |Bidirectional<br/>Replication| Master3
+    
+    style Master1 fill:#ff9999
+    style Master2 fill:#ff9999
+    style Master3 fill:#ff9999
+```
 
 Pros:
 
@@ -100,14 +112,17 @@ Split data across nodes by a sharding key.
 - **Directory-Based Sharding**:
   - Use a lookup table to find data location
 
-```
-        ┌─────────────┐
-        │   Router    │
-        └────┬────────┘
-             ↓
-   ┌─────────────┬─────────────┬─────────────┐
-   │   Shard 1   │   Shard 2   │   Shard 3   │
-   └─────────────┴─────────────┴─────────────┘
+```mermaid
+graph TD
+    Client[Client Application] --> Router[Shard Router<br/>Load Balancer]
+    Router --> |User ID 1-1000| Shard1[Shard 1<br/>Users 1-1000]
+    Router --> |User ID 1001-2000| Shard2[Shard 2<br/>Users 1001-2000]
+    Router --> |User ID 2001-3000| Shard3[Shard 3<br/>Users 2001-3000]
+    
+    style Router fill:#ffcc99
+    style Shard1 fill:#99ff99
+    style Shard2 fill:#99ff99
+    style Shard3 fill:#99ff99
 ```
 
 Challenges:
@@ -138,6 +153,23 @@ Challenges:
 
 Separate writes from reads.
 
+```mermaid
+graph TD
+    App[Application] --> |Write Operations| Primary[Primary Database<br/>Master]
+    App --> |Read Operations| Replica1[Read Replica 1]
+    App --> |Read Operations| Replica2[Read Replica 2]
+    App --> |Read Operations| Replica3[Read Replica 3]
+    
+    Primary --> |Replication| Replica1
+    Primary --> |Replication| Replica2
+    Primary --> |Replication| Replica3
+    
+    style Primary fill:#ff9999
+    style Replica1 fill:#99ccff
+    style Replica2 fill:#99ccff
+    style Replica3 fill:#99ccff
+```
+
 - Writes → Primary DB
 - Reads → Read replicas
 
@@ -147,14 +179,16 @@ Improves read throughput and reduces load on primary.
 
 ## 🔍 Caching Layer
 
-```
-     [Client Request]
-           ↓
-    ┌──────────────┐
-    │    Cache     │
-    └──────┬───────┘
-           ↓
-       [Database]
+```mermaid
+graph TD
+    Client[Client Request] --> Cache[Cache Layer<br/>Redis/Memcached]
+    Cache --> |Cache Hit| Response[Response]
+    Cache --> |Cache Miss| DB[Database]
+    DB --> Cache
+    DB --> Response
+    
+    style Cache fill:#ffff99
+    style DB fill:#ff9999
 ```
 
 - Tools: Redis, Memcached
@@ -165,6 +199,21 @@ Improves read throughput and reduces load on primary.
 ## 📦 Polyglot Persistence
 
 Use multiple databases for different data models:
+
+```mermaid
+graph TD
+    App[Application] --> |User Data| SQL[SQL Database<br/>PostgreSQL/MySQL<br/>Transactions]
+    App --> |Document Data| NoSQL[NoSQL Database<br/>MongoDB/DynamoDB<br/>Flexible Schema]
+    App --> |Metrics/Logs| TS[Time Series DB<br/>InfluxDB<br/>Time-based Queries]
+    App --> |Search Queries| Search[Search Engine<br/>Elasticsearch<br/>Full-text Search]
+    App --> |Cache| Cache[Cache Layer<br/>Redis<br/>Fast Access]
+    
+    style SQL fill:#99ccff
+    style NoSQL fill:#99ff99
+    style TS fill:#ffcc99
+    style Search fill:#ff99cc
+    style Cache fill:#ffff99
+```
 
 - SQL (PostgreSQL, MySQL) → Transactions
 - NoSQL (MongoDB, DynamoDB) → Flexible schema
@@ -183,15 +232,16 @@ Use multiple databases for different data models:
 
 ### Architecture Example
 
-```
-           ┌─────────────┐
-           │ Load Balancer│
-           └──────┬───────┘
-       ┌──────────┴──────────┐
-   ┌───────┐           ┌───────┐
-   │  US   │           │  EU   │
-   │ DB    │           │ DB    │
-   └───────┘           └───────┘
+```mermaid
+graph TD
+    Users[Global Users] --> LB[Load Balancer<br/>Geo-Routing]
+    LB --> |US Users| USDB[US Database<br/>Primary]
+    LB --> |EU Users| EUDB[EU Database<br/>Replica]
+    USDB <--> |Replication| EUDB
+    
+    style LB fill:#ffcc99
+    style USDB fill:#99ccff
+    style EUDB fill:#99ccff
 ```
 
 ---
