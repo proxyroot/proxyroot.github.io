@@ -2,14 +2,14 @@
 title: "Sliding Window Technique"
 date: 2023-11-18
 categories: [algorithms]
-tags: [sliding-window, python]
+tags: [sliding-window, window, two-pointers, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, substring, subarray, frequency-map, max-min, problem-solving, big-o, time-complexity, optimization, dynamic-window, fixed-window]
 ---
 
 The Sliding Window technique efficiently solves problems involving contiguous subarrays or substrings by maintaining a window that moves through the data. This post covers sliding window patterns, their use cases, and provides practical Python examples and problems for mastering this approach.
 
 # Sliding Window
 
-## ✅ What It Is
+## Overview
 
 **Sliding Window** is a technique to efficiently solve problems that involve **contiguous subarrays or substrings**.
 

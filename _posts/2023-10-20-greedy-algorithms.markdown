@@ -7,7 +7,7 @@ tags: [greedy, python]
 
 Greedy algorithms build solutions step by step by making the locally optimal choice at each stage, aiming for a global optimum. This post explains the greedy approach, its use cases, and provides practical Python examples and problems for understanding greedy strategies.
 
-## ✅ What It Is
+## Overview
 
 **Greedy algorithms** build a solution step by step by making the **locally optimal choice** at each step, hoping this leads to a global optimum.
 

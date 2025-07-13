@@ -7,7 +7,7 @@ tags: [topological-sort, dag, python]
 
 Topological Sort is a method for ordering the nodes of a directed acyclic graph (DAG) so that each node comes before its dependencies. This post introduces topological sorting, its applications, and provides practical Python examples and problems for mastering DAG algorithms.
 
-## ✅ What It Is
+## Overview
 
 **Topological Sort** is a linear ordering of vertices such that for every directed edge `u -> v`, node `u` comes before `v` in the ordering.
 

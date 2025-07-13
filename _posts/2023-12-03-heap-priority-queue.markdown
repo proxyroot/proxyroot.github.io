@@ -7,7 +7,7 @@ tags: [heap, heaps, priority-queue, priority-queues, data-structures, algorithms
 
 A heap is a specialized binary tree used to efficiently maintain a dynamic ordering of elements, and a priority queue is an abstract data type built on heaps. This post explains heaps and priority queues, their use cases, and provides practical Python examples and problems.
 
-## ✅ What It Is
+## Overview
 
 A **heap** is a complete binary tree used to maintain a dynamic ordering of elements:
 

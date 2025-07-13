@@ -7,7 +7,7 @@ tags: [queue, deque, queues, deques, data-structures, algorithms, python, coding
 
 A queue is a First-In-First-Out (FIFO) data structure, while a deque allows adding and removing elements from both ends efficiently. This post explores queues and deques in Python, their operations, use cases, and provides practical examples and problems.
 
-## ✅ What It Is
+## Overview
 
 A **queue** is a First-In-First-Out (FIFO) data structure. A **deque** (double-ended queue) allows adding/removing from both ends efficiently.
 

@@ -9,7 +9,7 @@ A graph is a collection of nodes connected by edges, used to model relationships
 
 # Graph / Adjacency List
 
-## ✅ What It Is
+## Overview
 
 A **graph** is a set of **nodes (vertices)** connected by **edges**.
 

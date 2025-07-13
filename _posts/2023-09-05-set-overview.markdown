@@ -9,7 +9,7 @@ A set is a collection of unique, unordered elements that supports fast membershi
 
 # Set
 
-## ✅ What It Is
+## Overview
 
 A **set** is a collection of **unique**, unordered elements. In Python, it is implemented using a hash table.
 

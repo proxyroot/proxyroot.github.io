@@ -9,7 +9,7 @@ A stack is a Last-In-First-Out (LIFO) data structure used for managing data with
 
 # Stack
 
-## ✅ What It Is
+## Overview
 
 A **stack** is a Last-In-First-Out (LIFO) data structure.
 

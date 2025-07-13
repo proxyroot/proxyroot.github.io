@@ -7,7 +7,7 @@ tags: [union-find, disjoint-set, union-find-set, data-structures, algorithms, py
 
 Union-Find (Disjoint Set) is a data structure for efficiently managing and merging disjoint sets, supporting fast union and find operations. This post covers the principles of union-find, its applications, and provides practical Python examples and problems.
 
-## ✅ What It Is
+## Overview
 
 A **disjoint set** (or **Union-Find**) is a data structure to keep track of a partition of elements into disjoint (non-overlapping) sets.
 

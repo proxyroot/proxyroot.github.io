@@ -7,7 +7,7 @@ tags: [backtracking, recursion, python]
 
 Backtracking is a problem-solving technique that incrementally builds candidates and abandons those that fail constraints, often visualized as a recursion tree. This post explains backtracking, its use cases, and provides practical Python examples and problems for mastering recursive search strategies.
 
-## ✅ What It Is
+## Overview
 
 **Backtracking** is a technique for solving problems incrementally by exploring all potential options and abandoning (“backtracking”) ones that fail.
 

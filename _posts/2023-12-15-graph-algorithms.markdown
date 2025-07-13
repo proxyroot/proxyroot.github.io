@@ -7,7 +7,7 @@ tags: [graph, graphs, dfs, bfs, traversal, data-structures, algorithms, python, 
 
 Graph algorithms such as Depth-First Search (DFS) and Breadth-First Search (BFS) are essential for traversing and analyzing graph structures. This post covers the basics of DFS and BFS, their use cases, and provides practical Python examples and problems for mastering graph traversal techniques.
 
-## ✅ What It Is
+## Overview
 
 Graph algorithms like **DFS (Depth-First Search)** and **BFS (Breadth-First Search)** are used to traverse or search through graph data structures.
 

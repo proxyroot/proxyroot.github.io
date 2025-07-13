@@ -2,7 +2,7 @@
 title: "Kadane’s Algorithm Overview"
 date: 2023-03-19
 categories: [algorithms]
-tags: [array, dp, kadane, subarray, optimization]
+tags: [kadane, kadanes-algorithm, maximum-subarray, subarray, dp, dynamic-programming, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, array, optimization, problem-solving, big-o, time-complexity, stock-profit, max-sum, min-sum, product-subarray, circular-array]
 ---
 
 Kadane’s Algorithm is a classic dynamic programming technique for finding the maximum sum of a contiguous subarray in linear time. It is elegant, efficient, and a staple in coding interviews. This post explains the intuition, implementation, and variants of Kadane’s Algorithm, with annotated code for beginners.

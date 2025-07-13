@@ -7,7 +7,7 @@ tags: [math, number-theory, python]
 
 Math and Number Theory in algorithms involve solving problems using mathematical principles such as primes, GCD/LCM, modular arithmetic, and combinatorics. This post covers key techniques, use cases, and provides practical Python examples and problems for mastering math-based algorithms.
 
-## ✅ What It Is
+## Overview
 
 This category involves solving problems using mathematical principles like:
 

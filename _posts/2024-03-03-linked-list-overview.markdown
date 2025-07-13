@@ -9,7 +9,7 @@ A linked list is a linear data structure where each element points to the next, 
 
 # Linked List
 
-## ✅ What It Is
+## Overview
 
 A **linked list** is a linear data structure where elements (nodes) point to the next node.
 

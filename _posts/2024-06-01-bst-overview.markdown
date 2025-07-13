@@ -7,7 +7,7 @@ tags: [bst, binary-search-tree, avl-tree, red-black-tree, treap, balanced-bst, d
 
 A Binary Search Tree (BST) is a binary tree that maintains sorted order for efficient search, insertion, and deletion. This post introduces BSTs, their properties, use cases, and provides practical Python examples and problems for understanding tree-based data structures.
 
-## ✅ What It Is
+## Overview
 
 A **Binary Search Tree (BST)** is a binary tree where:
 
