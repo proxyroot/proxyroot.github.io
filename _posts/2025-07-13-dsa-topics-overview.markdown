@@ -45,6 +45,7 @@ Want to master data structures and algorithms (DSA)? Here’s a quick guide to t
 ## How to master sql?
 
 - [SQL Mastery Guide](/postgresql-sql-mastery/) — A practical, beginner-to-advanced guide to writing efficient SQL queries, understanding database concepts, and optimizing performance in PostgreSQL.
+- [Scalable Database Architecture and Strategies](/scalable-database-architecture/) — In-depth guide to scaling, sharding, replication, and distributed database design for modern systems.
 
 ---
 
