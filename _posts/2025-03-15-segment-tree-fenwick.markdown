@@ -2,7 +2,7 @@
 title: "Segment Tree / Fenwick Tree"
 date: 2025-03-15
 categories: [data-structures]
-tags: [segment-tree, fenwick-tree, python]
+tags: [segment-tree, fenwick-tree, binary-indexed-tree, range-query, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, prefix-sum, inversion-count, histogram, competitive-programming, problem-solving, big-o, time-complexity, range-update, lazy-propagation, 2d-range-query]
 ---
 
 Segment Trees and Fenwick Trees (Binary Indexed Trees) are advanced data structures for efficient range queries and point updates. This post compares their features, explains their use cases, and provides practical Python implementations and problems for mastering these structures.
