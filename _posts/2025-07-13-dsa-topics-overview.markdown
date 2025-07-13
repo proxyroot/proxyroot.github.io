@@ -28,17 +28,17 @@ Want to master data structures and algorithms (DSA)? Here’s a quick guide to t
 
 ## 🔁 Algorithms and Use Cases
 
-1. [Binary Search](/binary-search/) — Quickly find elements in sorted arrays or optimize search space.
-2. [DFS / BFS](/dfs-bfs/) — Explore mazes, find paths, or identify connected components in graphs.
+1. Binary Search — Quickly find elements in sorted arrays or optimize search space.
+2. [DFS / BFS](/graph-algorithms/) — Explore mazes, find paths, or identify connected components in graphs.
 3. [Dijkstra’s / A*](/dijkstra-shortest-paths/) — Find the shortest path in weighted graphs (like Google Maps).
-4. [Kruskal’s / Prim’s](/mst/) — Build minimum spanning trees for network design.
+4. Kruskal’s / Prim’s — Build minimum spanning trees for network design.
 5. [Dynamic Programming](/memoization-overview/) — Solve problems like Fibonacci, knapsack, or edit distance by breaking them into subproblems.
-6. [Backtracking](/backtracking/) — Tackle puzzles like Sudoku, permutations, or the N-Queens problem.
-7. [Sliding Window](/kadane-algorithm/) — Find max sum subarrays or longest substrings without repeats efficiently.
-8. [Two Pointer](/two-pointer/) — Solve pair sum or in-place duplicate removal in sorted arrays.
+6. [Backtracking](/backtracking-recursion-tree/) — Tackle puzzles like Sudoku, permutations, or the N-Queens problem.
+7. [Sliding Window](/sliding-window/) — Find max sum subarrays or longest substrings without repeats efficiently.
+8. [Two Pointer](/two-pointers/) — Solve pair sum or in-place duplicate removal in sorted arrays.
 9. [Topological Sort](/topological-sort/) — Schedule tasks or resolve course prerequisites in order.
-10. [Greedy](/greedy/) — Make locally optimal choices for problems like activity selection or coin change.
-11. [Divide & Conquer](https://proxyroot.com/divide-and-conquer/) — Break problems into smaller subproblems, solve them recursively, and combine their solutions (used in merge sort, quick sort, etc.).
+10. [Greedy](/greedy-algorithms/) — Make locally optimal choices for problems like activity selection or coin change.
+11. [Divide & Conquer](/divide-and-conquer/) — Break problems into smaller subproblems, solve them recursively, and combine their solutions (used in merge sort, quick sort, etc.).
 
 ---
 
