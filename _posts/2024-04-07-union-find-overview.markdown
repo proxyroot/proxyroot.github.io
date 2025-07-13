@@ -43,23 +43,19 @@ graph TD
 
 ```mermaid
 graph TD
-    subgraph "Union Operations"
-        U1[union(0, 1)<br/>parent[0] = 1<br/>rank[1] = 1]
-        U2[union(2, 3)<br/>parent[2] = 3<br/>rank[3] = 1]
-        U3[union(1, 2)<br/>parent[3] = 1<br/>rank[1] = 2]
-    end
+    U1[union 0,1 parent0=1 rank1=1]
+    U2[union 2,3 parent2=3 rank3=1]
+    U3[union 1,2 parent3=1 rank1=2]
     
-    subgraph "Final Tree Structure"
-        Root[Node 1<br/>Parent: 1<br/>Rank: 2]
-        Left[Node 0<br/>Parent: 1<br/>Rank: 0]
-        Right[Node 3<br/>Parent: 1<br/>Rank: 0]
-        Child[Node 2<br/>Parent: 3<br/>Rank: 0]
-        Isolated[Node 4<br/>Parent: 4<br/>Rank: 0]
-        
-        Root --> Left
-        Root --> Right
-        Right --> Child
-    end
+    Root[Node 1 Parent:1 Rank:2]
+    Left[Node 0 Parent:1 Rank:0]
+    Right[Node 3 Parent:1 Rank:0]
+    Child[Node 2 Parent:3 Rank:0]
+    Isolated[Node 4 Parent:4 Rank:0]
+    
+    Root --> Left
+    Root --> Right
+    Right --> Child
     
     style Root fill:#ff9999
     style Left fill:#99ccff
