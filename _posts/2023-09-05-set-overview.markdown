@@ -2,7 +2,7 @@
 title: "Set Overview"
 date: 2023-09-05
 categories: [data-structures]
-tags: [set, python]
+tags: [set, sets, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, hash-table, membership, problem-solving, big-o, time-complexity]
 ---
 
 A set is a collection of unique, unordered elements that supports fast membership testing and set operations. This post introduces sets in Python, their properties, common operations, and provides practical examples and problems for understanding their use cases.

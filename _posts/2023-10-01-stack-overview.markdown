@@ -2,7 +2,7 @@
 title: "Stack Overview"
 date: 2023-10-01
 categories: [data-structures]
-tags: [stack, python]
+tags: [stack, stacks, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, LIFO, problem-solving, big-o, time-complexity, parsing, recursion]
 ---
 
 A stack is a Last-In-First-Out (LIFO) data structure used for managing data with push and pop operations. This post covers stack fundamentals, typical use cases, and practical Python examples, including common problems and variations.

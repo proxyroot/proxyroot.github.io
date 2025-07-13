@@ -2,7 +2,7 @@
 title: "Trie (Prefix Tree) Overview"
 date: 2024-02-14
 categories: [data-structures]
-tags: [trie, prefix-tree, python]
+tags: [trie, prefix-tree, suffix-trie, radix-tree, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, autocomplete, spell-check, string-search, problem-solving, big-o, time-complexity, word-games, ip-routing]
 ---
 
 A Trie (prefix tree) is a tree-like data structure optimized for storing and searching strings, especially for prefix-based operations. This post covers the basics of Tries, their use cases, and provides practical Python examples and problems for string manipulation and search.

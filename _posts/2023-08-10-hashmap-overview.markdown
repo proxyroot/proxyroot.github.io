@@ -2,7 +2,7 @@
 title: "HashMap / Dictionary Overview"
 date: 2023-08-10
 categories: [data-structures]
-tags: [hashmap, dictionary, python]
+tags: [hashmap, dictionary, hash-table, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, key-value, problem-solving, big-o, time-complexity]
 ---
 
 A HashMap (or dictionary in Python) is a data structure that maps keys to values for fast lookup, insertion, and deletion. This post covers the fundamentals of hashmaps, their use cases, and practical examples in Python, including common operations and sample problems.

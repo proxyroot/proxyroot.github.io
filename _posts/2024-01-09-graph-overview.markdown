@@ -2,7 +2,7 @@
 title: "Graph / Adjacency List Overview"
 date: 2024-01-09
 categories: [data-structures]
-tags: [graph, adjacency-list, python]
+tags: [graph, graphs, adjacency-list, adjacency-matrix, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, network, shortest-path, topological-sort, problem-solving, big-o, time-complexity, social-network, routing]
 ---
 
 A graph is a collection of nodes connected by edges, used to model relationships and networks in computer science. This post introduces graph representations, key concepts, and provides practical Python examples and problems for understanding graphs and their applications.

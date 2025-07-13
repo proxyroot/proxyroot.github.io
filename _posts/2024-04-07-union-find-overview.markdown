@@ -2,7 +2,7 @@
 title: "Union-Find / Disjoint Set Overview"
 date: 2024-04-07
 categories: [data-structures]
-tags: [union-find, disjoint-set, python]
+tags: [union-find, disjoint-set, union-find-set, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, connected-components, kruskal, minimum-spanning-tree, cycle-detection, problem-solving, big-o, time-complexity, path-compression, union-by-rank, dynamic-connectivity]
 ---
 
 Union-Find (Disjoint Set) is a data structure for efficiently managing and merging disjoint sets, supporting fast union and find operations. This post covers the principles of union-find, its applications, and provides practical Python examples and problems.

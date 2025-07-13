@@ -2,7 +2,7 @@
 title: "Arrays / Lists Overview"
 date: 2023-07-15
 categories: [data-structures]
-tags: [arrays, lists, python]
+tags: [arrays, lists, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, time-complexity, big-o, problem-solving]
 ---
 
 Arrays (or lists in Python) are fundamental data structures that store elements in a contiguous block of memory, allowing fast access by index. This post explains the basics of arrays/lists, their operations, use cases, and provides practical Python examples and problems.

@@ -2,7 +2,7 @@
 title: "Linked List Overview"
 date: 2024-03-03
 categories: [data-structures]
-tags: [linked-list, python]
+tags: [linked-list, linked-lists, singly-linked-list, doubly-linked-list, circular-linked-list, skip-list, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, pointers, reversal, cycle-detection, problem-solving, big-o, time-complexity, memory-management]
 ---
 
 A linked list is a linear data structure where each element points to the next, allowing efficient insertions and deletions. This post explains the fundamentals of linked lists, their types, use cases, and provides practical Python examples and problems.

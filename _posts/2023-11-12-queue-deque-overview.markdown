@@ -2,7 +2,7 @@
 title: "Queue / Deque Overview"
 date: 2023-11-12
 categories: [data-structures]
-tags: [queue, deque, python]
+tags: [queue, deque, queues, deques, data-structures, algorithms, python, coding-interview, leetcode, tutorial, guide, programming, FIFO, LRU, sliding-window, problem-solving, big-o, time-complexity]
 ---
 
 A queue is a First-In-First-Out (FIFO) data structure, while a deque allows adding and removing elements from both ends efficiently. This post explores queues and deques in Python, their operations, use cases, and provides practical examples and problems.
