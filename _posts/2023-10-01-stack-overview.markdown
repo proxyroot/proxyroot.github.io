@@ -5,6 +5,8 @@ categories: [data-structures]
 tags: [stack, python]
 ---
 
+A stack is a Last-In-First-Out (LIFO) data structure used for managing data with push and pop operations. This post covers stack fundamentals, typical use cases, and practical Python examples, including common problems and variations.
+
 # Stack
 
 ## ✅ What It Is

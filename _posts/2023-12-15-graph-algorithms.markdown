@@ -5,7 +5,7 @@ categories: [algorithms]
 tags: [graph, dfs, bfs, python]
 ---
 
-# Graph Algorithms (DFS / BFS)
+Graph algorithms such as Depth-First Search (DFS) and Breadth-First Search (BFS) are essential for traversing and analyzing graph structures. This post covers the basics of DFS and BFS, their use cases, and provides practical Python examples and problems for mastering graph traversal techniques.
 
 ## ✅ What It Is
 

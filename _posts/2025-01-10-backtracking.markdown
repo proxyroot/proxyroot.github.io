@@ -5,7 +5,7 @@ categories: [algorithms]
 tags: [backtracking, recursion, python]
 ---
 
-# Backtracking
+Backtracking is a recursive algorithmic technique for solving constraint satisfaction problems by incrementally building solutions and abandoning paths that fail. This post explores backtracking patterns, use cases, and provides practical Python examples and problems for mastering this approach.
 
 ## ✅ What It Is
 

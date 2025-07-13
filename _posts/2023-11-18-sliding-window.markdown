@@ -5,6 +5,8 @@ categories: [algorithms]
 tags: [sliding-window, python]
 ---
 
+The Sliding Window technique efficiently solves problems involving contiguous subarrays or substrings by maintaining a window that moves through the data. This post covers sliding window patterns, their use cases, and provides practical Python examples and problems for mastering this approach.
+
 # Sliding Window
 
 ## ✅ What It Is

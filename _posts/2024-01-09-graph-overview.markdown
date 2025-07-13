@@ -5,6 +5,8 @@ categories: [data-structures]
 tags: [graph, adjacency-list, python]
 ---
 
+A graph is a collection of nodes connected by edges, used to model relationships and networks in computer science. This post introduces graph representations, key concepts, and provides practical Python examples and problems for understanding graphs and their applications.
+
 # Graph / Adjacency List
 
 ## ✅ What It Is

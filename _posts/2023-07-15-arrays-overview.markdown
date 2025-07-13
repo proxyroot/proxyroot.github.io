@@ -5,7 +5,7 @@ categories: [data-structures]
 tags: [arrays, lists, python]
 ---
 
-# Arrays / Lists
+Arrays (or lists in Python) are fundamental data structures that store elements in a contiguous block of memory, allowing fast access by index. This post explains the basics of arrays/lists, their operations, use cases, and provides practical Python examples and problems.
 
 ## ✅ What It Is
 

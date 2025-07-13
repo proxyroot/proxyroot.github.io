@@ -5,6 +5,8 @@ categories: [algorithms]
 tags: [two-pointers, python]
 ---
 
+The Two Pointers technique uses two indices to efficiently solve problems involving pairs, subarrays, or partitions in arrays and strings. This post explains the method, its variations, and provides practical Python examples and problems for mastering two-pointer strategies.
+
 # Two Pointers
 
 ## ✅ What It Is

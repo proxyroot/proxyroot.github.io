@@ -5,7 +5,7 @@ categories: [algorithms]
 tags: [divide-and-conquer, recursion, python]
 ---
 
-# Divide & Conquer
+Divide & Conquer is a recursive algorithm design paradigm that breaks problems into smaller subproblems, solves them independently, and combines their solutions. This post explains the divide and conquer approach, its use cases, and provides practical Python examples and problems for mastering this technique.
 
 ## ✅ What It Is
 

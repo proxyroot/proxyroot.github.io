@@ -5,6 +5,8 @@ categories: [data-structures]
 tags: [linked-list, python]
 ---
 
+A linked list is a linear data structure where each element points to the next, allowing efficient insertions and deletions. This post explains the fundamentals of linked lists, their types, use cases, and provides practical Python examples and problems.
+
 # Linked List
 
 ## ✅ What It Is

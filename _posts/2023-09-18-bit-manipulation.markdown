@@ -5,7 +5,7 @@ categories: [algorithms]
 tags: [bit-manipulation, python]
 ---
 
-# Bit Manipulation
+Bit manipulation involves using bitwise operators to perform fast, low-level operations on integers. This post introduces common bit manipulation techniques, their use cases, and provides practical Python examples and problems for mastering bitwise logic.
 
 ## ✅ What It Is
 

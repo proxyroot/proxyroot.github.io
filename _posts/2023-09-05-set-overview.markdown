@@ -5,6 +5,8 @@ categories: [data-structures]
 tags: [set, python]
 ---
 
+A set is a collection of unique, unordered elements that supports fast membership testing and set operations. This post introduces sets in Python, their properties, common operations, and provides practical examples and problems for understanding their use cases.
+
 # Set
 
 ## ✅ What It Is

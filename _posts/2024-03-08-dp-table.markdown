@@ -5,7 +5,7 @@ categories: [algorithms]
 tags: [dynamic-programming, dp, python]
 ---
 
-# Dynamic Programming (DP Table)
+Dynamic Programming (DP) is a technique for solving problems by breaking them into subproblems and storing results to avoid redundant computation. This post introduces DP tables, their use cases, and provides practical Python examples and problems for mastering dynamic programming.
 
 ## ✅ What It Is
 
