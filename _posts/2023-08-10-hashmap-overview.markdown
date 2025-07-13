@@ -70,6 +70,24 @@ print(d.get("city", "Unknown"))  # Output: Unknown
 
 ## 🧩 First Unique Character Step-by-Step
 
+```mermaid
+graph TD
+    Start[Start: s = "leetcode"]
+    Step1[Step 1: l → count = {'l': 1}]
+    Step2[Step 2: e → count = {'l': 1, 'e': 1}]
+    Step3[Step 3: e → count = {'l': 1, 'e': 2}]
+    Step4[Step 4: t → count = {'l': 1, 'e': 2, 't': 1}]
+    Step5[Step 5: c → count = {..., 'c': 1}]
+    Step6[Step 6: o → count = {..., 'o': 1}]
+    Step7[Step 7: d → count = {..., 'd': 1}]
+    Step8[Step 8: e → count = {..., 'e': 3}]
+    Check[Check: First char with count 1 is 'l' at index 0]
+    Result[Result: Return 0]
+
+    Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8 --> Check --> Result
+    style Result fill:#99ff99
+```
+
 Suppose s = "leetcode"
 
 | Step | ch | count[ch] | count dict                    | i | s[i] | count[s[i]] | Action |
@@ -113,22 +131,31 @@ print(first_uniq_char(s))  # Output: 0 (index of 'l')
 
 ## 🧩 Group Anagrams Flow
 
-Suppose strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+```mermaid
+graph TD
+    Start[Start: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]]
+    Eat["eat" → key: "aet"]
+    Tea["tea" → key: "aet"]
+    Tan["tan" → key: "ant"]
+    Ate["ate" → key: "aet"]
+    Nat["nat" → key: "ant"]
+    Bat["bat" → key: "abt"]
+    GroupAet[Group "aet": ["eat", "tea", "ate"]]
+    GroupAnt[Group "ant": ["tan", "nat"]]
+    GroupAbt[Group "abt": ["bat"]]
+    Result[Result: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]]
 
-1. For each word, create a sorted key:
-   - "eat" → sorted("eat") = "aet"
-   - "tea" → sorted("tea") = "aet"
-   - "tan" → sorted("tan") = "ant"
-   - "ate" → sorted("ate") = "aet"
-   - "nat" → sorted("nat") = "ant"
-   - "bat" → sorted("bat") = "abt"
-
-2. Group by sorted key:
-   - "aet": ["eat", "tea", "ate"]
-   - "ant": ["tan", "nat"]
-   - "abt": ["bat"]
-
----
+    Start --> Eat --> GroupAet
+    Start --> Tea --> GroupAet
+    Start --> Tan --> GroupAnt
+    Start --> Ate --> GroupAet
+    Start --> Nat --> GroupAnt
+    Start --> Bat --> GroupAbt
+    GroupAet --> Result
+    GroupAnt --> Result
+    GroupAbt --> Result
+    style Result fill:#99ff99
+```
 
 ## 📘 Sample Problem 2: Group Anagrams
 

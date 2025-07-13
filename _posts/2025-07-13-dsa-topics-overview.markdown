@@ -205,24 +205,6 @@ Week 11-12: Optimization
 - **Build projects:** Apply DSA concepts in small projects (e.g., a to-do app, a simple cache, or a pathfinder).
 - **Stay consistent:** Practice a little every day, and revisit tricky topics regularly.
 
-### Daily Practice Routine
-
-```
-Morning (30 min):
-├── Review one data structure concept
-├── Implement it from scratch
-└── Solve 1-2 related problems
-
-Evening (30 min):
-├── Work on a medium-difficulty problem
-├── Analyze time/space complexity
-└── Optimize solution if possible
-
-Weekend (2 hours):
-├── Build a small project using DSA concepts
-├── Review weak areas
-└── Plan next week's topics
-```
 
 Explore the links above to dive deeper into each topic, and happy coding!
 
