@@ -7,8 +7,6 @@ categories: [elasticsearch, search-algorithms, django, celery]
 tags: [elasticsearch, weighted-scoring, user-search, bulk-indexing, relevancy]
 ---
 
-# Building Relevancy-Based User Search with Elasticsearch
-
 Searching users based on multiple weighted factors is a common challenge in social platforms and marketplaces. This article explores how to build a sophisticated user search system using Elasticsearch with weighted scoring algorithms for factors like location proximity, network connections, past interactions, and financial transactions.
 
 ## Problem Statement
