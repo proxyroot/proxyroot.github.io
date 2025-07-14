@@ -2,7 +2,7 @@
 layout: post
 title: "Building Relevancy-Based User Search with Elasticsearch"
 description: "Learn how to build a weighted scoring system for user search using Elasticsearch with periodic data aggregation and bulk indexing"
-date: 2025-13-07
+date: 2025-07-13
 categories: [elasticsearch, search-algorithms, django, celery]
 tags: [elasticsearch, weighted-scoring, user-search, bulk-indexing, relevancy]
 ---
