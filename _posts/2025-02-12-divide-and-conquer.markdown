@@ -59,12 +59,12 @@ graph TD
 
 ```mermaid
 graph LR
-    Large[Large Problem<br/>Complex: O(n²)]
-    Small1[Small Problem 1<br/>Simple: O(1)]
-    Small2[Small Problem 2<br/>Simple: O(1)]
-    Small3[Small Problem 3<br/>Simple: O(1)]
-    Merge[Merge Step<br/>Efficient: O(n)]
-    Final[Final Result<br/>Total: O(n log n)]
+    Large[Large Problem Complex: On2]
+    Small1[Small Problem 1 Simple: O1]
+    Small2[Small Problem 2 Simple: O1]
+    Small3[Small Problem 3 Simple: O1]
+    Merge[Merge Step Efficient: On]
+    Final[Final Result Total: On log n]
     
     Large --> Small1
     Large --> Small2
@@ -138,11 +138,11 @@ print(find_max(arr))  # Output: 8
 ```mermaid
 graph TD
     Start[Input: 8,3,5,4,7,6,1,2]
-    Level1[Level 1: 8,3,5,4 | 7,6,1,2]
-    Level2[Level 2: 8,3 | 5,4 | 7,6 | 1,2]
-    Level3[Level 3: 8 | 3 | 5 | 4 | 7 | 6 | 1 | 2]
-    Merge1[Merge: 3,8 | 4,5 | 6,7 | 1,2]
-    Merge2[Merge: 3,4,5,8 | 1,2,6,7]
+    Level1[Level 1: 8,3,5,4 and 7,6,1,2]
+    Level2[Level 2: 8,3 and 5,4 and 7,6 and 1,2]
+    Level3[Level 3: 8 and 3 and 5 and 4 and 7 and 6 and 1 and 2]
+    Merge1[Merge: 3,8 and 4,5 and 6,7 and 1,2]
+    Merge2[Merge: 3,4,5,8 and 1,2,6,7]
     Final[Merge: 1,2,3,4,5,6,7,8]
     
     Start --> Level1 --> Level2 --> Level3 --> Merge1 --> Merge2 --> Final
@@ -268,11 +268,11 @@ print("Sorted:", sorted_arr)  # Output: [1, 2, 3, 4, 5, 6, 7, 8]
 ```mermaid
 graph TD
     Start[Search for 7 in: 1,2,3,4,5,6,7,8,9,10]
-    Check1[Check middle: 5 < 7?]
+    Check1[Check middle: 5 less than 7?]
     Right1[Yes! Go right: 6,7,8,9,10]
-    Check2[Check middle: 8 > 7?]
+    Check2[Check middle: 8 greater than 7?]
     Left1[Yes! Go left: 6,7]
-    Check3[Check middle: 6 < 7?]
+    Check3[Check middle: 6 less than 7?]
     Right2[Yes! Go right: 7]
     Found[Found 7!]
     
@@ -336,7 +336,7 @@ An **inversion** is a pair (i, j) where i < j but arr[i] > arr[j].
 ```mermaid
 graph TD
     Start[Array: 8,3,5,4]
-    Inversions[Inversions: 8>3, 8>5, 8>4, 5>4]
+    Inversions[Inversions: 8 greater than 3, 8 greater than 5, 8 greater than 4, 5 greater than 4]
     Count[Total: 4 inversions]
     
     Start --> Inversions --> Count
@@ -351,10 +351,10 @@ graph TD
 ```mermaid
 graph TD
     Start[8,3,5,4]
-    Divide[Divide: 8,3 | 5,4]
-    Left[Left inversions: 1 8>3]
-    Right[Right inversions: 1 5>4]
-    Merge[Cross inversions: 2 8>5,8>4]
+    Divide[Divide: 8,3 and 5,4]
+    Left[Left inversions: 1 8 greater than 3]
+    Right[Right inversions: 1 5 greater than 4]
+    Merge[Cross inversions: 2 8 greater than 5,8 greater than 4]
     Total[Total: 1+1+2 = 4]
     
     Start --> Divide --> Left
@@ -439,7 +439,7 @@ print(f"Number of inversions: {inversions}")  # Output: 4
 graph TD
     Start[Array: 8,3,5,4,7,6,1,2]
     Pivot[Choose pivot: 4]
-    Partition[Partition: 3,1,2 | 4 | 8,5,7,6]
+    Partition[Partition: 3,1,2 and 4 and 8,5,7,6]
     Left[Sort left: 1,2,3]
     Right[Sort right: 5,6,7,8]
     Final[Combine: 1,2,3,4,5,6,7,8]
