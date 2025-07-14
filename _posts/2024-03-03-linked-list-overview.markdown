@@ -194,6 +194,51 @@ print(has_cycle(head))  # Output: True
 
 ---
 
+## 🚴‍♂️ Real-World Analogy: Two Bicycles on a Circular Track
+
+Imagine a circular race track. Two cyclists start at the same point:
+- **Slow**: Moves 1 step at a time.
+- **Fast**: Moves 2 steps at a time.
+
+If the track is circular (has a cycle), the fast cyclist will eventually catch up to the slow cyclist, just like the two pointers in the algorithm.
+
+### Step-by-Step Visualization
+
+```mermaid
+flowchart LR
+    subgraph Track["Circular Track"]
+        A1("🏁 Start/1") --> A2("2") --> A3("3") --> A4("4") --> A2
+    end
+
+    subgraph Step0["Step 0"]
+        S0("🚴‍♂️ Slow: 1") 
+        F0("🚴‍♀️ Fast: 1")
+    end
+
+    subgraph Step1["Step 1"]
+        S1("🚴‍♂️ Slow: 2") 
+        F1("🚴‍♀️ Fast: 3")
+    end
+
+    subgraph Step2["Step 2"]
+        S2("🚴‍♂️ Slow: 3") 
+        F2("🚴‍♀️ Fast: 2")
+    end
+
+    subgraph Step3["Step 3"]
+        S3("🚴‍♂️ Slow: 4") 
+        F3("🚴‍♀️ Fast: 4")
+    end
+
+    Step0 --> Step1 --> Step2 --> Step3
+    style Step3 fill:#99ff99
+```
+
+- At each step, the slow and fast bicycles move forward.
+- On a circular track, the fast bicycle will always lap and meet the slow bicycle, proving a cycle exists.
+
+---
+
 ## 🔁 Variants
 
 - Doubly linked list
