@@ -136,6 +136,97 @@ Q . . .
 
 ## 📘 Sample Problem 2: N-Queens
 
+### Step-by-Step Explanation
+
+**Goal:** Place N queens on an N×N chessboard so that no two queens threaten each other (no two in the same row, column, or diagonal).
+
+**How Backtracking Works:**
+- Start from the first row.
+- Try placing a queen in each column of the current row.
+- If the position is safe (not attacked by any other queen), place the queen and move to the next row.
+- If you reach the last row, you found a solution!
+- If you can’t place a queen in any column, backtrack (remove the last queen and try a new position).
+
+---
+
+### Visualizing the Recursion Tree (n=4)
+
+```mermaid
+flowchart TD
+    Start([Row 0]) --> Q0C0["Place Q at (0,0)"]
+    Start --> Q0C1["Place Q at (0,1)"]
+    Start --> Q0C2["Place Q at (0,2)"]
+    Start --> Q0C3["Place Q at (0,3)"]
+
+    Q0C0 --> Q1C0X["(1,0) X"]
+    Q0C0 --> Q1C1X["(1,1) X"]
+    Q0C0 --> Q1C2["Place Q at (1,2)"]
+    Q0C0 --> Q1C3X["(1,3) X"]
+
+    Q1C2 --> Q2C0X["(2,0) X"]
+    Q1C2 --> Q2C1["Place Q at (2,1)"]
+    Q1C2 --> Q2C2X["(2,2) X"]
+    Q1C2 --> Q2C3X["(2,3) X"]
+
+    Q2C1 --> Q3C0X["(3,0) X"]
+    Q2C1 --> Q3C1X["(3,1) X"]
+    Q2C1 --> Q3C2X["(3,2) X"]
+    Q2C1 --> Q3C3["Place Q at (3,3) ✔"]
+
+    Q0C2 --> Q1C0["Place Q at (1,0)"]
+    Q1C0 --> Q2C1X["(2,1) X"]
+    Q1C0 --> Q2C2X["(2,2) X"]
+    Q1C0 --> Q2C3["Place Q at (2,3)"]
+    Q2C3 --> Q3C0["Place Q at (3,1) ✔"]
+
+    %% All other branches end in X (invalid)
+```
+
+- Each node shows a queen placement or an invalid move (X).
+- ✔ means a valid solution is found.
+- The tree shows how the algorithm tries, fails, and backtracks.
+
+---
+
+### Annotated Code
+
+```python
+def solve_n_queens(n):
+    res = []
+    board = ["." * n for _ in range(n)]
+
+    def backtrack(r, cols, diags1, diags2):
+        # If all rows are filled, add solution
+        if r == n:
+            res.append(board[:])
+            return
+        for c in range(n):
+            # Check if column or diagonals are attacked
+            if c in cols or r - c in diags1 or r + c in diags2:
+                continue
+            # Place queen
+            board[r] = board[r][:c] + "Q" + board[r][c+1:]
+            # Mark column and diagonals as attacked
+            backtrack(r+1, cols | {c}, diags1 | {r - c}, diags2 | {r + c})
+            # Remove queen (backtrack)
+            board[r] = board[r][:c] + "." + board[r][c+1:]
+
+    backtrack(0, set(), set(), set())
+    return res
+```
+- `cols` tracks columns with queens.
+- `diags1` and `diags2` track diagonals.
+- The function tries every column in the current row, skips if attacked, and backtracks if stuck.
+
+---
+
+### Analogy
+
+Think of it like seating guests at a dinner table:
+- Each guest (queen) must have their own seat (column) and not be able to “see” (attack) another guest diagonally.
+- If you can’t seat a guest, you go back and try a different arrangement.
+
+
 > Place N queens on an N×N board such that no two queens attack each other.
 
 ```python
