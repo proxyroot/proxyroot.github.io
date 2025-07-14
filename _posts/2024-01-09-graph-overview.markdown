@@ -136,25 +136,6 @@ print(has_cycle(graph))  # Output: False
 
 ---
 
-## 🧩 Topological Sort Step-by-Step
-
-Suppose we run topological sort on the above graph. The result is built in reverse postorder:
-
-| Step | Node | Visited         | Result (reversed) |
-|------|------|-----------------|-------------------|
-| 1    | A    | {A}             |                   |
-| 2    | B    | {A, B}          |                   |
-| 3    | D    | {A, B, D}       | D                 |
-| 4    | B    | {A, B, D}       | D, B              |
-| 5    | C    | {A, B, C, D}    | D, B              |
-| 6    | E    | {A, B, C, D, E} | D, B, E           |
-| 7    | C    | {A, B, C, D, E} | D, B, E, C        |
-| 8    | A    | {A, B, C, D, E} | D, B, E, C, A     |
-
-- Final topological order: ['A', 'C', 'E', 'B', 'D']
-
----
-
 ## 🔁 Variants
 
 - Weighted graphs (store edge weights as tuples or dict)
