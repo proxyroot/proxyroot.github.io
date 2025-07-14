@@ -51,7 +51,7 @@ Extract min: [1, 3, 2, 5, 6, 7, 4] → [2, 3, 4, 5, 6, 7]
 
 ```python
 # Basic heap (priority queue) operations in Python
-# - Use heapq for min-heap, use negative values for max-heap
+- Use heapq for min-heap, use negative values for max-heap
 import heapq
 
 heap = []

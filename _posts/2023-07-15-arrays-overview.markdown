@@ -35,7 +35,7 @@ Value:   1   2   3   4   5
 
 ```python
 # Basic array (list) operations in Python
-# - Create a list, access elements, add/remove items, insert at a position, remove by value
+- Create a list, access elements, add/remove items, insert at a position, remove by value
 arr = [1, 2, 3, 4]
 print(arr[0])     # Access first element (prints 1)
 arr.append(5)     # Add 5 to the end of the list

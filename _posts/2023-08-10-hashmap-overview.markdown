@@ -46,7 +46,7 @@ graph TD
 
 ```python
 # Basic dictionary (hashmap) operations in Python
-# - Create a dictionary, add key-value pairs, access values, get with default, remove by key
+- Create a dictionary, add key-value pairs, access values, get with default, remove by key
 d = {}
 d["name"] = "Alice"           # Add a key-value pair
 d["name"]                      # Access value for key 'name' (returns 'Alice')

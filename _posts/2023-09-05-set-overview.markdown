@@ -40,7 +40,7 @@ Symmetric Diff (A⊕B): {1, 2, 5, 6}
 
 ```python
 # Basic set operations in Python
-# - Create a set, add/remove elements, check membership, set operations
+- Create a set, add/remove elements, check membership, set operations
 s = set()
 s.add(3)                # Add 3 to the set
 s.add(5)                # Add 5 to the set

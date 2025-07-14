@@ -72,10 +72,10 @@ def rabin_karp(text, pattern, base=256, mod=10**9+7):
 # print(rabin_karp(text, pattern))  # Output: 8
 ```
 # Approach:
-# - Compute hash for the pattern and the first window of text.
-# - Slide the window: update the hash in O(1) time.
-# - If hashes match, check the substring directly to avoid false positives.
-# - Handles large texts efficiently, especially with multiple patterns.
+- Compute hash for the pattern and the first window of text.
+- Slide the window: update the hash in O(1) time.
+- If hashes match, check the substring directly to avoid false positives.
+- Handles large texts efficiently, especially with multiple patterns.
 
 ---
 

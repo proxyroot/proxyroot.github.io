@@ -70,10 +70,10 @@ def manacher(s):
 # print(manacher(s))  # Output: "bab" or "aba"
 ```
 # Approach:
-# - Transform the string to handle even/odd palindromes uniformly.
-# - Use an array p[] to store the radius of palindrome at each center.
-# - Expand around each center, using previously computed info for efficiency.
-# - Map the result back to the original string.
+- Transform the string to handle even/odd palindromes uniformly.
+- Use an array p[] to store the radius of palindrome at each center.
+- Expand around each center, using previously computed info for efficiency.
+- Map the result back to the original string.
 
 ---
 

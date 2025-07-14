@@ -54,10 +54,10 @@ def dijkstra(n, edges, start):
 # print(dijkstra(n, edges, start))  # Output: [0, 2, 3, 9, 6]
 ```
 # Approach:
-# - Build the graph as an adjacency list.
-# - Use a min-heap to always expand the closest node.
-# - Update distances if a shorter path is found.
-# - Repeat until all nodes are processed.
+- Build the graph as an adjacency list.
+- Use a min-heap to always expand the closest node.
+- Update distances if a shorter path is found.
+- Repeat until all nodes are processed.
 
 ---
 
@@ -104,10 +104,10 @@ def network_delay_time(times, n, k):
 # print(network_delay_time(times, n, k))  # Output: 2
 ```
 # Approach:
-# - Build the graph as an adjacency list.
-# - Use a min-heap to expand the closest node.
-# - Update distances as you find shorter paths.
-# - The answer is the maximum distance from the source to any node.
+- Build the graph as an adjacency list.
+- Use a min-heap to expand the closest node.
+- Update distances as you find shorter paths.
+- The answer is the maximum distance from the source to any node.
 
 ---
 

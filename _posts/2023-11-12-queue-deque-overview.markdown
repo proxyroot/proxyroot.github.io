@@ -87,7 +87,7 @@ graph LR
 
 ```python
 # Basic queue and deque operations in Python
-# - Use collections.deque for efficient queue and deque behavior
+- Use collections.deque for efficient queue and deque behavior
 from collections import deque
 
 q = deque()

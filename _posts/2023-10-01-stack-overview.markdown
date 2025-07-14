@@ -42,7 +42,7 @@ Peek:    [1]         (returns 1)
 
 ```python
 # Basic stack operations in Python
-# - Use a list to push, pop, peek, and check if empty
+- Use a list to push, pop, peek, and check if empty
 stack = []
 stack.append(1)    # Push 1 onto the stack
 stack.append(2)    # Push 2 onto the stack
