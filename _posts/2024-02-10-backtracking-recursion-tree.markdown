@@ -191,31 +191,45 @@ flowchart TD
 ### Annotated Code
 
 ```python
-def solve_n_queens(n):
-    res = []
-    board = ["." * n for _ in range(n)]
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        col = set()         # Columns with queens
+        positive_diagonal = set()     # r + c (\ diagonal)
+        negative_diagonal = set()     # r - c (/ diagonal)
 
-    def backtrack(r, cols, diags1, diags2):
-        # If all rows are filled, add solution
-        if r == n:
-            res.append(board[:])
-            return
-        for c in range(n):
-            # Check if column or diagonals are attacked
-            if c in cols or r - c in diags1 or r + c in diags2:
-                continue
-            # Place queen
-            board[r] = board[r][:c] + "Q" + board[r][c+1:]
-            # Mark column and diagonals as attacked
-            backtrack(r+1, cols | {c}, diags1 | {r - c}, diags2 | {r + c})
-            # Remove queen (backtrack)
-            board[r] = board[r][:c] + "." + board[r][c+1:]
+        res = []
+        board = [["."] * n for _ in range(n)]
 
-    backtrack(0, set(), set(), set())
-    return res
+        def backtrack(r):
+            if r == n:
+                # All rows filled, add solution
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+
+            for c in range(n):
+                # Check if column or diagonals are attacked
+                if c in col or (r + c) in positive_diagonal or (r - c) in negative_diagonal:
+                    continue
+                # Place queen
+                col.add(c)
+                positive_diagonal.add(r + c)
+                negative_diagonal.add(r - c)
+                board[r][c] = "Q"
+
+                backtrack(r + 1)
+
+                # Remove queen (backtrack)
+                col.remove(c)
+                positive_diagonal.remove(r + c)
+                negative_diagonal.remove(r - c)
+                board[r][c] = "."
+
+        backtrack(0)
+        return res
 ```
-- `cols` tracks columns with queens.
-- `diags1` and `diags2` track diagonals.
+- `col` tracks columns with queens.
+- `positive_diagonal` and `negative_diagonal` track diagonals.
 - The function tries every column in the current row, skips if attacked, and backtracks if stuck.
 
 ---
@@ -226,42 +240,6 @@ Think of it like seating guests at a dinner table:
 - Each guest (queen) must have their own seat (column) and not be able to “see” (attack) another guest diagonally.
 - If you can’t seat a guest, you go back and try a different arrangement.
 
-
-> Place N queens on an N×N board such that no two queens attack each other.
-
-```python
-# This function solves the N-Queens problem using backtracking.
-def solve_n_queens(n):
-    res = []
-    board = ["." * n for _ in range(n)]
-
-    def backtrack(r, cols, diags1, diags2):
-        # If all rows are filled, add solution
-        if r == n:
-            res.append(board[:])
-            return
-        # Try placing queen in each column of current row
-        for c in range(n):
-            # Check if position is valid
-            if c in cols or r - c in diags1 or r + c in diags2:
-                continue
-            # Place queen
-            board[r] = board[r][:c] + "Q" + board[r][c+1:]
-            # Recurse with updated constraints
-            backtrack(r+1, cols | {c}, diags1 | {r - c}, diags2 | {r + c})
-            # Remove queen (backtrack)
-            board[r] = board[r][:c] + "." + board[r][c+1:]
-
-    backtrack(0, set(), set(), set())
-    return res
-# Time complexity: O(n!), Space complexity: O(n^2) for board
-
-# Example:
-n = 4
-print(solve_n_queens(n))  # Output: [['.Q..', '...Q', 'Q...', '..Q.'], ['..Q.', 'Q...', '...Q', '.Q..']]
-```
-
----
 
 ## 🔁 Variants
 
