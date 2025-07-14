@@ -7,81 +7,103 @@ tags: [topological-sort, dag, python]
 
 Topological Sort is a method for ordering the nodes of a directed acyclic graph (DAG) so that each node comes before its dependencies. This post introduces topological sorting, its applications, and provides practical Python examples and problems for mastering DAG algorithms.
 
-## Overview
+--- 
 
-**Topological Sort** is a linear ordering of vertices such that for every directed edge `u -> v`, node `u` comes before `v` in the ordering.
+## What is Topological Sort? (Beginner-Friendly Explanation)
 
-- Works only on **Directed Acyclic Graphs (DAGs)**
-- Useful for **dependency resolution**
-- Two common approaches:
-  - **DFS-based** (post-order stack)
-  - **Kahn’s algorithm** (in-degree + BFS)
+**Topological sort** is an ordering of the nodes in a directed graph such that for every directed edge `u → v`, node `u` comes before node `v` in the ordering.
+
+### When is it used?
+- **Only for Directed Acyclic Graphs (DAGs)** (no cycles!)
+- Common in:
+  - Task scheduling (some tasks must be done before others)
+  - Course prerequisites (take course A before B)
+  - Build systems (compile dependencies before dependents)
+
+### Real-World Analogy
+
+Imagine you’re baking a cake:
+- You must **mix ingredients** before you **bake the cake**.
+- You must **bake the cake** before you **decorate it**.
+- You must **decorate** before you **serve**.
+
+A valid order:  
+`mix → bake → decorate → serve`
+
+### Visual Example
+
+Suppose you have these dependencies:
+- A → C (A before C)
+- B → C (B before C)
+- C → D (C before D)
+
+A possible topological order:  
+`A, B, C, D`  
+or  
+`B, A, C, D`
+
+```mermaid
+flowchart LR
+    A((A)) --> C((C))
+    B((B)) --> C
+    C --> D((D))
+```
+
+### Key Properties
+
+- There can be **multiple valid topological orders** for a given DAG.
+- If the graph has a cycle, **topological sort is impossible**.
 
 ---
 
-## 🧩 Visualizing Topological Sort
+## How Does the Algorithm Work?
 
-### Sample DAG
+**Kahn’s Algorithm (BFS-based):**
+1. Compute the in-degree (number of incoming edges) for each node.
+2. Start with nodes that have in-degree 0 (no dependencies).
+3. Remove them from the graph, add to the result, and decrease the in-degree of their neighbors.
+4. Repeat until all nodes are processed.
 
-```
-Vertices: [A, B, C, D, E]
-Edges: [(A,B), (A,C), (B,D), (C,D), (C,E), (D,E)]
-
-Graph representation:
-    A
-   / \
-  B   C
-   \ / \
-    D   E
-
-In-degrees: A=0, B=1, C=1, D=2, E=2
-```
-
-### Topological Ordering
-
-```
-Valid orderings:
-1. A → B → C → D → E
-2. A → C → B → D → E
-3. A → C → E → B → D
-
-All satisfy: for every edge u→v, u comes before v
-```
+**DFS-based Algorithm:**
+- Visit each node, recursively visit all its neighbors, and add the node to the result after visiting all its dependencies (post-order).
 
 ---
 
-## 🛠️ Kahn's Algorithm (Python)
+## Sample Code (Kahn’s Algorithm)
 
 ```python
-from collections import defaultdict, deque
+from collections import deque, defaultdict
 
-# Kahn's algorithm for topological sort using in-degree and BFS
-def topological_sort_kahn(vertices, edges):
-    in_degree = {v: 0 for v in vertices}  # Initialize in-degree of all vertices
-    graph = defaultdict(list)
-    
-    for u, v in edges:
-        graph[u].append(v)
-        in_degree[v] += 1  # Count incoming edges
+def topological_sort(graph):
+    in_degree = defaultdict(int)
+    for u in graph:
+        for v in graph[u]:
+            in_degree[v] += 1
 
-    queue = deque([v for v in vertices if in_degree[v] == 0])  # Start with nodes with 0 in-degree
-    order = []
+    # Start with nodes with in-degree 0
+    queue = deque([u for u in graph if in_degree[u] == 0])
+    result = []
 
     while queue:
-        node = queue.popleft()
-        order.append(node)
-        for neighbor in graph[node]:
-            in_degree[neighbor] -= 1
-            if in_degree[neighbor] == 0:
-                queue.append(neighbor)
+        u = queue.popleft()
+        result.append(u)
+        for v in graph[u]:
+            in_degree[v] -= 1
+            if in_degree[v] == 0:
+                queue.append(v)
 
-    return order if len(order) == len(vertices) else []  # Return empty if cycle
-# Time complexity: O(V + E), Space: O(V + E)
+    if len(result) != len(graph):
+        return "Cycle detected! No topological order."
+    return result
 
-# Example:
-vertices = ['A', 'B', 'C', 'D', 'E']
-edges = [('A','B'), ('A','C'), ('B','D'), ('C','D'), ('C','E'), ('D','E')]
-print(topological_sort_kahn(vertices, edges))  # Output: ['A', 'B', 'C', 'D', 'E']
+# Example usage:
+graph = {
+    'A': ['C'],
+    'B': ['C'],
+    'C': ['D'],
+    'D': []
+}
+print(topological_sort(graph))  # Output: ['A', 'B', 'C', 'D'] or ['B', 'A', 'C', 'D']
 ```
 
 ---

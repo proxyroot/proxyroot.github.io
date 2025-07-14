@@ -155,42 +155,6 @@ Suppose we run topological sort on the above graph. The result is built in rever
 
 ---
 
-## 📘 Sample Problem 2: Topological Sort
-
-> Return a topological ordering of a directed acyclic graph (DAG).
-
-```python
-def topological_sort(graph):
-    visited = set()
-    result = []
-
-    def dfs(node):
-        # If already visited, skip
-        if node in visited:
-            return
-        visited.add(node)
-        for neighbor in graph[node]:
-            dfs(neighbor)
-        result.append(node)
-
-    for node in graph:
-        dfs(node)
-
-    return result[::-1]  # reverse postorder
-
-# Example:
-graph = {
-    'A': ['B', 'C'],
-    'B': ['D'],
-    'C': ['E'],
-    'D': [],
-    'E': ['D']
-}
-print(topological_sort(graph))  # Output: ['A', 'C', 'E', 'B', 'D']
-```
-
----
-
 ## 🔁 Variants
 
 - Weighted graphs (store edge weights as tuples or dict)
