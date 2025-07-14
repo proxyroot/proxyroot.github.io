@@ -165,29 +165,77 @@ print(is_valid_bst(root))  # Output: True
 
 ---
 
-## 🧩 Lowest Common Ancestor Flow
+## 🧩 What is Lowest Common Ancestor (LCA)?
+
+**Lowest Common Ancestor (LCA)** is the deepest node that has both target nodes as descendants (or the node itself if it's one of the targets).
+
+### Visual Example
 
 ```mermaid
 graph TD
-    Start[Start Find LCA of nodes 1 and 4]
-    N5[Node 5: 5 > 1 and 5 > 4 Go Left]
-    N3[Node 3: 3 > 1 and 3 > 4 Check Other]
-    N3Check[Node 3: 3 < 1 and 3 < 4 Return 3]
-    Result[Result: LCA 3]
+    Root[5] --> L1[3]
+    Root --> R1[7]
+    L1 --> LL1[1]
+    L1 --> LR1[4]
+    R1 --> RL1[6]
+    R1 --> RR1[8]
+    
+    style Root fill:#ff9999
+    style L1 fill:#99ff99
+    style LL1 fill:#99ccff
+    style LR1 fill:#99ccff
+    style R1 fill:#ffcc99
+    style RL1 fill:#ffcc99
+    style RR1 fill:#ffcc99
+```
 
-    Start --> N5 --> N3 --> N3Check --> Result
+**Examples:**
+- **LCA of 1 and 4**: Node **3** (both 1 and 4 are descendants of 3)
+- **LCA of 1 and 6**: Node **5** (1 is in left subtree, 6 is in right subtree)
+- **LCA of 6 and 8**: Node **7** (both 6 and 8 are descendants of 7)
+- **LCA of 3 and 4**: Node **3** (3 is ancestor of 4)
+
+### Why LCA is Useful?
+
+1. **Path Finding**: LCA helps find shortest path between two nodes
+2. **Tree Analysis**: Understanding relationships between nodes
+3. **Range Queries**: Finding common ancestors for range operations
+
+---
+
+## 🧩 LCA Algorithm Flow
+
+### The Key Insight: BST Property
+
+In a BST, if both target values are **smaller** than current node → go **left**
+If both target values are **larger** than current node → go **right**
+Otherwise → current node is the LCA!
+
+```mermaid
+graph TD
+    Start[Start: Find LCA of nodes 1 and 4]
+    Check5[Check Node 5: 1 < 5 and 4 < 5?]
+    GoLeft[Yes! Go to left child Node 3]
+    Check3[Check Node 3: 1 < 3 and 4 > 3?]
+    Found[No! Node 3 is the LCA]
+    Result[Result: LCA is Node 3]
+
+    Start --> Check5 --> GoLeft --> Check3 --> Found --> Result
+    style Found fill:#99ff99
     style Result fill:#99ff99
 ```
 
-Suppose we have the same BST and want to find LCA of nodes 1 and 4:
+### Step-by-Step Process
 
-| node | p.val | q.val | root.val | root.val > p.val and root.val > q.val? | action |
-|------|-------|-------|----------|----------------------------------------|--------|
-| 5    | 1     | 4     | 5        | 5 > 1 and 5 > 4 ✓                     | Go left |
-| 3    | 1     | 4     | 3        | 3 > 1 and 3 > 4 ✗                     | Check other condition |
-| 3    | 1     | 4     | 3        | 3 < 1 and 3 < 4 ✗                     | Return 3 |
+| Step | Current Node | Check | Decision | Reason |
+|------|-------------|-------|----------|---------|
+| 1 | 5 | 1 < 5 and 4 < 5? | Go Left | Both targets are smaller |
+| 2 | 3 | 1 < 3 and 4 > 3? | **Found LCA** | Targets are on different sides |
 
-- LCA of 1 and 4 is 3.
+**Why Node 3 is the LCA:**
+- Node 1 is in the **left subtree** of 3
+- Node 4 is in the **right subtree** of 3
+- This means 3 is the **lowest** node that contains both 1 and 4
 
 ---
 
@@ -197,18 +245,57 @@ Suppose we have the same BST and want to find LCA of nodes 1 and 4:
 
 ```python
 def lowest_common_ancestor(root, p, q):
+    """
+    Find the lowest common ancestor of nodes p and q in a BST.
+    
+    The key insight: Use BST property to navigate efficiently.
+    - If both p and q are smaller than root → go left
+    - If both p and q are larger than root → go right  
+    - Otherwise → root is the LCA
+    """
+    # If both values are smaller, go to left subtree
     if root.val > p.val and root.val > q.val:
         return lowest_common_ancestor(root.left, p, q)
+    
+    # If both values are larger, go to right subtree
     if root.val < p.val and root.val < q.val:
         return lowest_common_ancestor(root.right, p, q)
+    
+    # Otherwise, root is the LCA
+    # (one value is smaller, one is larger, or root equals one of them)
     return root
 
-# Example:
-# Using the same BST from above
+# Example usage:
+# Create the BST:       5
+#                     /   \
+#                    3     7
+#                   / \   / \
+#                  1   4 6   8
+
+root = TreeNode(5)
+root.left = TreeNode(3)
+root.right = TreeNode(7)
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(4)
+root.right.left = TreeNode(6)
+root.right.right = TreeNode(8)
+
+# Test cases
 p = TreeNode(1)  # Node with value 1
 q = TreeNode(4)  # Node with value 4
 lca = lowest_common_ancestor(root, p, q)
-print(lca.val)  # Output: 3
+print(f"LCA of {p.val} and {q.val} is: {lca.val}")  # Output: 3
+
+# More examples
+p = TreeNode(1)
+q = TreeNode(6)
+lca = lowest_common_ancestor(root, p, q)
+print(f"LCA of {p.val} and {q.val} is: {lca.val}")  # Output: 5
+
+p = TreeNode(6)
+q = TreeNode(8)
+lca = lowest_common_ancestor(root, p, q)
+print(f"LCA of {q.val} and {q.val} is: {lca.val}")  # Output: 7
 ```
 
 ---
