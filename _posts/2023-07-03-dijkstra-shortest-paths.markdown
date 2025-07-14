@@ -1,25 +1,70 @@
 ---
+
 title: "Dijkstra & Shortest Paths"
 date: 2023-07-03
 categories: [algorithms]
 tags: [graph, dijkstra, shortest-path, greedy, heap]
 ---
 
+# Dijkstra’s Algorithm: Finding the Shortest Path
+
 Dijkstra’s Algorithm is a classic greedy algorithm for finding the shortest path from a source node to all other nodes in a weighted graph with non-negative edge weights. It uses a min-heap (priority queue) for efficiency and is widely used in routing and navigation. This post explains the algorithm, use cases, and provides annotated code for beginners.
 
 ---
 
-## What is Dijkstra’s Algorithm?
+## What is Dijkstra’s Algorithm? (Beginner-Friendly)
 
 Dijkstra’s Algorithm finds the shortest path from a source node to all other nodes in a weighted graph (with non-negative edge weights).
 
 - Uses a **min-heap** (priority queue)
-- Greedy approach
+- Greedy approach: always expands the closest node
 - Efficient for sparse graphs
+
+### Real-World Analogy
+
+Imagine you’re planning a road trip:
+- You want to find the shortest route from your home to every city on the map.
+- At each step, you always pick the city you can reach with the least total distance so far.
+- Once you’ve found the shortest route to a city, you never need to revisit it.
 
 ---
 
-## Dijkstra’s Algorithm (Python)
+## Step-by-Step Example
+
+Suppose we have the following graph:
+
+```mermaid
+flowchart LR
+    0((0)) --2--> 1((1))
+    0 --4--> 2((2))
+    1 --1--> 2
+    1 --7--> 3((3))
+    2 --3--> 4((4))
+    3 --1--> 4
+```
+
+- Nodes: 0, 1, 2, 3, 4
+- Edges: (0,1,2), (0,2,4), (1,2,1), (1,3,7), (2,4,3), (3,4,1)
+- Start at node 0
+
+### How Dijkstra’s Works (Step-by-Step)
+
+| Step | Heap           | Visited | dist[]                | Action                |
+|------|---------------|---------|-----------------------|-----------------------|
+| 0    | (0,0)         |         | [0, ∞, ∞, ∞, ∞]       | Start at 0           |
+| 1    | (2,1), (4,2)  | 0       | [0, 2, 4, ∞, ∞]       | Expand 0, update 1,2 |
+| 2    | (3,2), (4,2)  | 0,1     | [0, 2, 3, 9, ∞]       | Expand 1, update 2,3 |
+| 3    | (3,2), (9,3)  | 0,1,2   | [0, 2, 3, 9, 6]       | Expand 2, update 4   |
+| 4    | (6,4), (9,3)  | 0,1,2,4 | [0, 2, 3, 9, 6]       | Expand 4             |
+| 5    | (9,3)         | 0,1,2,4,3| [0, 2, 3, 9, 6]      | Expand 3             |
+
+- At each step, we pick the node with the smallest distance from the heap.
+- We update the distances to its neighbors if we find a shorter path.
+- Once a node is visited (expanded), its shortest distance is finalized.
+
+---
+
+## Annotated Python Code
 
 ```python
 import heapq
@@ -53,11 +98,12 @@ def dijkstra(n, edges, start):
 # start = 0
 # print(dijkstra(n, edges, start))  # Output: [0, 2, 3, 9, 6]
 ```
-# Approach:
-- Build the graph as an adjacency list.
-- Use a min-heap to always expand the closest node.
-- Update distances if a shorter path is found.
-- Repeat until all nodes are processed.
+
+### Key Steps:
+- **Build the graph** as an adjacency list.
+- **Use a min-heap** to always expand the closest node.
+- **Update distances** if a shorter path is found.
+- **Repeat** until all nodes are processed.
 
 ---
 
@@ -103,7 +149,8 @@ def network_delay_time(times, n, k):
 # k = 2
 # print(network_delay_time(times, n, k))  # Output: 2
 ```
-# Approach:
+
+### Approach:
 - Build the graph as an adjacency list.
 - Use a min-heap to expand the closest node.
 - Update distances as you find shorter paths.
