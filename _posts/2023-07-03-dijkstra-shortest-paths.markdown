@@ -6,8 +6,6 @@ categories: [algorithms]
 tags: [graph, dijkstra, shortest-path, greedy, heap]
 ---
 
-# Dijkstra’s Algorithm: Finding the Shortest Path
-
 Dijkstra’s Algorithm is a classic greedy algorithm for finding the shortest path from a source node to all other nodes in a weighted graph with non-negative edge weights. It uses a min-heap (priority queue) for efficiency and is widely used in routing and navigation. This post explains the algorithm, use cases, and provides annotated code for beginners.
 
 ---
