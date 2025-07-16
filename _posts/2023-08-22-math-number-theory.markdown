@@ -83,9 +83,9 @@ print(sieve(20))    # Output: [2, 3, 5, 7, 11, 13, 17, 19]
 ```mermaid
 graph TD
     Start[Start: a=12, b=18]
-    Step1[Step 1: 12 % 18 = 12<br/>a=18, b=12]
-    Step2[Step 2: 18 % 12 = 6<br/>a=12, b=6]
-    Step3[Step 3: 12 % 6 = 0<br/>a=6, b=0]
+    Step1[Step 1: 12 % 18 = 12\na=18, b=12]
+    Step2[Step 2: 18 % 12 = 6\na=12, b=6]
+    Step3[Step 3: 12 % 6 = 0\na=6, b=0]
     GCD[GCD = 6]
     LCM[LCM = 12 × 18 ÷ 6 = 36]
     Result[Result: GCD=6, LCM=36]
@@ -165,13 +165,13 @@ print(count_primes(n))  # Output: 4 (primes: 2, 3, 5, 7)
 
 ```mermaid
 graph TD
-    Start[Start: n = 27]
-    Step1[Step 1: 27 % 3 = 0<br/>27 ÷ 3 = 9]
-    Step2[Step 2: 9 % 3 = 0<br/>9 ÷ 3 = 3]
-    Step3[Step 3: 3 % 3 = 0<br/>3 ÷ 3 = 1]
-    Step4[Step 4: 1 % 3 = 1<br/>n = 1]
-    Check[Check: n == 1?]
-    Result[Result: True (27 is power of 3)]
+    Start["Start: n = 27"]
+    Step1["Step 1: 27 % 3 = 0\n27 ÷ 3 = 9"]
+    Step2["Step 2: 9 % 3 = 0\n9 ÷ 3 = 3"]
+    Step3["Step 3: 3 % 3 = 0\n3 ÷ 3 = 1"]
+    Step4["Step 4: 1 % 3 = 1\nn = 1"]
+    Check["Check: n == 1?"]
+    Result["Result: True (27 is power of 3)"]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Check --> Result
     style Result fill:#99ff99
