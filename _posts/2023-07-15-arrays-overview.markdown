@@ -76,10 +76,10 @@ graph LR
 
 ```mermaid
 graph TD
-    Start[Start: nums=[2,7,11,15], target=9]
-    Step1[Step 1: i=0, num=2<br/>complement=7, seen={}]
-    Step2[Step 2: i=1, num=7<br/>complement=2, seen={2:0}<br/>Found pair!]
-    Result[Result: [0,1]]
+    Start["Start: nums=[2,7,11,15], target=9"]
+    Step1["Step 1: i=0, num=2\ncomplement=7, seen={}"]
+    Step2["Step 2: i=1, num=7\ncomplement=2, seen={2:0}\nFound pair!"]
+    Result["Result: [0,1]"]
 
     Start --> Step1 --> Step2 --> Result
     style Result fill:#99ff99
@@ -146,17 +146,17 @@ Suppose nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 
 ```mermaid
 graph TD
-    Start[Start: nums=[-2,1,-3,4,-1,2,1,-5,4]]
-    Step1[Step 1: cur_sum=-2, max_sum=-2]
-    Step2[Step 2: cur_sum=1, max_sum=1]
-    Step3[Step 3: cur_sum=-2, max_sum=1]
-    Step4[Step 4: cur_sum=4, max_sum=4]
-    Step5[Step 5: cur_sum=3, max_sum=4]
-    Step6[Step 6: cur_sum=5, max_sum=5]
-    Step7[Step 7: cur_sum=6, max_sum=6]
-    Step8[Step 8: cur_sum=1, max_sum=6]
-    Step9[Step 9: cur_sum=5, max_sum=6]
-    Result[Result: 6 (max subarray sum)]
+    Start["Start: nums=[-2,1,-3,4,-1,2,1,-5,4]"]
+    Step1["Step 1: cur_sum=-2, max_sum=-2"]
+    Step2["Step 2: cur_sum=1, max_sum=1"]
+    Step3["Step 3: cur_sum=-2, max_sum=1"]
+    Step4["Step 4: cur_sum=4, max_sum=4"]
+    Step5["Step 5: cur_sum=3, max_sum=4"]
+    Step6["Step 6: cur_sum=5, max_sum=5"]
+    Step7["Step 7: cur_sum=6, max_sum=6"]
+    Step8["Step 8: cur_sum=1, max_sum=6"]
+    Step9["Step 9: cur_sum=5, max_sum=6"]
+    Result["Result: 6 (max subarray sum)"]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8 --> Step9 --> Result
     style Result fill:#99ff99
