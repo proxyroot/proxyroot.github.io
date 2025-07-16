@@ -65,15 +65,21 @@ print(stack[-1])    # Output: 10
 
 ```mermaid
 graph TD
-    Start[Start: s = "()[]{}"]
-    Step1[Step 1: '(' → Push '('<br/>Stack: ['(']]
-    Step2[Step 2: ')' → Pop '('<br/>Stack: []]
-    Step3[Step 3: '[' → Push '['<br/>Stack: ['[']]
-    Step4[Step 4: ']' → Pop '['<br/>Stack: []]
-    Step5[Step 5: '{' → Push '{'<br/>Stack: ['{']]
-    Step6[Step 6: '}' → Pop '{'<br/>Stack: []]
-    Check[Check: Stack empty?]
-    Result[Result: True (valid parentheses)]
+    Start["Start: s = '()[]{}'"]
+    Step1["Step 1: '(' → Push '('
+Stack: ['(']"]
+    Step2["Step 2: ')' → Pop '('
+Stack: []"]
+    Step3["Step 3: '[' → Push '['
+Stack: ['[']"]
+    Step4["Step 4: ']' → Pop '['
+Stack: []"]
+    Step5["Step 5: '{' → Push '{'
+Stack: ['{']"]
+    Step6["Step 6: '}' → Pop '{'
+Stack: []"]
+    Check["Check: Stack empty?"]
+    Result["Result: True (valid parentheses)"]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Check --> Result
     style Result fill:#99ff99
@@ -122,15 +128,15 @@ print(is_valid(s))  # Output: True
 
 ```mermaid
 graph TD
-    Start[Start: temps = [73,74,75,71,69,72,76,73]]
-    Step1[Step 1: 74 > 73 → Pop 0, res[0]=1<br/>Stack: [1]]
-    Step2[Step 2: 75 > 74 → Pop 1, res[1]=1<br/>Stack: [2]]
-    Step3[Step 3: 71 < 75 → Push 3<br/>Stack: [2,3]]
-    Step4[Step 4: 69 < 71 → Push 4<br/>Stack: [2,3,4]]
-    Step5[Step 5: 72 > 69 → Pop 4, res[4]=1<br/>72 > 71 → Pop 3, res[3]=2<br/>Stack: [2,5]]
-    Step6[Step 6: 76 > 72 → Pop 5, res[5]=1<br/>76 > 75 → Pop 2, res[2]=4<br/>Stack: [6]]
-    Step7[Step 7: 73 < 76 → Push 7<br/>Stack: [6,7]]
-    Result[Result: [1,1,4,2,1,1,0,0]]
+    Start["Start: temps = [73,74,75,71,69,72,76,73]"]
+    Step1["Step 1: 74 > 73 → Pop 0, res[0]=1\nStack: [1]"]
+    Step2["Step 2: 75 > 74 → Pop 1, res[1]=1\nStack: [2]"]
+    Step3["Step 3: 71 < 75 → Push 3\nStack: [2,3]"]
+    Step4["Step 4: 69 < 71 → Push 4\nStack: [2,3,4]"]
+    Step5["Step 5: 72 > 69 → Pop 4, res[4]=1\n72 > 71 → Pop 3, res[3]=2\nStack: [2,5]"]
+    Step6["Step 6: 76 > 72 → Pop 5, res[5]=1\n76 > 75 → Pop 2, res[2]=4\nStack: [6]"]
+    Step7["Step 7: 73 < 76 → Push 7\nStack: [6,7]"]
+    Result["Result: [1,1,4,2,1,1,0,0]"]
 
     Start --> Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Result
     style Result fill:#99ff99
