@@ -2,7 +2,7 @@
 layout: post
 title: "AWS Mocking with Moto: Test AWS Services Locally"
 description: "Learn how to mock AWS services in your Python tests using moto, the powerful library that allows you to test AWS integrations without hitting real AWS APIs."
-date: 2025-01-15 10:00:00 +0500
+date: 2025-10-21 10:00:00 +0500
 categories: Python AWS Testing Mocking boto3
 ---
 
