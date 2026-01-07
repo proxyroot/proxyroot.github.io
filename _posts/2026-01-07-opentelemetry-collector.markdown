@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Understanding the OpenTelemetry Collector"
+title: "Understanding the OpenTelemetry Collector"
 description: An introduction to how the OpenTelemetry Collector works, providing observability through metrics, traces, and logs.
-date:   2026-01-07 10:00:00 +0500
+date: 2026-01-07 10:00:00 +0500
 categories: OpenTelemetry Observability Monitoring
 ---
 
